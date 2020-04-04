@@ -1,0 +1,680 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E119467D240B97D7007BE44A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119467C240B97D7007BE44A /* AppDelegate.swift */; };
+		E119467F240B97D7007BE44A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119467E240B97D7007BE44A /* SceneDelegate.swift */; };
+		E1194682240B97D7007BE44A /* Welf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1194680240B97D7007BE44A /* Welf.xcdatamodeld */; };
+		E1194684240B97D7007BE44A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1194683240B97D7007BE44A /* ContentView.swift */; };
+		E1194686240B97D9007BE44A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1194685240B97D9007BE44A /* Assets.xcassets */; };
+		E1194689240B97D9007BE44A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1194688240B97D9007BE44A /* Preview Assets.xcassets */; };
+		E119468C240B97D9007BE44A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E119468A240B97D9007BE44A /* LaunchScreen.storyboard */; };
+		E1194697240B97D9007BE44A /* WelfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1194696240B97D9007BE44A /* WelfTests.swift */; };
+		E11946A2240B97D9007BE44A /* WelfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11946A1240B97D9007BE44A /* WelfUITests.swift */; };
+		E1B3D7F32413A1A70047D618 /* SignUpOrLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F22413A1A70047D618 /* SignUpOrLogin.swift */; };
+		E1B3D7F62413C99A0047D618 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F52413C99A0047D618 /* SignUp.swift */; };
+		E1B3D7F82413D52A0047D618 /* GenericNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F72413D52A0047D618 /* GenericNavigationButton.swift */; };
+		E1B3D7FA24266D0A0047D618 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F924266D0A0047D618 /* HostingController.swift */; };
+		E1C7650D2411D4F700D37181 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C7650C2411D4F700D37181 /* Logo.swift */; };
+		E1C765102411D72300D37181 /* GenericText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C7650F2411D72300D37181 /* GenericText.swift */; };
+		E1C765122411E62200D37181 /* Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C765112411E62200D37181 /* Description.swift */; };
+		E1C765142411E78F00D37181 /* GenericButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C765132411E78F00D37181 /* GenericButton.swift */; };
+		E1C765162411E9CF00D37181 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C765152411E9CF00D37181 /* Login.swift */; };
+		E1C7651A2411F71400D37181 /* GenericTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C765192411F71400D37181 /* GenericTextButton.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E1194693240B97D9007BE44A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1194671240B97D7007BE44A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1194678240B97D7007BE44A;
+			remoteInfo = Welf;
+		};
+		E119469E240B97D9007BE44A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E1194671240B97D7007BE44A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E1194678240B97D7007BE44A;
+			remoteInfo = Welf;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E1194679240B97D7007BE44A /* Welf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Welf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E119467C240B97D7007BE44A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E119467E240B97D7007BE44A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E1194681240B97D7007BE44A /* Welf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Welf.xcdatamodel; sourceTree = "<group>"; };
+		E1194683240B97D7007BE44A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E1194685240B97D9007BE44A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E1194688240B97D9007BE44A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E119468B240B97D9007BE44A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E119468D240B97D9007BE44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1194692240B97D9007BE44A /* WelfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WelfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1194696240B97D9007BE44A /* WelfTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelfTests.swift; sourceTree = "<group>"; };
+		E1194698240B97D9007BE44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E119469D240B97D9007BE44A /* WelfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WelfUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E11946A1240B97D9007BE44A /* WelfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelfUITests.swift; sourceTree = "<group>"; };
+		E11946A3240B97D9007BE44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1B3D7F22413A1A70047D618 /* SignUpOrLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOrLogin.swift; sourceTree = "<group>"; };
+		E1B3D7F52413C99A0047D618 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		E1B3D7F72413D52A0047D618 /* GenericNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericNavigationButton.swift; sourceTree = "<group>"; };
+		E1B3D7F924266D0A0047D618 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		E1C7650C2411D4F700D37181 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		E1C7650F2411D72300D37181 /* GenericText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericText.swift; sourceTree = "<group>"; };
+		E1C765112411E62200D37181 /* Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Description.swift; sourceTree = "<group>"; };
+		E1C765132411E78F00D37181 /* GenericButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericButton.swift; sourceTree = "<group>"; };
+		E1C765152411E9CF00D37181 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		E1C765192411F71400D37181 /* GenericTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextButton.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E1194676240B97D7007BE44A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E119468F240B97D9007BE44A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E119469A240B97D9007BE44A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E1194670240B97D7007BE44A = {
+			isa = PBXGroup;
+			children = (
+				E119467B240B97D7007BE44A /* Welf */,
+				E1194695240B97D9007BE44A /* WelfTests */,
+				E11946A0240B97D9007BE44A /* WelfUITests */,
+				E119467A240B97D7007BE44A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E119467A240B97D7007BE44A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1194679240B97D7007BE44A /* Welf.app */,
+				E1194692240B97D9007BE44A /* WelfTests.xctest */,
+				E119469D240B97D9007BE44A /* WelfUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E119467B240B97D7007BE44A /* Welf */ = {
+			isa = PBXGroup;
+			children = (
+				E1B3D7F42413C92C0047D618 /* SignUp */,
+				E1C7650E2411D69200D37181 /* Common */,
+				E1C7650B2411D31800D37181 /* SignUpOrLogin */,
+				E119467C240B97D7007BE44A /* AppDelegate.swift */,
+				E119467E240B97D7007BE44A /* SceneDelegate.swift */,
+				E1194683240B97D7007BE44A /* ContentView.swift */,
+				E1B3D7F924266D0A0047D618 /* HostingController.swift */,
+				E1194685240B97D9007BE44A /* Assets.xcassets */,
+				E119468A240B97D9007BE44A /* LaunchScreen.storyboard */,
+				E119468D240B97D9007BE44A /* Info.plist */,
+				E1194680240B97D7007BE44A /* Welf.xcdatamodeld */,
+				E1194687240B97D9007BE44A /* Preview Content */,
+			);
+			path = Welf;
+			sourceTree = "<group>";
+		};
+		E1194687240B97D9007BE44A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E1194688240B97D9007BE44A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E1194695240B97D9007BE44A /* WelfTests */ = {
+			isa = PBXGroup;
+			children = (
+				E1194696240B97D9007BE44A /* WelfTests.swift */,
+				E1194698240B97D9007BE44A /* Info.plist */,
+			);
+			path = WelfTests;
+			sourceTree = "<group>";
+		};
+		E11946A0240B97D9007BE44A /* WelfUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E11946A1240B97D9007BE44A /* WelfUITests.swift */,
+				E11946A3240B97D9007BE44A /* Info.plist */,
+			);
+			path = WelfUITests;
+			sourceTree = "<group>";
+		};
+		E1B3D7F42413C92C0047D618 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				E1B3D7F52413C99A0047D618 /* SignUp.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		E1C7650B2411D31800D37181 /* SignUpOrLogin */ = {
+			isa = PBXGroup;
+			children = (
+				E1C7650C2411D4F700D37181 /* Logo.swift */,
+				E1C765112411E62200D37181 /* Description.swift */,
+				E1C765152411E9CF00D37181 /* Login.swift */,
+				E1B3D7F22413A1A70047D618 /* SignUpOrLogin.swift */,
+			);
+			path = SignUpOrLogin;
+			sourceTree = "<group>";
+		};
+		E1C7650E2411D69200D37181 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E1C7650F2411D72300D37181 /* GenericText.swift */,
+				E1C765132411E78F00D37181 /* GenericButton.swift */,
+				E1C765192411F71400D37181 /* GenericTextButton.swift */,
+				E1B3D7F72413D52A0047D618 /* GenericNavigationButton.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E1194678240B97D7007BE44A /* Welf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E11946A6240B97D9007BE44A /* Build configuration list for PBXNativeTarget "Welf" */;
+			buildPhases = (
+				E1194675240B97D7007BE44A /* Sources */,
+				E1194676240B97D7007BE44A /* Frameworks */,
+				E1194677240B97D7007BE44A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Welf;
+			productName = Welf;
+			productReference = E1194679240B97D7007BE44A /* Welf.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E1194691240B97D9007BE44A /* WelfTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E11946A9240B97D9007BE44A /* Build configuration list for PBXNativeTarget "WelfTests" */;
+			buildPhases = (
+				E119468E240B97D9007BE44A /* Sources */,
+				E119468F240B97D9007BE44A /* Frameworks */,
+				E1194690240B97D9007BE44A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E1194694240B97D9007BE44A /* PBXTargetDependency */,
+			);
+			name = WelfTests;
+			productName = WelfTests;
+			productReference = E1194692240B97D9007BE44A /* WelfTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E119469C240B97D9007BE44A /* WelfUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E11946AC240B97D9007BE44A /* Build configuration list for PBXNativeTarget "WelfUITests" */;
+			buildPhases = (
+				E1194699240B97D9007BE44A /* Sources */,
+				E119469A240B97D9007BE44A /* Frameworks */,
+				E119469B240B97D9007BE44A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E119469F240B97D9007BE44A /* PBXTargetDependency */,
+			);
+			name = WelfUITests;
+			productName = WelfUITests;
+			productReference = E119469D240B97D9007BE44A /* WelfUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E1194671240B97D7007BE44A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Clement Oniovosa";
+				TargetAttributes = {
+					E1194678240B97D7007BE44A = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					E1194691240B97D9007BE44A = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = E1194678240B97D7007BE44A;
+					};
+					E119469C240B97D9007BE44A = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = E1194678240B97D7007BE44A;
+					};
+				};
+			};
+			buildConfigurationList = E1194674240B97D7007BE44A /* Build configuration list for PBXProject "Welf" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E1194670240B97D7007BE44A;
+			productRefGroup = E119467A240B97D7007BE44A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E1194678240B97D7007BE44A /* Welf */,
+				E1194691240B97D9007BE44A /* WelfTests */,
+				E119469C240B97D9007BE44A /* WelfUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E1194677240B97D7007BE44A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E119468C240B97D9007BE44A /* LaunchScreen.storyboard in Resources */,
+				E1194689240B97D9007BE44A /* Preview Assets.xcassets in Resources */,
+				E1194686240B97D9007BE44A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1194690240B97D9007BE44A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E119469B240B97D9007BE44A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E1194675240B97D7007BE44A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E119467D240B97D7007BE44A /* AppDelegate.swift in Sources */,
+				E1B3D7F62413C99A0047D618 /* SignUp.swift in Sources */,
+				E1C7650D2411D4F700D37181 /* Logo.swift in Sources */,
+				E1C765102411D72300D37181 /* GenericText.swift in Sources */,
+				E1B3D7FA24266D0A0047D618 /* HostingController.swift in Sources */,
+				E1B3D7F32413A1A70047D618 /* SignUpOrLogin.swift in Sources */,
+				E1C765122411E62200D37181 /* Description.swift in Sources */,
+				E1194682240B97D7007BE44A /* Welf.xcdatamodeld in Sources */,
+				E1B3D7F82413D52A0047D618 /* GenericNavigationButton.swift in Sources */,
+				E1C765162411E9CF00D37181 /* Login.swift in Sources */,
+				E1194684240B97D7007BE44A /* ContentView.swift in Sources */,
+				E119467F240B97D7007BE44A /* SceneDelegate.swift in Sources */,
+				E1C7651A2411F71400D37181 /* GenericTextButton.swift in Sources */,
+				E1C765142411E78F00D37181 /* GenericButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E119468E240B97D9007BE44A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1194697240B97D9007BE44A /* WelfTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E1194699240B97D9007BE44A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E11946A2240B97D9007BE44A /* WelfUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E1194694240B97D9007BE44A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1194678240B97D7007BE44A /* Welf */;
+			targetProxy = E1194693240B97D9007BE44A /* PBXContainerItemProxy */;
+		};
+		E119469F240B97D9007BE44A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E1194678240B97D7007BE44A /* Welf */;
+			targetProxy = E119469E240B97D9007BE44A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E119468A240B97D9007BE44A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E119468B240B97D9007BE44A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E11946A4240B97D9007BE44A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E11946A5240B97D9007BE44A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E11946A7240B97D9007BE44A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Welf/Preview Content\"";
+				DEVELOPMENT_TEAM = 2KM89LUKKM;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Welf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.clement.Welf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E11946A8240B97D9007BE44A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Welf/Preview Content\"";
+				DEVELOPMENT_TEAM = 2KM89LUKKM;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Welf/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.clement.Welf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E11946AA240B97D9007BE44A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2KM89LUKKM;
+				INFOPLIST_FILE = WelfTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.clement.WelfTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Welf.app/Welf";
+			};
+			name = Debug;
+		};
+		E11946AB240B97D9007BE44A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2KM89LUKKM;
+				INFOPLIST_FILE = WelfTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.clement.WelfTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Welf.app/Welf";
+			};
+			name = Release;
+		};
+		E11946AD240B97D9007BE44A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2KM89LUKKM;
+				INFOPLIST_FILE = WelfUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.clement.WelfUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Welf;
+			};
+			name = Debug;
+		};
+		E11946AE240B97D9007BE44A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2KM89LUKKM;
+				INFOPLIST_FILE = WelfUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.clement.WelfUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Welf;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E1194674240B97D7007BE44A /* Build configuration list for PBXProject "Welf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11946A4240B97D9007BE44A /* Debug */,
+				E11946A5240B97D9007BE44A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E11946A6240B97D9007BE44A /* Build configuration list for PBXNativeTarget "Welf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11946A7240B97D9007BE44A /* Debug */,
+				E11946A8240B97D9007BE44A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E11946A9240B97D9007BE44A /* Build configuration list for PBXNativeTarget "WelfTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11946AA240B97D9007BE44A /* Debug */,
+				E11946AB240B97D9007BE44A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E11946AC240B97D9007BE44A /* Build configuration list for PBXNativeTarget "WelfUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E11946AD240B97D9007BE44A /* Debug */,
+				E11946AE240B97D9007BE44A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E1194680240B97D7007BE44A /* Welf.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E1194681240B97D7007BE44A /* Welf.xcdatamodel */,
+			);
+			currentVersion = E1194681240B97D7007BE44A /* Welf.xcdatamodel */;
+			path = Welf.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E1194671240B97D7007BE44A /* Project object */;
+}
