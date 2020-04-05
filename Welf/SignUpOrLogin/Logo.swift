@@ -13,9 +13,8 @@ struct Logo: View {
         VStack(alignment: .center) {
             Image("lemon-logo")
                 .resizable()
-                .padding(.all)
-                .frame(width: 100.0, height: 100.0)
-                .scaledToFit()
+                .frame(width: 80.0, height: 80.0)
+                .rotationEffect(.degrees(80))
         }
     }
 }

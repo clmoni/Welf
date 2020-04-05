@@ -33,8 +33,7 @@ struct Login: View {
         return GenericText(
             alreadyRegisteredText,
             font: .subheadline,
-            weight: .light,
-            colour: .black)
+            weight: .light)
             .offset(x:3)
     }
 }

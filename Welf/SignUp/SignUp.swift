@@ -13,9 +13,12 @@ struct SignUp: View {
         NavigationView {
             ZStack {
                 Color.white.edgesIgnoringSafeArea(.all)
-                VStack {
+                Form {
                     GenericText("Choose your saving style 1")
-                    Text("Whats UP").foregroundColor(.green)
+                    Section{
+                        Text("Whats UP").foregroundColor(.green)
+                    }
+                    
                 }
             }
             .frame(maxHeight: .infinity)

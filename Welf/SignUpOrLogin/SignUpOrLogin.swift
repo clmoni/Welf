@@ -10,29 +10,28 @@ import SwiftUI
 
 struct SignUpOrLogin: View {
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.white.edgesIgnoringSafeArea(.all)
-                VStack {
-                    createLogoView()
-                    createDescriptionView()
-                    createSignUpButton()
-                    createLoginCallToAction()
-                }
+        VStack {
+            Spacer()
+            createLogoView()
+            createDescriptionView()
+            Spacer()
+            
+            VStack {
+                createSignUpButton()
+                createLoginCallToAction()
             }
         }
         .padding(.horizontal)
-        .frame(maxHeight: .infinity)
     }
     
     func createLogoView() -> some View {
         return Logo()
-            .frame(alignment: .center)
+            .padding(.bottom, 50)
     }
     
     func createDescriptionView() -> some View {
         return Description()
-            .frame(maxHeight: .infinity, alignment: .center)
+            .frame(maxHeight: 180, alignment: .center)
     }
     
     func createSignUpButton() -> some View {
@@ -42,7 +41,7 @@ struct SignUpOrLogin: View {
             font: .headline,
             weight: .bold,
             colour: .white)
-
+        
         return GenericNavigationButton(text: signUpTextView, destination: SignUp())
             .frame(alignment: .center)
     }
@@ -57,6 +56,5 @@ struct SignUpOrLogin: View {
 struct SignUpOrLogin_Previews: PreviewProvider {
     static var previews: some View {
         SignUpOrLogin()
-        .environment(\.colorScheme, .light)
     }
 }

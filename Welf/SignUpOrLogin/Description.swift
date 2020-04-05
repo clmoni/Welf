@@ -22,14 +22,15 @@ struct Description: View {
                 colour: .green)
                 .padding(.vertical)
                 .frame(maxWidth: .infinity, alignment: .leading)
-            
+                .layoutPriority(1)
+
             GenericText(
                 secondaryText,
                 font: .footnote,
-                weight: .light)
+                weight: .light
+                )
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(.vertical)
     }
 }
 

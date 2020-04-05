@@ -17,7 +17,7 @@ struct GenericText: View {
     init(_ text: String,
          font: Font = .caption,
          weight: Font.Weight = .regular,
-         colour: Color = .black){
+         colour: Color = .primary){
         self.text = text
         self.font = font
         self.weight = weight
@@ -25,10 +25,10 @@ struct GenericText: View {
     }
     
     var body: some View {
-        Text(text)
-            .font(font)
-            .fontWeight(weight)
-            .foregroundColor(colour)
+        Text(self.text)
+            .font(self.font)
+            .fontWeight(self.weight)
+            .foregroundColor(self.colour)
     }
 }
 

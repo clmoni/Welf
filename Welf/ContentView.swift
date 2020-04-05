@@ -10,11 +10,8 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            Color.white.edgesIgnoringSafeArea(.all)
-            VStack {
-                SignUpOrLogin()
-            }
+        NavigationView {
+            SignUpOrLogin()
         }
     }
 }
@@ -22,6 +19,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        .environment(\.colorScheme, .dark)
+            .environment(\.colorScheme, .dark)
     }
 }
