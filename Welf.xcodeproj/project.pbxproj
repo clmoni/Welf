@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18E5BA19B4E61AF109AC461F /* Pods_WelfTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A601531AAB9395CDBE46055 /* Pods_WelfTests.framework */; };
+		2AC9A5641EA58AEF084BD1B9 /* Pods_Welf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5ACF9A7D3DC95CAD630CB6 /* Pods_Welf.framework */; };
+		5DCF7C0E4668554B12C2EE45 /* Pods_Welf_WelfUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3308F9E209BCCBFE5D6023BB /* Pods_Welf_WelfUITests.framework */; };
 		E119467D240B97D7007BE44A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119467C240B97D7007BE44A /* AppDelegate.swift */; };
 		E119467F240B97D7007BE44A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119467E240B97D7007BE44A /* SceneDelegate.swift */; };
 		E1194682240B97D7007BE44A /* Welf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1194680240B97D7007BE44A /* Welf.xcdatamodeld */; };
@@ -16,6 +19,9 @@
 		E119468C240B97D9007BE44A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E119468A240B97D9007BE44A /* LaunchScreen.storyboard */; };
 		E1194697240B97D9007BE44A /* WelfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1194696240B97D9007BE44A /* WelfTests.swift */; };
 		E11946A2240B97D9007BE44A /* WelfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11946A1240B97D9007BE44A /* WelfUITests.swift */; };
+		E1542FA8246A054C0015127D /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E1542FA6246A054C0015127D /* amplifyconfiguration.json */; };
+		E1542FA9246A054C0015127D /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E1542FA7246A054C0015127D /* awsconfiguration.json */; };
+		E1B114F1246B515700CA86DA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F0246B515700CA86DA /* UserData.swift */; };
 		E1B3D7F32413A1A70047D618 /* SignUpOrLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F22413A1A70047D618 /* SignUpOrLogin.swift */; };
 		E1B3D7F62413C99A0047D618 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F52413C99A0047D618 /* SignUp.swift */; };
 		E1B3D7F82413D52A0047D618 /* GenericNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F72413D52A0047D618 /* GenericNavigationButton.swift */; };
@@ -46,6 +52,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E5ACF9A7D3DC95CAD630CB6 /* Pods_Welf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Welf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3308F9E209BCCBFE5D6023BB /* Pods_Welf_WelfUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Welf_WelfUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		379E9DF0A59F8370A7BD661E /* Pods-Welf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Welf.release.xcconfig"; path = "Target Support Files/Pods-Welf/Pods-Welf.release.xcconfig"; sourceTree = "<group>"; };
+		6410C5C43247DA9F6AE41181 /* Pods-WelfTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WelfTests.release.xcconfig"; path = "Target Support Files/Pods-WelfTests/Pods-WelfTests.release.xcconfig"; sourceTree = "<group>"; };
+		7C9F3A39371F3B880EED2E03 /* Pods-Welf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Welf.debug.xcconfig"; path = "Target Support Files/Pods-Welf/Pods-Welf.debug.xcconfig"; sourceTree = "<group>"; };
+		8A601531AAB9395CDBE46055 /* Pods_WelfTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WelfTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94110CCF82860220C117DF93 /* Pods-Welf-WelfUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Welf-WelfUITests.release.xcconfig"; path = "Target Support Files/Pods-Welf-WelfUITests/Pods-Welf-WelfUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A43CCE015E549F1F16F237F9 /* Pods-WelfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WelfTests.debug.xcconfig"; path = "Target Support Files/Pods-WelfTests/Pods-WelfTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DB2692F30DF31CF77A9EEBBA /* Pods-Welf-WelfUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Welf-WelfUITests.debug.xcconfig"; path = "Target Support Files/Pods-Welf-WelfUITests/Pods-Welf-WelfUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E1194679240B97D7007BE44A /* Welf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Welf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E119467C240B97D7007BE44A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E119467E240B97D7007BE44A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +76,9 @@
 		E119469D240B97D9007BE44A /* WelfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WelfUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11946A1240B97D9007BE44A /* WelfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelfUITests.swift; sourceTree = "<group>"; };
 		E11946A3240B97D9007BE44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1542FA6246A054C0015127D /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
+		E1542FA7246A054C0015127D /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		E1B114F0246B515700CA86DA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E1B3D7F22413A1A70047D618 /* SignUpOrLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOrLogin.swift; sourceTree = "<group>"; };
 		E1B3D7F52413C99A0047D618 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		E1B3D7F72413D52A0047D618 /* GenericNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericNavigationButton.swift; sourceTree = "<group>"; };
@@ -78,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AC9A5641EA58AEF084BD1B9 /* Pods_Welf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E5BA19B4E61AF109AC461F /* Pods_WelfTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,12 +112,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DCF7C0E4668554B12C2EE45 /* Pods_Welf_WelfUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		87A12CDB5A44A6020448BBD0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7C9F3A39371F3B880EED2E03 /* Pods-Welf.debug.xcconfig */,
+				379E9DF0A59F8370A7BD661E /* Pods-Welf.release.xcconfig */,
+				DB2692F30DF31CF77A9EEBBA /* Pods-Welf-WelfUITests.debug.xcconfig */,
+				94110CCF82860220C117DF93 /* Pods-Welf-WelfUITests.release.xcconfig */,
+				A43CCE015E549F1F16F237F9 /* Pods-WelfTests.debug.xcconfig */,
+				6410C5C43247DA9F6AE41181 /* Pods-WelfTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D81FFF281690BB3A18CE63A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E5ACF9A7D3DC95CAD630CB6 /* Pods_Welf.framework */,
+				3308F9E209BCCBFE5D6023BB /* Pods_Welf_WelfUITests.framework */,
+				8A601531AAB9395CDBE46055 /* Pods_WelfTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E1194670240B97D7007BE44A = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +149,8 @@
 				E1194695240B97D9007BE44A /* WelfTests */,
 				E11946A0240B97D9007BE44A /* WelfUITests */,
 				E119467A240B97D7007BE44A /* Products */,
+				87A12CDB5A44A6020448BBD0 /* Pods */,
+				D81FFF281690BB3A18CE63A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +167,7 @@
 		E119467B240B97D7007BE44A /* Welf */ = {
 			isa = PBXGroup;
 			children = (
+				E1B114EF246B511900CA86DA /* Models */,
 				E1B3D7F42413C92C0047D618 /* SignUp */,
 				E1C7650E2411D69200D37181 /* Common */,
 				E1C7650B2411D31800D37181 /* SignUpOrLogin */,
@@ -130,6 +177,8 @@
 				E1B3D7F924266D0A0047D618 /* HostingController.swift */,
 				E1194685240B97D9007BE44A /* Assets.xcassets */,
 				E119468A240B97D9007BE44A /* LaunchScreen.storyboard */,
+				E1542FA6246A054C0015127D /* amplifyconfiguration.json */,
+				E1542FA7246A054C0015127D /* awsconfiguration.json */,
 				E119468D240B97D9007BE44A /* Info.plist */,
 				E1194680240B97D7007BE44A /* Welf.xcdatamodeld */,
 				E1194687240B97D9007BE44A /* Preview Content */,
@@ -161,6 +210,14 @@
 				E11946A3240B97D9007BE44A /* Info.plist */,
 			);
 			path = WelfUITests;
+			sourceTree = "<group>";
+		};
+		E1B114EF246B511900CA86DA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1B114F0246B515700CA86DA /* UserData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E1B3D7F42413C92C0047D618 /* SignUp */ = {
@@ -200,9 +257,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E11946A6240B97D9007BE44A /* Build configuration list for PBXNativeTarget "Welf" */;
 			buildPhases = (
+				F2EB3CA21305EE1625FAEC6F /* [CP] Check Pods Manifest.lock */,
 				E1194675240B97D7007BE44A /* Sources */,
 				E1194676240B97D7007BE44A /* Frameworks */,
 				E1194677240B97D7007BE44A /* Resources */,
+				DDFDE2C518DDB780F10FC008 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -217,6 +276,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E11946A9240B97D9007BE44A /* Build configuration list for PBXNativeTarget "WelfTests" */;
 			buildPhases = (
+				5AF814B45FA1AF235C36B96C /* [CP] Check Pods Manifest.lock */,
 				E119468E240B97D9007BE44A /* Sources */,
 				E119468F240B97D9007BE44A /* Frameworks */,
 				E1194690240B97D9007BE44A /* Resources */,
@@ -235,9 +295,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E11946AC240B97D9007BE44A /* Build configuration list for PBXNativeTarget "WelfUITests" */;
 			buildPhases = (
+				220C656578201D5C0E383A01 /* [CP] Check Pods Manifest.lock */,
 				E1194699240B97D9007BE44A /* Sources */,
 				E119469A240B97D9007BE44A /* Frameworks */,
 				E119469B240B97D9007BE44A /* Resources */,
+				42F2C8B0DC9F53BA3B564DE4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -297,9 +359,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1542FA9246A054C0015127D /* awsconfiguration.json in Resources */,
 				E119468C240B97D9007BE44A /* LaunchScreen.storyboard in Resources */,
 				E1194689240B97D9007BE44A /* Preview Assets.xcassets in Resources */,
 				E1194686240B97D9007BE44A /* Assets.xcassets in Resources */,
+				E1542FA8246A054C0015127D /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +383,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		220C656578201D5C0E383A01 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Welf-WelfUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42F2C8B0DC9F53BA3B564DE4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Welf-WelfUITests/Pods-Welf-WelfUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Welf-WelfUITests/Pods-Welf-WelfUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Welf-WelfUITests/Pods-Welf-WelfUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AF814B45FA1AF235C36B96C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WelfTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DDFDE2C518DDB780F10FC008 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Welf/Pods-Welf-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Welf/Pods-Welf-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Welf/Pods-Welf-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2EB3CA21305EE1625FAEC6F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Welf-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E1194675240B97D7007BE44A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -327,6 +494,7 @@
 				E119467D240B97D7007BE44A /* AppDelegate.swift in Sources */,
 				E1B3D7F62413C99A0047D618 /* SignUp.swift in Sources */,
 				E1C7650D2411D4F700D37181 /* Logo.swift in Sources */,
+				E1B114F1246B515700CA86DA /* UserData.swift in Sources */,
 				E1C765102411D72300D37181 /* GenericText.swift in Sources */,
 				E1B3D7FA24266D0A0047D618 /* HostingController.swift in Sources */,
 				E1B3D7F32413A1A70047D618 /* SignUpOrLogin.swift in Sources */,
@@ -500,6 +668,7 @@
 		};
 		E11946A7240B97D9007BE44A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C9F3A39371F3B880EED2E03 /* Pods-Welf.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -520,6 +689,7 @@
 		};
 		E11946A8240B97D9007BE44A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 379E9DF0A59F8370A7BD661E /* Pods-Welf.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -540,6 +710,7 @@
 		};
 		E11946AA240B97D9007BE44A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A43CCE015E549F1F16F237F9 /* Pods-WelfTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -562,6 +733,7 @@
 		};
 		E11946AB240B97D9007BE44A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6410C5C43247DA9F6AE41181 /* Pods-WelfTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -584,6 +756,7 @@
 		};
 		E11946AD240B97D9007BE44A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB2692F30DF31CF77A9EEBBA /* Pods-Welf-WelfUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -604,6 +777,7 @@
 		};
 		E11946AE240B97D9007BE44A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94110CCF82860220C117DF93 /* Pods-Welf-WelfUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
