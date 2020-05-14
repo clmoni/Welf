@@ -22,6 +22,11 @@
 		E1542FA8246A054C0015127D /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E1542FA6246A054C0015127D /* amplifyconfiguration.json */; };
 		E1542FA9246A054C0015127D /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E1542FA7246A054C0015127D /* awsconfiguration.json */; };
 		E1B114F1246B515700CA86DA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F0246B515700CA86DA /* UserData.swift */; };
+		E1B114F7246C789000CA86DA /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F6246C789000CA86DA /* LandingView.swift */; };
+		E1B114F9246C86ED00CA86DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F8246C86ED00CA86DA /* LoginViewController.swift */; };
+		E1B114FB246C8E4300CA86DA /* AuthorisedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114FA246C8E4300CA86DA /* AuthorisedView.swift */; };
+		E1B114FD246C915600CA86DA /* UnauthorisedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114FC246C915600CA86DA /* UnauthorisedView.swift */; };
+		E1B114FF246C9F3400CA86DA /* SignOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114FE246C9F3400CA86DA /* SignOutButton.swift */; };
 		E1B3D7F32413A1A70047D618 /* SignUpOrLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F22413A1A70047D618 /* SignUpOrLogin.swift */; };
 		E1B3D7F62413C99A0047D618 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F52413C99A0047D618 /* SignUp.swift */; };
 		E1B3D7F82413D52A0047D618 /* GenericNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F72413D52A0047D618 /* GenericNavigationButton.swift */; };
@@ -79,6 +84,11 @@
 		E1542FA6246A054C0015127D /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
 		E1542FA7246A054C0015127D /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		E1B114F0246B515700CA86DA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		E1B114F6246C789000CA86DA /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		E1B114F8246C86ED00CA86DA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E1B114FA246C8E4300CA86DA /* AuthorisedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisedView.swift; sourceTree = "<group>"; };
+		E1B114FC246C915600CA86DA /* UnauthorisedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthorisedView.swift; sourceTree = "<group>"; };
+		E1B114FE246C9F3400CA86DA /* SignOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutButton.swift; sourceTree = "<group>"; };
 		E1B3D7F22413A1A70047D618 /* SignUpOrLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOrLogin.swift; sourceTree = "<group>"; };
 		E1B3D7F52413C99A0047D618 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		E1B3D7F72413D52A0047D618 /* GenericNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericNavigationButton.swift; sourceTree = "<group>"; };
@@ -182,6 +192,11 @@
 				E119468D240B97D9007BE44A /* Info.plist */,
 				E1194680240B97D7007BE44A /* Welf.xcdatamodeld */,
 				E1194687240B97D9007BE44A /* Preview Content */,
+				E1B114F6246C789000CA86DA /* LandingView.swift */,
+				E1B114F8246C86ED00CA86DA /* LoginViewController.swift */,
+				E1B114FA246C8E4300CA86DA /* AuthorisedView.swift */,
+				E1B114FC246C915600CA86DA /* UnauthorisedView.swift */,
+				E1B114FE246C9F3400CA86DA /* SignOutButton.swift */,
 			);
 			path = Welf;
 			sourceTree = "<group>";
@@ -491,18 +506,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B114F9246C86ED00CA86DA /* LoginViewController.swift in Sources */,
 				E119467D240B97D7007BE44A /* AppDelegate.swift in Sources */,
 				E1B3D7F62413C99A0047D618 /* SignUp.swift in Sources */,
+				E1B114FF246C9F3400CA86DA /* SignOutButton.swift in Sources */,
 				E1C7650D2411D4F700D37181 /* Logo.swift in Sources */,
 				E1B114F1246B515700CA86DA /* UserData.swift in Sources */,
+				E1B114FD246C915600CA86DA /* UnauthorisedView.swift in Sources */,
 				E1C765102411D72300D37181 /* GenericText.swift in Sources */,
 				E1B3D7FA24266D0A0047D618 /* HostingController.swift in Sources */,
+				E1B114F7246C789000CA86DA /* LandingView.swift in Sources */,
 				E1B3D7F32413A1A70047D618 /* SignUpOrLogin.swift in Sources */,
 				E1C765122411E62200D37181 /* Description.swift in Sources */,
 				E1194682240B97D7007BE44A /* Welf.xcdatamodeld in Sources */,
 				E1B3D7F82413D52A0047D618 /* GenericNavigationButton.swift in Sources */,
 				E1C765162411E9CF00D37181 /* Login.swift in Sources */,
 				E1194684240B97D7007BE44A /* ContentView.swift in Sources */,
+				E1B114FB246C8E4300CA86DA /* AuthorisedView.swift in Sources */,
 				E119467F240B97D7007BE44A /* SceneDelegate.swift in Sources */,
 				E1C7651A2411F71400D37181 /* GenericTextButton.swift in Sources */,
 				E1C765142411E78F00D37181 /* GenericButton.swift in Sources */,
