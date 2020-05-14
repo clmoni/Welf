@@ -19,14 +19,13 @@
 		E119468C240B97D9007BE44A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E119468A240B97D9007BE44A /* LaunchScreen.storyboard */; };
 		E1194697240B97D9007BE44A /* WelfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1194696240B97D9007BE44A /* WelfTests.swift */; };
 		E11946A2240B97D9007BE44A /* WelfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11946A1240B97D9007BE44A /* WelfUITests.swift */; };
-		E1542FA8246A054C0015127D /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E1542FA6246A054C0015127D /* amplifyconfiguration.json */; };
-		E1542FA9246A054C0015127D /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E1542FA7246A054C0015127D /* awsconfiguration.json */; };
 		E1B114F1246B515700CA86DA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F0246B515700CA86DA /* UserData.swift */; };
 		E1B114F7246C789000CA86DA /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F6246C789000CA86DA /* LandingView.swift */; };
 		E1B114F9246C86ED00CA86DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F8246C86ED00CA86DA /* LoginViewController.swift */; };
 		E1B114FB246C8E4300CA86DA /* AuthorisedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114FA246C8E4300CA86DA /* AuthorisedView.swift */; };
 		E1B114FD246C915600CA86DA /* UnauthorisedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114FC246C915600CA86DA /* UnauthorisedView.swift */; };
 		E1B114FF246C9F3400CA86DA /* SignOutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114FE246C9F3400CA86DA /* SignOutButton.swift */; };
+		E1B11501246DDDF100CA86DA /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E1B11500246DDDF100CA86DA /* awsconfiguration.json */; };
 		E1B3D7F32413A1A70047D618 /* SignUpOrLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F22413A1A70047D618 /* SignUpOrLogin.swift */; };
 		E1B3D7F62413C99A0047D618 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F52413C99A0047D618 /* SignUp.swift */; };
 		E1B3D7F82413D52A0047D618 /* GenericNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F72413D52A0047D618 /* GenericNavigationButton.swift */; };
@@ -81,14 +80,13 @@
 		E119469D240B97D9007BE44A /* WelfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WelfUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11946A1240B97D9007BE44A /* WelfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelfUITests.swift; sourceTree = "<group>"; };
 		E11946A3240B97D9007BE44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E1542FA6246A054C0015127D /* amplifyconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = SOURCE_ROOT; };
-		E1542FA7246A054C0015127D /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		E1B114F0246B515700CA86DA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E1B114F6246C789000CA86DA /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		E1B114F8246C86ED00CA86DA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E1B114FA246C8E4300CA86DA /* AuthorisedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisedView.swift; sourceTree = "<group>"; };
 		E1B114FC246C915600CA86DA /* UnauthorisedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthorisedView.swift; sourceTree = "<group>"; };
 		E1B114FE246C9F3400CA86DA /* SignOutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutButton.swift; sourceTree = "<group>"; };
+		E1B11500246DDDF100CA86DA /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		E1B3D7F22413A1A70047D618 /* SignUpOrLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOrLogin.swift; sourceTree = "<group>"; };
 		E1B3D7F52413C99A0047D618 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		E1B3D7F72413D52A0047D618 /* GenericNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericNavigationButton.swift; sourceTree = "<group>"; };
@@ -187,9 +185,8 @@
 				E1B3D7F924266D0A0047D618 /* HostingController.swift */,
 				E1194685240B97D9007BE44A /* Assets.xcassets */,
 				E119468A240B97D9007BE44A /* LaunchScreen.storyboard */,
-				E1542FA6246A054C0015127D /* amplifyconfiguration.json */,
-				E1542FA7246A054C0015127D /* awsconfiguration.json */,
 				E119468D240B97D9007BE44A /* Info.plist */,
+				E1B11500246DDDF100CA86DA /* awsconfiguration.json */,
 				E1194680240B97D7007BE44A /* Welf.xcdatamodeld */,
 				E1194687240B97D9007BE44A /* Preview Content */,
 				E1B114F6246C789000CA86DA /* LandingView.swift */,
@@ -374,11 +371,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1542FA9246A054C0015127D /* awsconfiguration.json in Resources */,
+				E1B11501246DDDF100CA86DA /* awsconfiguration.json in Resources */,
 				E119468C240B97D9007BE44A /* LaunchScreen.storyboard in Resources */,
 				E1194689240B97D9007BE44A /* Preview Assets.xcassets in Resources */,
 				E1194686240B97D9007BE44A /* Assets.xcassets in Resources */,
-				E1542FA8246A054C0015127D /* amplifyconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,19 +1,21 @@
 {
-    "local": {
+    "dev": {
         "awscloudformation": {
-            "AuthRoleName": "amplify-welf-local-230021-authRole",
-            "UnauthRoleArn": "arn:aws:iam::921050403067:role/amplify-welf-local-230021-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::921050403067:role/amplify-welf-local-230021-authRole",
+            "AuthRoleName": "amplify-welf-dev-204628-authRole",
+            "UnauthRoleArn": "arn:aws:iam::921050403067:role/amplify-welf-dev-204628-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::921050403067:role/amplify-welf-dev-204628-authRole",
             "Region": "eu-west-2",
-            "DeploymentBucketName": "amplify-welf-local-230021-deployment",
-            "UnauthRoleName": "amplify-welf-local-230021-unauthRole",
-            "StackName": "amplify-welf-local-230021",
-            "StackId": "arn:aws:cloudformation:eu-west-2:921050403067:stack/amplify-welf-local-230021/d0bfafe0-93d2-11ea-951f-0aea06869730",
-            "AmplifyAppId": "d2n3iyd2oiqlzw"
+            "DeploymentBucketName": "amplify-welf-dev-204628-deployment",
+            "UnauthRoleName": "amplify-welf-dev-204628-unauthRole",
+            "StackName": "amplify-welf-dev-204628",
+            "StackId": "arn:aws:cloudformation:eu-west-2:921050403067:stack/amplify-welf-dev-204628/a7a8ea90-961b-11ea-a9c8-02c134fada26",
+            "AmplifyAppId": "d1xtapeq1grxh4"
         },
         "categories": {
             "auth": {
-                "welf9e0b5744": {}
+                "welfd665fc39": {
+                    "hostedUIProviderCreds": "[]"
+                }
             }
         }
     }

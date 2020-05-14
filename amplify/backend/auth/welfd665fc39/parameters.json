@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "welf9e0b5744_identitypool_9e0b5744",
+    "identityPoolName": "welfd665fc39_identitypool_d665fc39",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "welf9e0b5744",
-    "userPoolName": "welf9e0b5744_userpool_9e0b5744",
+    "resourceNameTruncated": "welfd665fc39",
+    "userPoolName": "welfd665fc39_userpool_d665fc39",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,9 +28,9 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "welf9e9e0b5744_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "welfd6d665fc39_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "welf9e0b5744",
+    "resourceName": "welfd665fc39",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -44,10 +44,12 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
-    "usernameAttributes": [
-        "email"
-    ],
+    "useDefault": "defaultSocial",
+    "hostedUI": true,
+    "hostedUIDomainName": "welfd665fc39-d665fc39",
+    "authProvidersUserPool": [],
+    "hostedUIProviderMeta": "[]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"welf://\"],\"LogoutURLs\":[\"welf://\"]}",
     "userPoolGroupList": [],
     "dependsOn": []
 }

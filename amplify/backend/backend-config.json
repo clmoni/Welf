@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"welf9e0b5744": {
+		"welfd665fc39": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],
