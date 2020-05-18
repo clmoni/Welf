@@ -9,13 +9,16 @@
 import SwiftUI
 
 struct Logo: View {
+    var width: CGFloat = 80.0
+    var height: CGFloat = 80.0
+    var contentMode: ContentMode = .fit
+    
     var body: some View {
-        VStack(alignment: .center) {
-            Image("lemon-logo")
-                .resizable()
-                .frame(width: 80.0, height: 80.0)
-                .rotationEffect(.degrees(80))
-        }
+        Image("lemon-logo")
+            .resizable()
+            .aspectRatio(contentMode: contentMode)
+            .frame(width: width, height: height)
+            .rotationEffect(.degrees(80))
     }
 }
 

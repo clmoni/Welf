@@ -9,18 +9,20 @@
 import SwiftUI
 
 struct GenericButton: View {
-    let text: GenericText
+    let text: String
     let action: () -> Void
-    let radius: CGFloat = 8
+    var radius: CGFloat = 8
     
     var body: some View {
         Button(action: self.action) {
-            VStack {
-                self.text
-                .multilineTextAlignment(.center)
+            HStack {
+                Spacer()
+                Text(self.text)
+                    .foregroundColor(Color.white)
+                    .bold()
+                Spacer()
             }
             .padding()
-            .frame(minWidth: 0, maxWidth: .infinity)
             .background(Color.green)
             .cornerRadius(self.radius)
         }
@@ -29,6 +31,6 @@ struct GenericButton: View {
 
 struct GenericButton_Previews: PreviewProvider {
     static var previews: some View {
-        GenericButton(text: GenericText("test button"), action: {})
+        GenericButton(text: "test button", action: {})
     }
 }

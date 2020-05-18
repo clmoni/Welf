@@ -11,20 +11,13 @@ import SwiftUI
 struct LandingView: View {
     @ObservedObject public var user : UserData
     
-    var body: some View {
-        let loginView = LoginViewController()
-        
-        return VStack {
+    var body: some View {        
+        return NavigationView {
             // .wrappedValue is used to extract the Bool from Binding<Bool> type
             if(!$user.isSignedIn.wrappedValue) {
-                ZStack {
-                    loginView
-                    Button(action: { loginView.authenticate() } ) {
-                        UnauthorisedView().scaleEffect(0.5)
-                    }
-                }
+                UnauthorisedLandingView()
             } else {
-                AuthorisedView().environmentObject(user)
+                AuthorisedLandingView().environmentObject(user)
             }
         }
     }

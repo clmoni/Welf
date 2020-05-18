@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SignUpOrLogin: View {
+struct UnauthorisedLandingView: View {
     var body: some View {
         VStack {
             Spacer()
@@ -25,8 +25,8 @@ struct SignUpOrLogin: View {
     }
     
     func createLogoView() -> some View {
-        return Logo()
-            .padding(.bottom, 50)
+        return Logo(width: 250.0, height: 250.0, contentMode: .fit)
+            .padding(.bottom, 30)
     }
     
     func createDescriptionView() -> some View {
@@ -53,8 +53,8 @@ struct SignUpOrLogin: View {
     }
 }
 
-struct SignUpOrLogin_Previews: PreviewProvider {
+struct UnauthorisedLandingView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpOrLogin()
+        UnauthorisedLandingView()
     }
 }

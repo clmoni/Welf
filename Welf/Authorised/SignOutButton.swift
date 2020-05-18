@@ -2,7 +2,7 @@
 //  SignOutButton.swift
 //  Welf
 //
-//  Created by Clement Oniovosa on 13/05/2020.
+//  Created by Clement Oniovosa on 17/05/2020.
 //  Copyright © 2020 Clement Oniovosa. All rights reserved.
 //
 
@@ -19,6 +19,7 @@ struct SignOutButton: View {
         }
     }
 }
+
 
 struct SignOutButton_Previews: PreviewProvider {
     static var previews: some View {

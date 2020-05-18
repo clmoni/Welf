@@ -1,14 +1,14 @@
 //
-//  AuthorisedView.swift
+//  AuthorisedLandingView.swift
 //  Welf
 //
-//  Created by Clement Oniovosa on 13/05/2020.
+//  Created by Clement Oniovosa on 18/05/2020.
 //  Copyright © 2020 Clement Oniovosa. All rights reserved.
 //
 
 import SwiftUI
 
-struct AuthorisedView: View {
+struct AuthorisedLandingView: View {
     @EnvironmentObject private var userData: UserData
     var body: some View {
         NavigationView {
@@ -21,8 +21,8 @@ struct AuthorisedView: View {
     }
 }
 
-struct AuthorisedView_Previews: PreviewProvider {
+struct AuthorisedLandingView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthorisedView()
+        AuthorisedLandingView()
     }
 }

@@ -8,13 +8,13 @@
 
 import SwiftUI
 
-struct GenericTextButton: View {
+struct GenericTextButton<Destination>: View where Destination : View  {
     
     let text: GenericText
-    let action: () -> Void
+    let destination: Destination
     
     var body: some View {
-        Button(action: self.action) {
+        NavigationLink(destination: self.destination) {
             self.text
         }
     }
@@ -22,6 +22,6 @@ struct GenericTextButton: View {
 
 struct GenericTextButton_Previews: PreviewProvider {
     static var previews: some View {
-        GenericTextButton(text: GenericText("test value"), action: {})
+        GenericTextButton(text: GenericText("Test Navigation Link"), destination: SignUp())
     }
 }
