@@ -10,7 +10,9 @@ import SwiftUI
 import Combine
 
 struct KeyboardAwareModifier: ViewModifier {
+    var placeButtonOnTopOfKeyboard: Bool = false
     @State private var keyboardHeight: CGFloat = 0
+    @State private var keyboardOffset: CGFloat = 0
 
     private var keyboardHeightPublisher: AnyPublisher<CGFloat, Never> {
         Publishers.Merge(
@@ -26,13 +28,17 @@ struct KeyboardAwareModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .padding(.bottom, keyboardHeight)
-            .onReceive(keyboardHeightPublisher) { self.keyboardHeight = $0 }
+            .padding(.bottom, self.keyboardHeight)
+            .offset(y: self.keyboardOffset)
+            .onReceive(keyboardHeightPublisher) {
+                self.keyboardHeight = $0
+                self.keyboardOffset = self.placeButtonOnTopOfKeyboard ? $0/4.5 : 0
+        }
     }
 }
 
 extension View {
-    func KeyboardAwarePadding() -> some View {
-        ModifiedContent(content: self, modifier: KeyboardAwareModifier())
+    func KeyboardAwarePadding(placeButtonOnTopOfKeyboard: Bool = false) -> some View {
+        ModifiedContent(content: self, modifier: KeyboardAwareModifier(placeButtonOnTopOfKeyboard: placeButtonOnTopOfKeyboard))
     }
 }

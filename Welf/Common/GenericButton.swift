@@ -11,18 +11,17 @@ import SwiftUI
 struct GenericButton: View {
     let text: String
     let action: () -> Void
-    var radius: CGFloat = 8
+    var radius: CGFloat = 20
     
     var body: some View {
         Button(action: self.action) {
             HStack {
-                Spacer()
                 Text(self.text)
                     .foregroundColor(Color.white)
                     .bold()
-                Spacer()
             }
-            .padding()
+            .padding(EdgeInsets(top: 6, leading: 10, bottom: 6, trailing: 10))
+
             .background(Color.green)
             .cornerRadius(self.radius)
         }

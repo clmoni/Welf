@@ -16,8 +16,7 @@ struct Description: View {
     var body: some View {
         VStack() {
             GenericText(
-                mainText,
-                font: .largeTitle,
+                font: .largeTitle, text: mainText,
                 weight: .bold,
                 colour: .green)
                 .padding(.vertical)
@@ -25,8 +24,7 @@ struct Description: View {
                 .layoutPriority(1)
 
             GenericText(
-                secondaryText,
-                font: .footnote,
+                font: .footnote, text: secondaryText,
                 weight: .light
                 )
                 .frame(maxWidth: .infinity, alignment: .leading)

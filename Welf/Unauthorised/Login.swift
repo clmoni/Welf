@@ -19,8 +19,7 @@ struct Login: View {
     func createLoginTextButton() -> some View {
         let logInText: String = "Log in"
         let logInTextView = GenericText(
-            logInText,
-            font: .subheadline,
+            font: .subheadline, text: logInText,
             weight: .bold,
             colour: .green)
 
@@ -31,8 +30,7 @@ struct Login: View {
         let alreadyRegisteredText: String = "Already registered?"
         
         return GenericText(
-            alreadyRegisteredText,
-            font: .subheadline,
+            font: .subheadline, text: alreadyRegisteredText,
             weight: .light)
             .offset(x:3)
     }

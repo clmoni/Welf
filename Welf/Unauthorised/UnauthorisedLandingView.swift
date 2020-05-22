@@ -37,8 +37,7 @@ struct UnauthorisedLandingView: View {
     func createSignUpButton() -> some View {
         let signUpButtonText: String = "sign up"
         let signUpTextView = GenericText(
-            signUpButtonText,
-            font: .headline,
+            font: .headline, text: signUpButtonText,
             weight: .bold,
             colour: .white)
         

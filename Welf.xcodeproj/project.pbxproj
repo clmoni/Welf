@@ -18,6 +18,7 @@
 		E119468C240B97D9007BE44A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E119468A240B97D9007BE44A /* LaunchScreen.storyboard */; };
 		E1194697240B97D9007BE44A /* WelfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1194696240B97D9007BE44A /* WelfTests.swift */; };
 		E11946A2240B97D9007BE44A /* WelfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11946A1240B97D9007BE44A /* WelfUITests.swift */; };
+		E15D76BD2477602000F17A59 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15D76BC2477602000F17A59 /* ForgotPasswordView.swift */; };
 		E1B114F1246B515700CA86DA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F0246B515700CA86DA /* UserData.swift */; };
 		E1B114F7246C789000CA86DA /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F6246C789000CA86DA /* LandingView.swift */; };
 		E1B11501246DDDF100CA86DA /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E1B11500246DDDF100CA86DA /* awsconfiguration.json */; };
@@ -80,6 +81,7 @@
 		E119469D240B97D9007BE44A /* WelfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WelfUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11946A1240B97D9007BE44A /* WelfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelfUITests.swift; sourceTree = "<group>"; };
 		E11946A3240B97D9007BE44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E15D76BC2477602000F17A59 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		E1B114F0246B515700CA86DA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E1B114F6246C789000CA86DA /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		E1B11500246DDDF100CA86DA /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
@@ -222,6 +224,14 @@
 			path = WelfUITests;
 			sourceTree = "<group>";
 		};
+		E15D76BB24775FFD00F17A59 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				E15D76BC2477602000F17A59 /* ForgotPasswordView.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
 		E1B114EF246B511900CA86DA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +268,7 @@
 		E1C7650B2411D31800D37181 /* Unauthorised */ = {
 			isa = PBXGroup;
 			children = (
+				E15D76BB24775FFD00F17A59 /* ForgotPassword */,
 				E1B3D7F42413C92C0047D618 /* SignUp */,
 				E1C765112411E62200D37181 /* Description.swift */,
 				E1C765152411E9CF00D37181 /* Login.swift */,
@@ -533,6 +544,7 @@
 				E1B3D7F32413A1A70047D618 /* UnauthorisedLandingView.swift in Sources */,
 				E1C765122411E62200D37181 /* Description.swift in Sources */,
 				E1194682240B97D7007BE44A /* Welf.xcdatamodeld in Sources */,
+				E15D76BD2477602000F17A59 /* ForgotPasswordView.swift in Sources */,
 				E1B3D7F82413D52A0047D618 /* GenericNavigationButton.swift in Sources */,
 				E1B1150824719CCC00CA86DA /* GenericAvatar.swift in Sources */,
 				E1C765162411E9CF00D37181 /* Login.swift in Sources */,
