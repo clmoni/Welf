@@ -11,6 +11,9 @@ import Combine
 
 struct KeyboardAwareModifier: ViewModifier {
     var placeButtonOnTopOfKeyboard: Bool = false
+    var avoidEntireContent: Bool = false
+    let keyboardOffsetSubtractor: CGFloat = 656.0
+    
     @State private var keyboardHeight: CGFloat = 0
     @State private var keyboardOffset: CGFloat = 0
 
@@ -28,17 +31,19 @@ struct KeyboardAwareModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .padding(.bottom, self.keyboardHeight)
+            .padding(.bottom, avoidEntireContent ? self.keyboardHeight : 0)
             .offset(y: self.keyboardOffset)
             .onReceive(keyboardHeightPublisher) {
+                let keyboardOffsetSubtractor: CGFloat = $0 == 0.0 ? $0 : self.keyboardOffsetSubtractor
+                
                 self.keyboardHeight = $0
-                self.keyboardOffset = self.placeButtonOnTopOfKeyboard ? $0/4.5 : 0
+                self.keyboardOffset = self.placeButtonOnTopOfKeyboard ? ($0-keyboardOffsetSubtractor) : 0
         }
     }
 }
 
 extension View {
-    func KeyboardAwarePadding(placeButtonOnTopOfKeyboard: Bool = false) -> some View {
-        ModifiedContent(content: self, modifier: KeyboardAwareModifier(placeButtonOnTopOfKeyboard: placeButtonOnTopOfKeyboard))
+    func KeyboardAwarePadding(placeButtonOnTopOfKeyboard: Bool = false, avoidEntireContent: Bool = false) -> some View {
+        ModifiedContent(content: self, modifier: KeyboardAwareModifier(placeButtonOnTopOfKeyboard: placeButtonOnTopOfKeyboard, avoidEntireContent: avoidEntireContent))
     }
 }

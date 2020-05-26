@@ -11,7 +11,8 @@ import SwiftUI
 struct LoginView: View {
     @State private var username: String = ""
     @State private var password: String = ""
-
+    @State private var isHidden = false
+    
     private let app = UIApplication.shared.delegate as! AppDelegate
     
     var body: some View {
@@ -19,42 +20,60 @@ struct LoginView: View {
             VStack {
                 VStack {
                     GenericAvatar()
-                        .scaleEffect(0.7)
+                        .scaleEffect(0.1)
                 }
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
-                .frame(maxHeight: 350)
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                .frame(maxHeight: 1)
+                .offset(y: -230)
                 
-                Text(verbatim: "Login")
-                    .bold()
-                    .font(.title)
-                
-                Text(verbatim: "Keep track of your finances")
-                    .font(.subheadline)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 40, trailing: 0))
-                
+                VStack {
+                    Text(verbatim: "Login")
+                        .bold()
+                        .font(.title)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .offset(y: -210)
+                .padding(20)
                 
                 VStack {
                     VStack{
-                        TextField("Username", text: $username)
-                            .autocapitalization(.none)
-                            .padding()
-                            .cornerRadius(4.0)
-                            .background(Color(UIColor.systemFill))
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                    
-                        SecureField("Password", text: $password)
-                            .padding()
-                            .cornerRadius(4.0)
-                            .background(Color(UIColor.systemFill))
-                            .padding(.bottom, 50)
-                        
+                        Group {
+                            TextField("User name", text: $username)
+                                .autocapitalization(.none)
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
+                            Divider()
+                                .frame(height: 0.8)
+                                .background(Color.green)
+                            
+                            
+                            ZStack {
+                                HStack {
+                                    if self.isHidden {
+                                        TextField("Password", text: $password)
+                                            .autocapitalization(.none)
+                                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
+                                        
+                                    } else {
+                                        SecureField("Password", text: $password)
+                                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
+                                    }
+                                    
+                                    Button(action: { self.isHidden.toggle() }) {
+                                        Image(systemName: self.isHidden ? "eye.fill" : "eye.slash.fill")
+                                            .foregroundColor(self.isHidden ? Color.green : Color.secondary)
+                                    }.offset(x: -20)
+                                }
+                            }
+                            Divider()
+                                .frame(height: 0.8)
+                                .background(Color.green)
+                                .padding(.bottom, 50)
+                        }
                     }
-                    .offset(y: 45)
-                    .padding(20)
-                    
-                    createAuthenticationCallToActionStack()
+                    .offset(y: -230)
+                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 5, trailing: 0))
                 }
-                .KeyboardAwarePadding()
+                createAuthenticationCallToActionStack()
             }
         }
     }
@@ -66,7 +85,6 @@ struct LoginView: View {
             Divider()
                 .frame(height: 0.5)
                 .background(Color.green)
-                .offset(y: 50)
             
             HStack{
                 GenericTextButton(text: forgotPasswordText, destination: ForgotPasswordView())
@@ -75,16 +93,18 @@ struct LoginView: View {
                     self.app.signIn(username: self.username, password: self.password)
                 }
             }
-            .offset(y: 30)
-            .padding(20)
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 5, trailing: 20))
             
         }
+        .offset(y: 170)
         .KeyboardAwarePadding(placeButtonOnTopOfKeyboard: true)
     }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        NavigationView {
+            LoginView()
+        }
     }
 }

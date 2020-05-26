@@ -13,7 +13,11 @@ struct UnauthorisedLandingView: View {
         VStack {
             Spacer()
             createLogoView()
+            
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
+            .frame(maxHeight: 350)
             createDescriptionView()
+                
             Spacer()
             
             VStack {
@@ -25,13 +29,18 @@ struct UnauthorisedLandingView: View {
     }
     
     func createLogoView() -> some View {
-        return Logo(width: 250.0, height: 250.0, contentMode: .fit)
-            .padding(.bottom, 30)
+        //return Logo(width: 250.0, height: 250.0, contentMode: .fit)
+            //.padding(.bottom, 30)
+        VStack {
+            GenericAvatar()
+                .scaleEffect(0.7)
+        }
     }
     
     func createDescriptionView() -> some View {
         return Description()
             .frame(maxHeight: 180, alignment: .center)
+            .offset(y: -50)
     }
     
     func createSignUpButton() -> some View {
