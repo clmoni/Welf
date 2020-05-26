@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct GenericAvatar: View {
+struct WelfLogo: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -37,8 +37,8 @@ struct GenericAvatar: View {
     }
 }
 
-struct GenericAvatar_Previews: PreviewProvider {
+struct WelfLogo_Previews: PreviewProvider {
     static var previews: some View {
-        GenericAvatar()
+        WelfLogo()
     }
 }

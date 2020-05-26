@@ -28,22 +28,22 @@ struct UnauthorisedLandingView: View {
         .padding(.horizontal)
     }
     
-    func createLogoView() -> some View {
+    private func createLogoView() -> some View {
         //return Logo(width: 250.0, height: 250.0, contentMode: .fit)
             //.padding(.bottom, 30)
         VStack {
-            GenericAvatar()
+            WelfLogo()
                 .scaleEffect(0.7)
         }
     }
     
-    func createDescriptionView() -> some View {
+    private func createDescriptionView() -> some View {
         return Description()
             .frame(maxHeight: 180, alignment: .center)
             .offset(y: -50)
     }
     
-    func createSignUpButton() -> some View {
+    private func createSignUpButton() -> some View {
         let signUpButtonText: String = "sign up"
         let signUpTextView = GenericText(
             font: .headline, text: signUpButtonText,
@@ -54,7 +54,7 @@ struct UnauthorisedLandingView: View {
             .frame(alignment: .center)
     }
     
-    func createLoginCallToAction() -> some View {
+    private func createLoginCallToAction() -> some View {
         return Login()
             .padding()
             .frame(alignment: .center)
