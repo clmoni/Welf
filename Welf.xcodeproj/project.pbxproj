@@ -24,6 +24,7 @@
 		E15D76BD2477602000F17A59 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15D76BC2477602000F17A59 /* ForgotPasswordView.swift */; };
 		E1ABFF60247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF5F247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift */; };
 		E1ABFF62247DE0F600FE6EE8 /* LoginHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF61247DE0F600FE6EE8 /* LoginHeaderView.swift */; };
+		E1ABFF66248064DA00FE6EE8 /* GenericResizeableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF65248064DA00FE6EE8 /* GenericResizeableButton.swift */; };
 		E1B114F1246B515700CA86DA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F0246B515700CA86DA /* UserData.swift */; };
 		E1B114F7246C789000CA86DA /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F6246C789000CA86DA /* LandingView.swift */; };
 		E1B11501246DDDF100CA86DA /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = E1B11500246DDDF100CA86DA /* awsconfiguration.json */; };
@@ -34,7 +35,7 @@
 		E1B1151424720CBD00CA86DA /* KeyboardAwareModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B1151324720CBD00CA86DA /* KeyboardAwareModifier.swift */; };
 		E1B115172472111300CA86DA /* AuthorisedLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B115162472111300CA86DA /* AuthorisedLandingView.swift */; };
 		E1B3D7F32413A1A70047D618 /* UnauthorisedLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F22413A1A70047D618 /* UnauthorisedLandingView.swift */; };
-		E1B3D7F62413C99A0047D618 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F52413C99A0047D618 /* SignUp.swift */; };
+		E1B3D7F62413C99A0047D618 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F52413C99A0047D618 /* SignUpView.swift */; };
 		E1B3D7F82413D52A0047D618 /* GenericNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F72413D52A0047D618 /* GenericNavigationButton.swift */; };
 		E1B3D7FA24266D0A0047D618 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3D7F924266D0A0047D618 /* HostingController.swift */; };
 		E1C7650D2411D4F700D37181 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C7650C2411D4F700D37181 /* Logo.swift */; };
@@ -43,6 +44,8 @@
 		E1C765142411E78F00D37181 /* GenericButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C765132411E78F00D37181 /* GenericButton.swift */; };
 		E1C765162411E9CF00D37181 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C765152411E9CF00D37181 /* Login.swift */; };
 		E1C7651A2411F71400D37181 /* GenericTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C765192411F71400D37181 /* GenericTextButton.swift */; };
+		E1F3976B248083890017A29F /* GenericResizeableIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3976A248083890017A29F /* GenericResizeableIconButton.swift */; };
+		E1F3976E24808ABD0017A29F /* CreateAccountDismissalBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3976D24808ABD0017A29F /* CreateAccountDismissalBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,7 @@
 		E15D76BC2477602000F17A59 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		E1ABFF5F247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCallToActionView.swift; sourceTree = "<group>"; };
 		E1ABFF61247DE0F600FE6EE8 /* LoginHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHeaderView.swift; sourceTree = "<group>"; };
+		E1ABFF65248064DA00FE6EE8 /* GenericResizeableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResizeableButton.swift; sourceTree = "<group>"; };
 		E1B114F0246B515700CA86DA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E1B114F6246C789000CA86DA /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		E1B11500246DDDF100CA86DA /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
@@ -102,7 +106,7 @@
 		E1B1151324720CBD00CA86DA /* KeyboardAwareModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAwareModifier.swift; sourceTree = "<group>"; };
 		E1B115162472111300CA86DA /* AuthorisedLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisedLandingView.swift; sourceTree = "<group>"; };
 		E1B3D7F22413A1A70047D618 /* UnauthorisedLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnauthorisedLandingView.swift; sourceTree = "<group>"; };
-		E1B3D7F52413C99A0047D618 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		E1B3D7F52413C99A0047D618 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E1B3D7F72413D52A0047D618 /* GenericNavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericNavigationButton.swift; sourceTree = "<group>"; };
 		E1B3D7F924266D0A0047D618 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		E1C7650C2411D4F700D37181 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 		E1C765132411E78F00D37181 /* GenericButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericButton.swift; sourceTree = "<group>"; };
 		E1C765152411E9CF00D37181 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		E1C765192411F71400D37181 /* GenericTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextButton.swift; sourceTree = "<group>"; };
+		E1F3976A248083890017A29F /* GenericResizeableIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResizeableIconButton.swift; sourceTree = "<group>"; };
+		E1F3976D24808ABD0017A29F /* CreateAccountDismissalBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountDismissalBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,7 +306,8 @@
 		E1B3D7F42413C92C0047D618 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				E1B3D7F52413C99A0047D618 /* SignUp.swift */,
+				E1F3976C248088850017A29F /* PartialViews */,
+				E1B3D7F52413C99A0047D618 /* SignUpView.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -326,8 +333,18 @@
 				E1C765192411F71400D37181 /* GenericTextButton.swift */,
 				E1B3D7F72413D52A0047D618 /* GenericNavigationButton.swift */,
 				E1B1150724719CCC00CA86DA /* WelfLogo.swift */,
+				E1ABFF65248064DA00FE6EE8 /* GenericResizeableButton.swift */,
+				E1F3976A248083890017A29F /* GenericResizeableIconButton.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		E1F3976C248088850017A29F /* PartialViews */ = {
+			isa = PBXGroup;
+			children = (
+				E1F3976D24808ABD0017A29F /* CreateAccountDismissalBarView.swift */,
+			);
+			path = PartialViews;
 			sourceTree = "<group>";
 		};
 		E1F8325B247DCCB200D93439 /* Landing */ = {
@@ -604,7 +621,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E119467D240B97D7007BE44A /* AppDelegate.swift in Sources */,
-				E1B3D7F62413C99A0047D618 /* SignUp.swift in Sources */,
+				E1F3976B248083890017A29F /* GenericResizeableIconButton.swift in Sources */,
+				E1B3D7F62413C99A0047D618 /* SignUpView.swift in Sources */,
 				E1B1150C2471A99100CA86DA /* SignOutButton.swift in Sources */,
 				E1C7650D2411D4F700D37181 /* Logo.swift in Sources */,
 				E1B114F1246B515700CA86DA /* UserData.swift in Sources */,
@@ -620,6 +638,7 @@
 				E15D76BD2477602000F17A59 /* ForgotPasswordView.swift in Sources */,
 				E1B3D7F82413D52A0047D618 /* GenericNavigationButton.swift in Sources */,
 				E1B1150824719CCC00CA86DA /* WelfLogo.swift in Sources */,
+				E1F3976E24808ABD0017A29F /* CreateAccountDismissalBarView.swift in Sources */,
 				E1C765162411E9CF00D37181 /* Login.swift in Sources */,
 				E1ABFF60247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift in Sources */,
 				E1B1150A2471A8C600CA86DA /* LoginView.swift in Sources */,
@@ -630,6 +649,7 @@
 				E1C765142411E78F00D37181 /* GenericButton.swift in Sources */,
 				E1B115122471EB5A00CA86DA /* AuthenticationService.swift in Sources */,
 				E146EC32247DC9EF007C2155 /* UsernameEntryView.swift in Sources */,
+				E1ABFF66248064DA00FE6EE8 /* GenericResizeableButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

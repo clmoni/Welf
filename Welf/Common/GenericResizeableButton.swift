@@ -1,16 +1,18 @@
 //
-//  GenericButton.swift
+//  GenericResizeableButton.swift
 //  Welf
 //
-//  Created by Clement Oniovosa on 06/03/2020.
+//  Created by Clement Oniovosa on 28/05/2020.
 //  Copyright © 2020 Clement Oniovosa. All rights reserved.
 //
 
 import SwiftUI
 
-struct GenericButton: View {
+struct GenericResizeableButton: View {
     let text: String
     var radius: CGFloat = 20
+    var width: CGFloat = .infinity
+    var height: CGFloat = 20
     let action: () -> Void
     
     var body: some View {
@@ -20,6 +22,7 @@ struct GenericButton: View {
                     .foregroundColor(Color.white)
                     .bold()
             }
+            .frame(minWidth: 0, maxWidth: self.width, maxHeight: self.height)
             .padding(EdgeInsets(top: 6, leading: 10, bottom: 6, trailing: 10))
             .background(Color.green)
             .cornerRadius(self.radius)
@@ -27,8 +30,8 @@ struct GenericButton: View {
     }
 }
 
-struct GenericButton_Previews: PreviewProvider {
+struct GenericResizeableButton_Previews: PreviewProvider {
     static var previews: some View {
-        GenericButton(text: "test button", action: {})
+        GenericResizeableButton(text: "test button", action: {})
     }
 }

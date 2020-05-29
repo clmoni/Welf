@@ -17,7 +17,6 @@ struct CredentialsEntryView: View {
         VStack{
             Group {
                 UsernameEntryView(username: $username)
-                
                 PasswordEntryView(password: $password, isHidden: $isHidden)
             }
         }

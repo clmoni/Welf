@@ -22,6 +22,6 @@ struct GenericTextButton<Destination>: View where Destination : View  {
 
 struct GenericTextButton_Previews: PreviewProvider {
     static var previews: some View {
-        GenericTextButton(text: GenericText(text: "Test Navigation Link"), destination: SignUp())
+        GenericTextButton(text: GenericText(text: "Test Navigation Link"), destination: SignUpView())
     }
 }
