@@ -22,8 +22,9 @@ struct Login: View {
             font: .subheadline, text: logInText,
             weight: .bold,
             colour: .green)
-
-        return GenericTextButton(text: logInTextView, destination: LoginView()).offset(x: -3)
+        
+        return GenericTextButton(text: logInTextView, destination: LoginView(), isNavigationBarBackButtonHidden: true)
+            .offset(x: -3)
     }
     
     func creatLoginTextLabel() -> some View {

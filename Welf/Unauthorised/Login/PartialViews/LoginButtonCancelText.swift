@@ -22,7 +22,7 @@ struct LoginButtonCancelText: View {
     }
 }
 
-struct LoginHeaderView_Previews: PreviewProvider {
+struct LoginButtonCancelText_Previews: PreviewProvider {
     static var previews: some View {
         LoginButtonCancelText()
     }

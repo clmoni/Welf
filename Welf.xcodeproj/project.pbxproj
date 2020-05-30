@@ -23,7 +23,7 @@
 		E146EC34247DCBC0007C2155 /* CredentialsEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146EC33247DCBC0007C2155 /* CredentialsEntryView.swift */; };
 		E15D76BD2477602000F17A59 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15D76BC2477602000F17A59 /* ForgotPasswordView.swift */; };
 		E1ABFF60247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF5F247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift */; };
-		E1ABFF62247DE0F600FE6EE8 /* LoginHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF61247DE0F600FE6EE8 /* LoginHeaderView.swift */; };
+		E1ABFF62247DE0F600FE6EE8 /* LoginButtonCancelText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF61247DE0F600FE6EE8 /* LoginButtonCancelText.swift */; };
 		E1ABFF66248064DA00FE6EE8 /* GenericResizeableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF65248064DA00FE6EE8 /* GenericResizeableButton.swift */; };
 		E1B114F1246B515700CA86DA /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F0246B515700CA86DA /* UserData.swift */; };
 		E1B114F7246C789000CA86DA /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B114F6246C789000CA86DA /* LandingView.swift */; };
@@ -99,7 +99,7 @@
 		E146EC33247DCBC0007C2155 /* CredentialsEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsEntryView.swift; sourceTree = "<group>"; };
 		E15D76BC2477602000F17A59 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		E1ABFF5F247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCallToActionView.swift; sourceTree = "<group>"; };
-		E1ABFF61247DE0F600FE6EE8 /* LoginHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHeaderView.swift; sourceTree = "<group>"; };
+		E1ABFF61247DE0F600FE6EE8 /* LoginButtonCancelText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonCancelText.swift; sourceTree = "<group>"; };
 		E1ABFF65248064DA00FE6EE8 /* GenericResizeableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResizeableButton.swift; sourceTree = "<group>"; };
 		E1B114F0246B515700CA86DA /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E1B114F6246C789000CA86DA /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
@@ -274,7 +274,7 @@
 				E146EC31247DC9EF007C2155 /* UsernameEntryView.swift */,
 				E146EC33247DCBC0007C2155 /* CredentialsEntryView.swift */,
 				E1ABFF5F247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift */,
-				E1ABFF61247DE0F600FE6EE8 /* LoginHeaderView.swift */,
+				E1ABFF61247DE0F600FE6EE8 /* LoginButtonCancelText.swift */,
 			);
 			path = PartialViews;
 			sourceTree = "<group>";
@@ -656,7 +656,7 @@
 				E1B114F7246C789000CA86DA /* LandingView.swift in Sources */,
 				E1B1151424720CBD00CA86DA /* KeyboardAwareModifier.swift in Sources */,
 				E1F397772482C8560017A29F /* ViewExtensions.swift in Sources */,
-				E1ABFF62247DE0F600FE6EE8 /* LoginHeaderView.swift in Sources */,
+				E1ABFF62247DE0F600FE6EE8 /* LoginButtonCancelText.swift in Sources */,
 				E1B3D7F32413A1A70047D618 /* UnauthorisedLandingView.swift in Sources */,
 				E1C765122411E62200D37181 /* Description.swift in Sources */,
 				E1194682240B97D7007BE44A /* Welf.xcdatamodeld in Sources */,

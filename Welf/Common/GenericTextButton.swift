@@ -12,11 +12,13 @@ struct GenericTextButton<Destination>: View where Destination : View  {
     
     let text: GenericText
     let destination: Destination
+    var isNavigationBarBackButtonHidden: Bool = false
     
     var body: some View {
-        NavigationLink(destination: self.destination) {
+        NavigationLink(destination: self.destination.navigationBarBackButtonHidden(self.isNavigationBarBackButtonHidden)) {
             self.text
         }
+        
     }
 }
 

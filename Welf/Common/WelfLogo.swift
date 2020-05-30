@@ -12,19 +12,15 @@ struct WelfLogo: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                
                 VStack {
                     ZStack {
                         Circle()
                             .stroke(Color.yellow, lineWidth: geometry.size.width)
                             .frame(width:geometry.size.width, height:geometry.size.width / 1.2, alignment: .center)
-                            .offset(x:0, y:geometry.size.width/600)
                         
                         Circle()
                             .stroke(Color.green, lineWidth: geometry.size.width/5)
                             .frame(width:geometry.size.width/2, height:geometry.size.width, alignment: .center)
-                            .offset(x:0, y:geometry.size.width/600)
-                        
                     }
                     
                 }

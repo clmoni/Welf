@@ -17,6 +17,9 @@ struct AuthenticationCallToActionView: View {
         
         let forgotPasswordText: GenericText =
             GenericText(font: .subheadline, text: "Forgot password?", colour: .green)
+        let logInText = Text("Log in")
+            .foregroundColor(Color.white)
+            .bold()
         
         return VStack{
             Divider()
@@ -26,7 +29,7 @@ struct AuthenticationCallToActionView: View {
             HStack{
                 GenericTextButton(text: forgotPasswordText, destination: ForgotPasswordView())
                 Spacer()
-                GenericButton(text: "Log in") { () in
+                GenericButton(buttonDisplayView: logInText) { () in
                     self.signIn()
                 }
             }
@@ -34,6 +37,7 @@ struct AuthenticationCallToActionView: View {
             
         }
     }
+    
 }
 
 struct AuthenticationCallToActionView_Previews: PreviewProvider {
