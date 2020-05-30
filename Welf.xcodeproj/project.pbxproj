@@ -48,6 +48,7 @@
 		E1F3976E24808ABD0017A29F /* CreateAccountDismissalBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3976D24808ABD0017A29F /* CreateAccountDismissalBarView.swift */; };
 		E1F397702481D0220017A29F /* GenericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3976F2481D0220017A29F /* GenericTextField.swift */; };
 		E1F397722481D65A0017A29F /* GenericSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F397712481D65A0017A29F /* GenericSecureField.swift */; };
+		E1F397752482BC5F0017A29F /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F397742482BC5F0017A29F /* UIApplicationExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		E1F3976D24808ABD0017A29F /* CreateAccountDismissalBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountDismissalBarView.swift; sourceTree = "<group>"; };
 		E1F3976F2481D0220017A29F /* GenericTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextField.swift; sourceTree = "<group>"; };
 		E1F397712481D65A0017A29F /* GenericSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSecureField.swift; sourceTree = "<group>"; };
+		E1F397742482BC5F0017A29F /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +332,7 @@
 		E1C7650E2411D69200D37181 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E1F397732482BC180017A29F /* Extensions */,
 				E1F8325C247DCCDD00D93439 /* Modifiers */,
 				E1C7650C2411D4F700D37181 /* Logo.swift */,
 				E1C7650F2411D72300D37181 /* GenericText.swift */,
@@ -351,6 +354,14 @@
 				E1F3976D24808ABD0017A29F /* CreateAccountDismissalBarView.swift */,
 			);
 			path = PartialViews;
+			sourceTree = "<group>";
+		};
+		E1F397732482BC180017A29F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E1F397742482BC5F0017A29F /* UIApplicationExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E1F8325B247DCCB200D93439 /* Landing */ = {
@@ -657,6 +668,7 @@
 				E1C765142411E78F00D37181 /* GenericButton.swift in Sources */,
 				E1B115122471EB5A00CA86DA /* AuthenticationService.swift in Sources */,
 				E146EC32247DC9EF007C2155 /* UsernameEntryView.swift in Sources */,
+				E1F397752482BC5F0017A29F /* UIApplicationExtensions.swift in Sources */,
 				E1ABFF66248064DA00FE6EE8 /* GenericResizeableButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
