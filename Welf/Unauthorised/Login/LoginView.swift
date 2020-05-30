@@ -11,7 +11,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var username: String = ""
     @State private var password: String = ""
-    @State private var isHidden = false
+    @State private var showPassword = false
     
     private let app = UIApplication.shared.delegate as! AppDelegate
     
@@ -19,7 +19,7 @@ struct LoginView: View {
         NavigationView {
             VStack {
                 LoginHeaderView()
-                CredentialsEntryView(username: $username, password: $password, isHidden: $isHidden)
+                CredentialsEntryView(username: $username, password: $password, showPassword: $showPassword)
                 AuthenticationCallToActionView(username: self.username, password: self.password, signIn: self.signIn)
             }
         }

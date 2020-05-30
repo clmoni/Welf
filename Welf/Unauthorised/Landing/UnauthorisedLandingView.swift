@@ -46,7 +46,7 @@ struct UnauthorisedLandingView: View {
     }
     
     private func createSignUpButton() -> some View {
-        GenericResizeableButton(text: "Create an account", radius: 8, height: 25) { () in
+        GenericResizeableButton(text: "Create account", radius: 8, height: 25) { () in
             print("registration button Pushed")
             self.showRegistrationModal = true
         }

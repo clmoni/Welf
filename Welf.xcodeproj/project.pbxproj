@@ -46,6 +46,8 @@
 		E1C7651A2411F71400D37181 /* GenericTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C765192411F71400D37181 /* GenericTextButton.swift */; };
 		E1F3976B248083890017A29F /* GenericResizeableIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3976A248083890017A29F /* GenericResizeableIconButton.swift */; };
 		E1F3976E24808ABD0017A29F /* CreateAccountDismissalBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3976D24808ABD0017A29F /* CreateAccountDismissalBarView.swift */; };
+		E1F397702481D0220017A29F /* GenericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3976F2481D0220017A29F /* GenericTextField.swift */; };
+		E1F397722481D65A0017A29F /* GenericSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F397712481D65A0017A29F /* GenericSecureField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +119,8 @@
 		E1C765192411F71400D37181 /* GenericTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextButton.swift; sourceTree = "<group>"; };
 		E1F3976A248083890017A29F /* GenericResizeableIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResizeableIconButton.swift; sourceTree = "<group>"; };
 		E1F3976D24808ABD0017A29F /* CreateAccountDismissalBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountDismissalBarView.swift; sourceTree = "<group>"; };
+		E1F3976F2481D0220017A29F /* GenericTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextField.swift; sourceTree = "<group>"; };
+		E1F397712481D65A0017A29F /* GenericSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericSecureField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +339,8 @@
 				E1B1150724719CCC00CA86DA /* WelfLogo.swift */,
 				E1ABFF65248064DA00FE6EE8 /* GenericResizeableButton.swift */,
 				E1F3976A248083890017A29F /* GenericResizeableIconButton.swift */,
+				E1F3976F2481D0220017A29F /* GenericTextField.swift */,
+				E1F397712481D65A0017A29F /* GenericSecureField.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -620,6 +626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F397702481D0220017A29F /* GenericTextField.swift in Sources */,
 				E119467D240B97D7007BE44A /* AppDelegate.swift in Sources */,
 				E1F3976B248083890017A29F /* GenericResizeableIconButton.swift in Sources */,
 				E1B3D7F62413C99A0047D618 /* SignUpView.swift in Sources */,
@@ -646,6 +653,7 @@
 				E119467F240B97D7007BE44A /* SceneDelegate.swift in Sources */,
 				E1C7651A2411F71400D37181 /* GenericTextButton.swift in Sources */,
 				E146EC34247DCBC0007C2155 /* CredentialsEntryView.swift in Sources */,
+				E1F397722481D65A0017A29F /* GenericSecureField.swift in Sources */,
 				E1C765142411E78F00D37181 /* GenericButton.swift in Sources */,
 				E1B115122471EB5A00CA86DA /* AuthenticationService.swift in Sources */,
 				E146EC32247DC9EF007C2155 /* UsernameEntryView.swift in Sources */,

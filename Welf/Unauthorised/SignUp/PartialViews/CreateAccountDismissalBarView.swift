@@ -12,23 +12,29 @@ struct CreateAccountDismissalBarView: View {
     var dismiss: () -> ()
     
     var body: some View {
-        HStack {
-            Button(action: { self.dismiss() }) {
-                Image(systemName: "xmark")
-                    .font(.system(size: 20))
-                    .foregroundColor(Color.green)
+        VStack {
+            HStack {
+                Button(action: { self.dismiss() }) {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 20))
+                        .foregroundColor(Color.green)
+                }
+                
+                Spacer()
+                
+                Text("Create account")
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.primary)
+                
+                Spacer()
+                
             }
-            
-            Spacer()
-            
-            Text("Create account")
-                .fontWeight(.bold)
-                .foregroundColor(Color.primary)
-            
-            Spacer()
-            
+            .padding(EdgeInsets(top: 25, leading: 20, bottom: 0, trailing: 20))
+
+            Divider()
+                .frame(height: 1)
+                .background(Color.green)
         }
-        .offset(y: -265)
     }
 }
 

@@ -13,12 +13,7 @@ struct UsernameEntryView: View {
     
     var body: some View {
         VStack {
-            TextField("User name", text: $username)
-                .autocapitalization(.none)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
-            Divider()
-                .frame(height: 0.8)
-                .background(Color.green)
+            GenericTextField(label: "User name", text: $username)
         }
     }
 }

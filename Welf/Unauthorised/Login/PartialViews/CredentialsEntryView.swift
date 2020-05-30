@@ -11,13 +11,13 @@ import SwiftUI
 struct CredentialsEntryView: View {
     @Binding var username: String
     @Binding var password: String
-    @Binding var isHidden: Bool
+    @Binding var showPassword: Bool
     
     var body: some View {
         VStack{
             Group {
                 UsernameEntryView(username: $username)
-                PasswordEntryView(password: $password, isHidden: $isHidden)
+                PasswordEntryView(password: $password, showPassword: $showPassword)
             }
         }
         .offset(y: -230)
@@ -27,6 +27,6 @@ struct CredentialsEntryView: View {
 
 struct CredentialsEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        CredentialsEntryView(username: .constant("test_user"), password: .constant("test"), isHidden: .constant(false))
+        CredentialsEntryView(username: .constant("test_user"), password: .constant("test"), showPassword: .constant(false))
     }
 }

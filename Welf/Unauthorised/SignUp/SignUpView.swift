@@ -12,46 +12,38 @@ struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var username: String = ""
     @State private var password: String = ""
+    @State private var emailAddress: String = ""
+    @State private var phoneNumber: String = ""
+    @State private var showPassword = false
     
-//    init(){
-//        UITableView.appearance().backgroundColor = .clear
-//    }
     
     var body: some View {
         VStack {
             CreateAccountDismissalBarView(dismiss: self.dismissRegistrationModalView)
+                .offset(y: -265)
             
-            TextField("User name", text: $username)
-                .autocapitalization(.none)
-                .padding(.top, 20)
-            Divider()
-                .frame(height: 1)
-                .background(Color.green)
+            VStack {
+                Group {
+                    GenericTextField(label: "User name", text: $username)
+                    
+                    GenericSecureField(label: "Password", showPassword: $showPassword, secureText: $password)
+                    
+                    GenericTextField(label: "Email address", text: $emailAddress)
+                    
+                    GenericTextField(label: "Phone number", text: $phoneNumber)
+                }
+            }
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            .offset(y: -265)
             
-            SecureField("Password", text: $password)
-                .padding(.top, 10)
-            Divider()
-                .frame(height: 1)
-                .background(Color.green)
-            
-            TextField("Email address", text: $username)
-                .autocapitalization(.none)
-                .padding(.top, 20)
-            Divider()
-                .frame(height: 1)
-                .background(Color.green)
-            
-            TextField("Phone number", text: $username)
-                .autocapitalization(.none)
-                .padding(.top, 20)
-            Divider()
-                .frame(height: 1)
-                .background(Color.green)
+            GenericResizeableButton(text: "Next", radius: 8, height: 25, action: {})
+                .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                .offset(y: 250)
+                .KeyboardAwarePadding(placeButtonOnTopOfKeyboard: true)
             
         }
         .frame(maxHeight: .infinity)
         .navigationBarTitle("Sign Up")
-        .padding()
     }
     
     private func dismissRegistrationModalView() {
