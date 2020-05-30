@@ -13,7 +13,7 @@ struct PasswordEntryView: View {
     @Binding var showPassword: Bool
     
     var body: some View {
-        GenericSecureField(label: "Password", showPassword: $showPassword, secureText: $password, trailingPadding: 20)
+        GenericSecureField(label: "Password", showPassword: $showPassword, secureText: $password, inputVisibilityIconPadding: 20)
     }
 }
 

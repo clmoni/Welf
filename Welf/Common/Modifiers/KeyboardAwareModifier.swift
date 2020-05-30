@@ -42,8 +42,3 @@ struct KeyboardAwareModifier: ViewModifier {
     }
 }
 
-extension View {
-    func KeyboardAwarePadding(placeButtonOnTopOfKeyboard: Bool = false, avoidEntireContent: Bool = false) -> some View {
-        ModifiedContent(content: self, modifier: KeyboardAwareModifier(placeButtonOnTopOfKeyboard: placeButtonOnTopOfKeyboard, avoidEntireContent: avoidEntireContent))
-    }
-}

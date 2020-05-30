@@ -33,8 +33,6 @@ struct AuthenticationCallToActionView: View {
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 5, trailing: 20))
             
         }
-        .offset(y: 170)
-        .KeyboardAwarePadding(placeButtonOnTopOfKeyboard: true)
     }
 }
 

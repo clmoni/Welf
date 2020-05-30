@@ -39,7 +39,7 @@ struct SignUpView: View {
             GenericResizeableButton(text: "Next", radius: 8, height: 25, action: {})
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 .offset(y: 250)
-                .KeyboardAwarePadding(placeButtonOnTopOfKeyboard: true)
+                .keyboardAwarePadding(placeButtonOnTopOfKeyboard: true)
             
         }
         .frame(maxHeight: .infinity)

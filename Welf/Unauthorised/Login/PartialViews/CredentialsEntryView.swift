@@ -20,8 +20,8 @@ struct CredentialsEntryView: View {
                 PasswordEntryView(password: $password, showPassword: $showPassword)
             }
         }
-        .offset(y: -230)
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 5, trailing: 0))
+        
     }
 }
 

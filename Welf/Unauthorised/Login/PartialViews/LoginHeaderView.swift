@@ -25,7 +25,6 @@ struct LoginHeaderView: View {
                     .font(.title)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
-            .offset(y: -210)
             .padding(20)
         }
     }
