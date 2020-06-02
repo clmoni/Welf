@@ -51,6 +51,7 @@
 		E1F397752482BC5F0017A29F /* UIApplicationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F397742482BC5F0017A29F /* UIApplicationExtensions.swift */; };
 		E1F397772482C8560017A29F /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F397762482C8560017A29F /* ViewExtensions.swift */; };
 		E1F397792482D9850017A29F /* KeyboardRemovalOnTapOutModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F397782482D9850017A29F /* KeyboardRemovalOnTapOutModifier.swift */; };
+		E1FEC90F2485D1DB00D4DDBE /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FEC90E2485D1DB00D4DDBE /* UINavigationControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		E1F397742482BC5F0017A29F /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplicationExtensions.swift; sourceTree = "<group>"; };
 		E1F397762482C8560017A29F /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		E1F397782482D9850017A29F /* KeyboardRemovalOnTapOutModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardRemovalOnTapOutModifier.swift; sourceTree = "<group>"; };
+		E1FEC90E2485D1DB00D4DDBE /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,6 +367,7 @@
 			children = (
 				E1F397742482BC5F0017A29F /* UIApplicationExtensions.swift */,
 				E1F397762482C8560017A29F /* ViewExtensions.swift */,
+				E1FEC90E2485D1DB00D4DDBE /* UINavigationControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				E1F397772482C8560017A29F /* ViewExtensions.swift in Sources */,
 				E1ABFF62247DE0F600FE6EE8 /* LoginButtonCancelText.swift in Sources */,
 				E1B3D7F32413A1A70047D618 /* UnauthorisedLandingView.swift in Sources */,
+				E1FEC90F2485D1DB00D4DDBE /* UINavigationControllerExtensions.swift in Sources */,
 				E1C765122411E62200D37181 /* Description.swift in Sources */,
 				E1194682240B97D7007BE44A /* Welf.xcdatamodeld in Sources */,
 				E15D76BD2477602000F17A59 /* ForgotPasswordView.swift in Sources */,

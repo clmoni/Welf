@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var emailAddress: String = ""

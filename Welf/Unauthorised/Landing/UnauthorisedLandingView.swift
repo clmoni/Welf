@@ -12,22 +12,23 @@ struct UnauthorisedLandingView: View {
     @State private var showRegistrationModal: Bool = false
     
     var body: some View {
-        VStack {
-            Spacer()
-            createLogoView()
-                
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
-                .frame(maxHeight: 350)
-            createDescriptionView()
-            
-            Spacer()
-            
+        GeometryReader { geometry in
             VStack {
-                createSignUpButton()
-                createLoginCallToAction()
+                Spacer()
+                self.createLogoView()
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
+                    .frame(maxHeight: 350)
+                
+                self.createDescriptionView(geometry)
+                Spacer()
+                
+                VStack {
+                    self.createSignUpButton()
+                    self.createLoginCallToAction()
+                }
             }
+            .padding()
         }
-        .padding(.horizontal)
     }
     
     private func createLogoView() -> some View {
@@ -39,10 +40,10 @@ struct UnauthorisedLandingView: View {
         }
     }
     
-    private func createDescriptionView() -> some View {
-        Description()
+    private func createDescriptionView(_ geometry: GeometryProxy) -> some View {
+        return Description()
             .frame(maxHeight: 180, alignment: .center)
-            .offset(y: -50)
+            .offset(y: -(geometry.size.height/12))
     }
     
     private func createSignUpButton() -> some View {
@@ -64,6 +65,18 @@ struct UnauthorisedLandingView: View {
 
 struct UnauthorisedLandingView_Previews: PreviewProvider {
     static var previews: some View {
-        UnauthorisedLandingView()
+        Group {
+            UnauthorisedLandingView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDisplayName("iPhone SE")
+            
+            UnauthorisedLandingView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+                .previewDisplayName("iPhone 8")
+            
+            UnauthorisedLandingView()
+                .previewDevice(PreviewDevice(rawValue: "iPhone Xs Max"))
+                .previewDisplayName("iPhone Xs Max")
+        }
     }
 }

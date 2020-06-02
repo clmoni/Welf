@@ -23,7 +23,7 @@ struct Login: View {
             weight: .bold,
             colour: .green)
         
-        return GenericTextButton(text: logInTextView, destination: LoginView(), isNavigationBarBackButtonHidden: true)
+        return GenericTextButton(text: logInTextView, destination: LoginView())
             .offset(x: -3)
     }
     
