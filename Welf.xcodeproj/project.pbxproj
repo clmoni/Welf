@@ -22,6 +22,8 @@
 		E146EC32247DC9EF007C2155 /* UsernameEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146EC31247DC9EF007C2155 /* UsernameEntryView.swift */; };
 		E146EC34247DCBC0007C2155 /* CredentialsEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146EC33247DCBC0007C2155 /* CredentialsEntryView.swift */; };
 		E15D76BD2477602000F17A59 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15D76BC2477602000F17A59 /* ForgotPasswordView.swift */; };
+		E1712C7E24883D93001B236B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1712C7D24883D93001B236B /* LoadingView.swift */; };
+		E1712C8024884138001B236B /* UserAuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1712C7F24884138001B236B /* UserAuthenticationState.swift */; };
 		E1ABFF60247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF5F247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift */; };
 		E1ABFF62247DE0F600FE6EE8 /* LoginButtonCancelText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF61247DE0F600FE6EE8 /* LoginButtonCancelText.swift */; };
 		E1ABFF66248064DA00FE6EE8 /* GenericResizeableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF65248064DA00FE6EE8 /* GenericResizeableButton.swift */; };
@@ -99,6 +101,8 @@
 		E146EC31247DC9EF007C2155 /* UsernameEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameEntryView.swift; sourceTree = "<group>"; };
 		E146EC33247DCBC0007C2155 /* CredentialsEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsEntryView.swift; sourceTree = "<group>"; };
 		E15D76BC2477602000F17A59 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		E1712C7D24883D93001B236B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E1712C7F24884138001B236B /* UserAuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationState.swift; sourceTree = "<group>"; };
 		E1ABFF5F247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCallToActionView.swift; sourceTree = "<group>"; };
 		E1ABFF61247DE0F600FE6EE8 /* LoginButtonCancelText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginButtonCancelText.swift; sourceTree = "<group>"; };
 		E1ABFF65248064DA00FE6EE8 /* GenericResizeableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResizeableButton.swift; sourceTree = "<group>"; };
@@ -294,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				E1B114F0246B515700CA86DA /* UserData.swift */,
+				E1712C7F24884138001B236B /* UserAuthenticationState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 				E1F3976A248083890017A29F /* GenericResizeableIconButton.swift */,
 				E1F3976F2481D0220017A29F /* GenericTextField.swift */,
 				E1F397712481D65A0017A29F /* GenericSecureField.swift */,
+				E1712C7D24883D93001B236B /* LoadingView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -667,6 +673,7 @@
 				E1F3976B248083890017A29F /* GenericResizeableIconButton.swift in Sources */,
 				E1B3D7F62413C99A0047D618 /* SignUpView.swift in Sources */,
 				E1B1150C2471A99100CA86DA /* SignOutButton.swift in Sources */,
+				E1712C7E24883D93001B236B /* LoadingView.swift in Sources */,
 				E1FEC911248730F900D4DDBE /* KeyboardResponder.swift in Sources */,
 				E1C7650D2411D4F700D37181 /* Logo.swift in Sources */,
 				E1B114F1246B515700CA86DA /* UserData.swift in Sources */,
@@ -685,6 +692,7 @@
 				E1B1150824719CCC00CA86DA /* WelfLogo.swift in Sources */,
 				E1F3976E24808ABD0017A29F /* CreateAccountDismissalBarView.swift in Sources */,
 				E1C765162411E9CF00D37181 /* Login.swift in Sources */,
+				E1712C8024884138001B236B /* UserAuthenticationState.swift in Sources */,
 				E1ABFF60247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift in Sources */,
 				E1B1150A2471A8C600CA86DA /* LoginView.swift in Sources */,
 				E1B115172472111300CA86DA /* AuthorisedLandingView.swift in Sources */,

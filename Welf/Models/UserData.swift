@@ -6,9 +6,8 @@
 //  Copyright © 2020 Clement Oniovosa. All rights reserved.
 //
 
-import Combine
 import SwiftUI
 
 final class UserData: ObservableObject {
-    @Published var isSignedIn : Bool = false
+    @Published var authenticationState = UserAuthenticationState()
 }

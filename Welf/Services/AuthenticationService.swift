@@ -17,7 +17,7 @@ struct AuthenticationService {
             
             // notify our subscriber the value changed
             DispatchQueue.main.async {
-                app.userData.isSignedIn = AWSMobileClient.default().isSignedIn
+                app.userData.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
             }
             
             self.logUserState(userState)
@@ -25,7 +25,7 @@ struct AuthenticationService {
         
         AWSMobileClient.default().initialize({(userState, error) in
             // notify our subscriber the value changed
-            app.userData.isSignedIn = AWSMobileClient.default().isSignedIn
+            app.userData.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
             self.logUserStateOrError(userState: userState, error: error)
         })
     }
@@ -35,7 +35,7 @@ struct AuthenticationService {
         
         // Option to launch sign in directly
         let signinUIOptions = SignInUIOptions(canCancel: false, logoImage: UIImage(named: "lemon-logo"), backgroundColor: .secondarySystemBackground)
-
+        
         AWSMobileClient.default().showSignIn(navigationController: navigationController, signInUIOptions: signinUIOptions, { (signInState, error) in
             if let signInState = signInState {
                 print("Sign in flow completed: \(signInState)")
@@ -49,7 +49,7 @@ struct AuthenticationService {
         print("hostedUI()")
         // Optionally override the scopes based on the usecase.
         let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email", "profile", "aws.cognito.signin.user.admin"])
-
+        
         // Present the Hosted UI sign in.
         AWSMobileClient.default().showSignIn(navigationController: navigationController, hostedUIOptions: hostedUIOptions) { (userState, error) in
             if let error = error as? AWSMobileClientError {
@@ -57,25 +57,21 @@ struct AuthenticationService {
             }
             if let userState = userState {
                 print("Status: \(userState.rawValue)")
-
             }
         }
     }
     
-    public func signIn(username: String, password: String) {
+    public func signIn(app: AppDelegate, username: String, password: String) {
+        self.changeSigningInState(app: app, isSigningIn: true)
         AWSMobileClient.default().signIn(username: username, password: password) {(signInResult, error) in
-            if let error = error  {
+            if let error = error as? AWSMobileClientError {
                 print("\(error)")
-                // in real life, present an error message to user
+                self.changeSigningInState(app: app, isSigningIn: false)
+                self.translateAWSMobileClientErrorToInternalAuthenticationErrorState(app: app, awsError: error)
+                
             } else if let signInResult = signInResult {
-                switch (signInResult.signInState) {
-                case .signedIn:
-                    print("User is signed in.")
-                case .smsMFA:
-                    print("SMS message sent to \(signInResult.codeDetails!.destination!)")
-                default:
-                    print("Sign In needs info which is not et supported.")
-                }
+                self.changeSigningInState(app: app, isSigningIn: false)
+                self.logSignInResult(signInResult)
             }
         }
     }
@@ -83,6 +79,39 @@ struct AuthenticationService {
     public func signOut() {
         DispatchQueue.main.async {
             AWSMobileClient.default().signOut()
+        }
+    }
+    
+    private func changeSigningInState(app: AppDelegate, isSigningIn: Bool) {
+        DispatchQueue.main.async {
+            app.userData.authenticationState.isSigningIn = isSigningIn
+        }
+    }
+    
+    private func translateAWSMobileClientErrorToInternalAuthenticationErrorState(app: AppDelegate, awsError: AWSMobileClientError?) {
+        switch awsError {
+        case .userNotFound:
+            DispatchQueue.main.async {
+                app.userData.authenticationState.isBadCredentialsSignInError = true
+                app.userData.authenticationState.isNonUserFaultSignInError = false
+            }
+        //print("The username and passwordyou entered did not match our records. Please try again.")
+        default:
+            DispatchQueue.main.async {
+                app.userData.authenticationState.isNonUserFaultSignInError = true
+                app.userData.authenticationState.isBadCredentialsSignInError = false
+            }
+        }
+    }
+    
+    private func logSignInResult(_ signInResult: SignInResult) {
+        switch (signInResult.signInState) {
+        case .signedIn:
+            print("User is signed in.")
+        case .smsMFA:
+            print("SMS message sent to \(signInResult.codeDetails!.destination!)")
+        default:
+            print("Sign In needs info which is not et supported.")
         }
     }
     
@@ -103,7 +132,7 @@ struct AuthenticationService {
         case .signedIn:
             print("user just signed in.")
             print("username : \(String(describing: AWSMobileClient.default().username))")
-                
+            
             AWSMobileClient.default().getUserAttributes(completionHandler:{ (attributes, error) in
                 print("error : \(String(describing: error))")
                 print("attributes : \(String(describing: attributes))")

@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     public func signIn(username: String, password: String) {
-        _authService.signIn(username: username, password: password)
+        _authService.signIn(app: self, username: username, password: password)
     }
     
     public func signOut() {

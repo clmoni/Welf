@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @EnvironmentObject private var userData: UserData
     @ObservedObject var keyboard = KeyboardResponder()
     @State private var username: String = ""
     @State private var password: String = ""
@@ -21,18 +22,16 @@ struct LoginView: View {
             VStack (alignment: .center) {
                 ScrollView(.vertical, showsIndicators: false) {
                     GenericText(font: .system(size: 25), text: "Login", weight: .bold, colour: .primary)
-                        .offset(y: -(geometry.size.height/35))
+                        .offset(y: -(geometry.size.height/25))
                     CredentialsEntryView(username: self.$username, password: self.$password, showPassword: self.$showPassword)
-                        .offset(y: -(geometry.size.height/35))
+                        .offset(y: -(geometry.size.height/30))
                 }
                 
                 AuthenticationCallToActionView(username: self.username, password: self.password, signIn: self.signIn)
                     .padding(.bottom, self.calculatePadding(geometry))
             }
-            .navigationBarTitle("")
-            .navigationBarItems(trailing: self.createLogo(geometry))
+            .dismissKeyboardOnDrag()
         }
-        .dismissKeyboardOnDrag()
     }
     
     private func calculatePadding(_ geometry: GeometryProxy) -> CGFloat {
@@ -42,11 +41,11 @@ struct LoginView: View {
         return self.keyboard.currentHeight == 0 ? defaultPadding : keyboardAwarePadding
     }
     
-    private func createLogo (_ geometry: GeometryProxy) -> some View {
+    private func createLogo(_ geometry: GeometryProxy) -> some View {
         WelfLogo()
-            .scaleEffect(3.3)
+            .scaleEffect(0.7)
             .frame(maxWidth: 40, maxHeight: 40)
-            .offset(x: -(geometry.size.width/2.25))
+            .offset(y: -100)
     }
     
     private func signIn() {
@@ -59,9 +58,9 @@ struct LoginView_Previews: PreviewProvider {
         Group {
             NavigationView {
                 LoginView()
-                    .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                    .previewDisplayName("iPhone SE")
             }
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+            .previewDisplayName("iPhone SE")
             
             NavigationView {
                 LoginView()
@@ -77,4 +76,3 @@ struct LoginView_Previews: PreviewProvider {
         }
     }
 }
-

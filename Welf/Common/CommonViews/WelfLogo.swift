@@ -29,6 +29,7 @@ struct WelfLogo: View {
             }
             .clipShape(Circle())
             .shadow(radius: geometry.size.width/30.0)
+            .frame(maxWidth: geometry.size.width, maxHeight: geometry.size.height/2)
         }
     }
 }

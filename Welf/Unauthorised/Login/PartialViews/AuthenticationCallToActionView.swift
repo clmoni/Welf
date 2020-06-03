@@ -32,6 +32,9 @@ struct AuthenticationCallToActionView: View {
                 GenericButton(buttonDisplayView: logInText) { () in
                     self.signIn()
                 }
+                .alert(isPresented: .constant(true)) {
+                    Alert(title: Text("Important message"), message: Text("Wear sunscreen"), dismissButton: .default(Text("Got it!")))
+                }
             }
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 8, trailing: 20))
             
