@@ -11,13 +11,11 @@ import SwiftUI
 struct AuthorisedLandingView: View {
     @EnvironmentObject private var userData: UserData
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("Hello, World!")
-            }
-            .navigationBarTitle(Text("Welf"))
-            .navigationBarItems(trailing: SignOutButton())
+        VStack {
+            Text("Hello, World!")
         }
+        .navigationBarTitle(Text("Welf"))
+        .navigationBarItems(trailing: SignOutButton())
     }
 }
 

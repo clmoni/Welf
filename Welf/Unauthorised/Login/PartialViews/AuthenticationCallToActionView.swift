@@ -33,7 +33,7 @@ struct AuthenticationCallToActionView: View {
                     self.signIn()
                 }
             }
-            .padding(EdgeInsets(top: 0, leading: 20, bottom: 5, trailing: 20))
+            .padding(EdgeInsets(top: 0, leading: 20, bottom: 8, trailing: 20))
             
         }
     }

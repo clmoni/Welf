@@ -8,11 +8,12 @@
 
 import SwiftUI
 
-struct KeyboardRemovalOnTapOutModifier: ViewModifier {
+struct KeyboardRemovalOnDragModifier: ViewModifier {
     func body(content: Content) -> some View {
         return content
-            .onTapGesture {
-                UIApplication.shared.dismissKeyboard()
-        }
+            .gesture(
+                DragGesture().onChanged { _ in
+                    UIApplication.shared.dismissKeyboard()
+            })
     }
 }

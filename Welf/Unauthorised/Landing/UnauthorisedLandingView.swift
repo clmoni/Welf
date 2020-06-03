@@ -28,6 +28,7 @@ struct UnauthorisedLandingView: View {
                 }
             }
             .padding()
+            .navigationBarTitle("")
         }
     }
     

@@ -12,14 +12,15 @@ struct LandingView: View {
     @ObservedObject public var user : UserData
     
     var body: some View {        
-        return NavigationView {
+        NavigationView {
             // .wrappedValue is used to extract the Bool from Binding<Bool> type
-            if(!$user.isSignedIn.wrappedValue) {
+            if !$user.isSignedIn.wrappedValue {
                 UnauthorisedLandingView()
             } else {
                 AuthorisedLandingView().environmentObject(user)
             }
         }
+        .accentColor(.green)
     }
 }
 

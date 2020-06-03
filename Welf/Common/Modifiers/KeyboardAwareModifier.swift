@@ -16,7 +16,7 @@ struct KeyboardAwareModifier: ViewModifier {
     
     @State private var keyboardHeight: CGFloat = 0
     @State private var keyboardOffset: CGFloat = 0
-
+    
     private var keyboardHeightPublisher: AnyPublisher<CGFloat, Never> {
         Publishers.Merge(
             NotificationCenter.default
@@ -26,9 +26,9 @@ struct KeyboardAwareModifier: ViewModifier {
             NotificationCenter.default
                 .publisher(for: UIResponder.keyboardWillHideNotification)
                 .map { _ in CGFloat(0) }
-       ).eraseToAnyPublisher()
+        ).eraseToAnyPublisher()
     }
-
+    
     func body(content: Content) -> some View {
         content
             .padding(.bottom, avoidEntireContent ? self.keyboardHeight : 0)

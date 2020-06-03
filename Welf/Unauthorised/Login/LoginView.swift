@@ -9,38 +9,37 @@
 import SwiftUI
 
 struct LoginView: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+    @ObservedObject var keyboard = KeyboardResponder()
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var showPassword: Bool = false
     
     private let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
-        init() {
-            UINavigationBar.appearance().backgroundColor = .blue
-        }
-    
     var body: some View {
-        NavigationView {
-            GeometryReader { geometry in
-                VStack (alignment: .center) {
-                    ScrollView(.vertical, showsIndicators: false) {
-                        GenericText(font: .system(size: 25), text: "Login", weight: .bold, colour: .primary)
-                            .offset(y: -(geometry.size.height/35))
-                        CredentialsEntryView(username: self.$username, password: self.$password, showPassword: self.$showPassword)
-                            .offset(y: -(geometry.size.height/35))
-                    }
-                    
-                    AuthenticationCallToActionView(username: self.username, password: self.password, signIn: self.signIn)
-                        .keyboardAwarePadding(placeButtonOnTopOfKeyboard: true)
+        GeometryReader { geometry in
+            VStack (alignment: .center) {
+                ScrollView(.vertical, showsIndicators: false) {
+                    GenericText(font: .system(size: 25), text: "Login", weight: .bold, colour: .primary)
+                        .offset(y: -(geometry.size.height/35))
+                    CredentialsEntryView(username: self.$username, password: self.$password, showPassword: self.$showPassword)
+                        .offset(y: -(geometry.size.height/35))
                 }
-                .navigationBarItems(leading: self.createCancleButton(), trailing: self.createLogo(geometry))
+                
+                AuthenticationCallToActionView(username: self.username, password: self.password, signIn: self.signIn)
+                    .padding(.bottom, self.calculatePadding(geometry))
             }
-            .dismissKeyboardOnTap()
+            .navigationBarTitle("")
+            .navigationBarItems(trailing: self.createLogo(geometry))
         }
-    .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
+        .dismissKeyboardOnDrag()
+    }
+    
+    private func calculatePadding(_ geometry: GeometryProxy) -> CGFloat {
+        let defaultPadding = geometry.safeAreaInsets.bottom/2.5
+        let keyboardAwarePadding = self.keyboard.currentHeight - geometry.safeAreaInsets.bottom
+        
+        return self.keyboard.currentHeight == 0 ? defaultPadding : keyboardAwarePadding
     }
     
     private func createLogo (_ geometry: GeometryProxy) -> some View {
@@ -48,15 +47,6 @@ struct LoginView: View {
             .scaleEffect(3.3)
             .frame(maxWidth: 40, maxHeight: 40)
             .offset(x: -(geometry.size.width/2.3))
-    }
-    
-    private func createCancleButton() -> GenericButton<LoginButtonCancelText> {
-        GenericButton(
-            isGenericButtonStyle: false,
-            buttonDisplayView: LoginButtonCancelText(),
-            action: {
-                self.presentationMode.wrappedValue.dismiss()
-        })
     }
     
     private func signIn() {
@@ -67,9 +57,11 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LoginView()
-                .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-                .previewDisplayName("iPhone SE")
+            NavigationView {
+                LoginView()
+                    .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                    .previewDisplayName("iPhone SE")
+            }
             
             NavigationView {
                 LoginView()

@@ -13,18 +13,7 @@ extension View {
         ModifiedContent(content: self, modifier: KeyboardAwareModifier(placeButtonOnTopOfKeyboard: placeButtonOnTopOfKeyboard, avoidEntireContent: avoidEntireContent))
     }
     
-    func dismissKeyboardOnTap() -> some View {
-        ModifiedContent(content: self, modifier: KeyboardRemovalOnTapOutModifier())
-    }
-}
-
-// MARK: avoid blocking navigation when swiping back in navigation view that disables back button
-extension View {
-    public func currentDeviceNavigationViewStyle() -> AnyView {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            return AnyView(self.navigationViewStyle(DefaultNavigationViewStyle()))
-        } else {
-            return AnyView(self.navigationViewStyle(StackNavigationViewStyle()))
-        }
+    func dismissKeyboardOnDrag() -> some View {
+        ModifiedContent(content: self, modifier: KeyboardRemovalOnDragModifier())
     }
 }
