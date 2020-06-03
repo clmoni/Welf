@@ -46,7 +46,7 @@ struct LoginView: View {
         WelfLogo()
             .scaleEffect(3.3)
             .frame(maxWidth: 40, maxHeight: 40)
-            .offset(x: -(geometry.size.width/2.3))
+            .offset(x: -(geometry.size.width/2.25))
     }
     
     private func signIn() {
