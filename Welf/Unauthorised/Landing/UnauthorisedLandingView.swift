@@ -60,7 +60,7 @@ struct UnauthorisedLandingView: View {
     private func createLoginCallToAction() -> some View {
         Login()
             .padding()
-            .frame(alignment: .center)
+            .frame(alignment: .center)        
     }
 }
 

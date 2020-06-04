@@ -10,14 +10,15 @@ import Foundation
 import AWSMobileClient
 
 struct AuthenticationService {
+    public let userData = UserData()
     
-    public func initialise(app: AppDelegate) {
+    public func initialise<T>(app: T) where T : AppDelegate {
         // Override point for customization after application launch.
         AWSMobileClient.default().addUserStateListener(app) { (userState, info) in
             
             // notify our subscriber the value changed
             DispatchQueue.main.async {
-                app.userData.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
+                self.userData.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
             }
             
             self.logUserState(userState)
@@ -25,7 +26,7 @@ struct AuthenticationService {
         
         AWSMobileClient.default().initialize({(userState, error) in
             // notify our subscriber the value changed
-            app.userData.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
+            self.userData.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
             self.logUserStateOrError(userState: userState, error: error)
         })
     }
@@ -61,18 +62,19 @@ struct AuthenticationService {
         }
     }
     
-    public func signIn(app: AppDelegate, username: String, password: String) {
-        self.changeSigningInState(app: app, isSigningIn: true)
+    public func signIn(username: String, password: String) {
+        self.changeSigningInState(isSigningIn: true)
         AWSMobileClient.default().signIn(username: username, password: password) {(signInResult, error) in
             if let error = error as? AWSMobileClientError {
                 print("\(error)")
-                self.changeSigningInState(app: app, isSigningIn: false)
-                self.translateAWSMobileClientErrorToInternalAuthenticationErrorState(app: app, awsError: error)
+                //self.changeSigningInState(isSigningIn: false)
+                //self.translateAWSMobileClientErrorToInternalAuthenticationErrorState(awsError: error)
                 
             } else if let signInResult = signInResult {
-                self.changeSigningInState(app: app, isSigningIn: false)
+                //self.changeSigningInState(isSigningIn: false)
                 self.logSignInResult(signInResult)
             }
+            self.changeSigningInState(isSigningIn: false)
         }
     }
     
@@ -82,24 +84,24 @@ struct AuthenticationService {
         }
     }
     
-    private func changeSigningInState(app: AppDelegate, isSigningIn: Bool) {
+    private func changeSigningInState(isSigningIn: Bool) {
         DispatchQueue.main.async {
-            app.userData.authenticationState.isSigningIn = isSigningIn
+            self.userData.authenticationState.isSigningIn = isSigningIn
         }
     }
     
-    private func translateAWSMobileClientErrorToInternalAuthenticationErrorState(app: AppDelegate, awsError: AWSMobileClientError?) {
+    private func translateAWSMobileClientErrorToInternalAuthenticationErrorState(awsError: AWSMobileClientError?) {
         switch awsError {
         case .userNotFound:
             DispatchQueue.main.async {
-                app.userData.authenticationState.isBadCredentialsSignInError = true
-                app.userData.authenticationState.isNonUserFaultSignInError = false
+                self.userData.authenticationState.isBadCredentialsSignInError = true
+                self.userData.authenticationState.isNonUserFaultSignInError = false
             }
         //print("The username and passwordyou entered did not match our records. Please try again.")
         default:
             DispatchQueue.main.async {
-                app.userData.authenticationState.isNonUserFaultSignInError = true
-                app.userData.authenticationState.isBadCredentialsSignInError = false
+                self.userData.authenticationState.isNonUserFaultSignInError = true
+                self.userData.authenticationState.isBadCredentialsSignInError = false
             }
         }
     }

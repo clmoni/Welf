@@ -13,9 +13,10 @@ struct AuthorisedLandingView: View {
     var body: some View {
         VStack {
             Text("Hello, World!")
+            SignOutButton()
         }
         .navigationBarTitle(Text("Welf"))
-        .navigationBarItems(trailing: SignOutButton())
+        //.navigationBarItems(trailing: SignOutButton())
     }
 }
 

@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct LoginView: View {
-    @EnvironmentObject private var userData: UserData
     @ObservedObject var keyboard = KeyboardResponder()
     @State private var username: String = ""
     @State private var password: String = ""
@@ -49,7 +48,7 @@ struct LoginView: View {
     }
     
     private func signIn() {
-        self.app.signIn(username: self.username, password: self.password)
+        self.app.authService.signIn(username: self.username, password: self.password)
     }
 }
 

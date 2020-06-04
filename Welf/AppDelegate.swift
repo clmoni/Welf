@@ -14,11 +14,10 @@ import AWSAppSync
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    private let _authService = AuthenticationService()
-    public let userData = UserData()
+    public let authService = AuthenticationService()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        _authService.initialise(app: self)
+        authService.initialise(app: self)
         return true
     }
     
@@ -43,19 +42,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: AWSMobileClient - Authentication
     
     public func authenticateWithDropinUI(navigationController : UINavigationController) {
-        _authService.authenticateWithDropinUI(navigationController: navigationController)
+        authService.authenticateWithDropinUI(navigationController: navigationController)
     }
     
     public func authenticateWithHostedUI(navigationController : UINavigationController) {
-        _authService.authenticateWithHostedUI(navigationController: navigationController)
+        authService.authenticateWithHostedUI(navigationController: navigationController)
     }
     
     public func signIn(username: String, password: String) {
-        _authService.signIn(app: self, username: username, password: password)
+        authService.signIn(username: username, password: password)
     }
     
     public func signOut() {
-        _authService.signOut()
+        authService.signOut()
     }
 
     // MARK: - Core Data stack

@@ -28,7 +28,7 @@ struct LandingView: View {
 
 struct LandingView_Previews: PreviewProvider {
     static var previews: some View {
-        let app = UIApplication.shared.delegate as! AppDelegate
-        return LandingView(user: app.userData)
+        //let app = UIApplication.shared.delegate as! AppDelegate
+        return LandingView(user: UserData())
     }
 }
