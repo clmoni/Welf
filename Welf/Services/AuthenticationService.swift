@@ -67,11 +67,8 @@ struct AuthenticationService {
         AWSMobileClient.default().signIn(username: username, password: password) {(signInResult, error) in
             if let error = error as? AWSMobileClientError {
                 print("\(error)")
-                //self.changeSigningInState(isSigningIn: false)
-                //self.translateAWSMobileClientErrorToInternalAuthenticationErrorState(awsError: error)
-                
+                self.translateAWSMobileClientErrorToInternalAuthenticationErrorState(awsError: error)
             } else if let signInResult = signInResult {
-                //self.changeSigningInState(isSigningIn: false)
                 self.logSignInResult(signInResult)
             }
             self.changeSigningInState(isSigningIn: false)
@@ -91,15 +88,15 @@ struct AuthenticationService {
     }
     
     private func translateAWSMobileClientErrorToInternalAuthenticationErrorState(awsError: AWSMobileClientError?) {
-        switch awsError {
-        case .userNotFound:
-            DispatchQueue.main.async {
+        DispatchQueue.main.async {
+            switch awsError {
+            case .userNotFound:
                 self.userData.authenticationState.isBadCredentialsSignInError = true
                 self.userData.authenticationState.isNonUserFaultSignInError = false
-            }
-        //print("The username and passwordyou entered did not match our records. Please try again.")
-        default:
-            DispatchQueue.main.async {
+            case .invalidParameter:
+                self.userData.authenticationState.isBadCredentialsSignInError = true
+                self.userData.authenticationState.isNonUserFaultSignInError = false
+            default:
                 self.userData.authenticationState.isNonUserFaultSignInError = true
                 self.userData.authenticationState.isBadCredentialsSignInError = false
             }

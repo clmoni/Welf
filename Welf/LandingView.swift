@@ -16,7 +16,7 @@ struct LandingView: View {
             NavigationView {
                 // .wrappedValue is used to extract the Bool from Binding<Bool> type
                 if !self.$user.authenticationState.isSignedIn.wrappedValue {
-                    UnauthorisedLandingView()
+                    UnauthorisedLandingView(authenticationState: self.$user.authenticationState)
                 } else {
                     AuthorisedLandingView().environmentObject(self.user)
                 }

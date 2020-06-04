@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    @ObservedObject var keyboard = KeyboardResponder()
+    @ObservedObject private var keyboard = KeyboardResponder()
+    @Binding var authenticationState: UserAuthenticationState
     @State private var username: String = ""
     @State private var password: String = ""
     @State private var showPassword: Bool = false
@@ -17,7 +18,7 @@ struct LoginView: View {
     private let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var body: some View {
-        GeometryReader { geometry in
+        return GeometryReader { geometry in
             VStack (alignment: .center) {
                 ScrollView(.vertical, showsIndicators: false) {
                     GenericText(font: .system(size: 25), text: "Login", weight: .bold, colour: .primary)
@@ -26,7 +27,7 @@ struct LoginView: View {
                         .offset(y: -(geometry.size.height/30))
                 }
                 
-                AuthenticationCallToActionView(username: self.username, password: self.password, signIn: self.signIn)
+                AuthenticationCallToActionView(username: self.username, password: self.password, authenticationState: self.$authenticationState, signIn: self.signIn)
                     .padding(.bottom, self.calculatePadding(geometry))
             }
             .dismissKeyboardOnDrag()
@@ -56,19 +57,19 @@ struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             NavigationView {
-                LoginView()
+                LoginView(authenticationState: .constant(UserAuthenticationState()))
             }
             .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
             .previewDisplayName("iPhone SE")
             
             NavigationView {
-                LoginView()
+                LoginView(authenticationState: .constant(UserAuthenticationState()))
             }
             .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
             .previewDisplayName("iPhone 8")
             
             NavigationView {
-                LoginView()
+                LoginView(authenticationState: .constant(UserAuthenticationState()))
             }
             .previewDevice(PreviewDevice(rawValue: "iPhone Xs Max"))
             .previewDisplayName("iPhone Xs Max")

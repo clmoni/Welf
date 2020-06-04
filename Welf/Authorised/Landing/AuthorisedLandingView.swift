@@ -11,7 +11,7 @@ import SwiftUI
 struct AuthorisedLandingView: View {
     @EnvironmentObject private var userData: UserData
     var body: some View {
-        VStack {
+        return VStack {
             Text("Hello, World!")
             SignOutButton()
         }
