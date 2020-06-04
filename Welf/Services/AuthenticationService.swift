@@ -13,53 +13,8 @@ struct AuthenticationService {
     public let userData = UserData()
     
     public func initialise<T>(app: T) where T : AppDelegate {
-        // Override point for customization after application launch.
-        AWSMobileClient.default().addUserStateListener(app) { (userState, info) in
-            
-            // notify our subscriber the value changed
-            DispatchQueue.main.async {
-                self.userData.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
-            }
-            
-            self.logUserState(userState)
-        }
-        
-        AWSMobileClient.default().initialize({(userState, error) in
-            // notify our subscriber the value changed
-            self.userData.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
-            self.logUserStateOrError(userState: userState, error: error)
-        })
-    }
-    
-    public func authenticateWithDropinUI(navigationController : UINavigationController) {
-        print("dropinUI()")
-        
-        // Option to launch sign in directly
-        let signinUIOptions = SignInUIOptions(canCancel: false, logoImage: UIImage(named: "lemon-logo"), backgroundColor: .secondarySystemBackground)
-        
-        AWSMobileClient.default().showSignIn(navigationController: navigationController, signInUIOptions: signinUIOptions, { (signInState, error) in
-            if let signInState = signInState {
-                print("Sign in flow completed: \(signInState)")
-            } else if let error = error {
-                print("error logging in: \(error.localizedDescription)")
-            }
-        })
-    }
-    
-    public func authenticateWithHostedUI(navigationController : UINavigationController) {
-        print("hostedUI()")
-        // Optionally override the scopes based on the usecase.
-        let hostedUIOptions = HostedUIOptions(scopes: ["openid", "email", "profile", "aws.cognito.signin.user.admin"])
-        
-        // Present the Hosted UI sign in.
-        AWSMobileClient.default().showSignIn(navigationController: navigationController, hostedUIOptions: hostedUIOptions) { (userState, error) in
-            if let error = error as? AWSMobileClientError {
-                print(error.localizedDescription)
-            }
-            if let userState = userState {
-                print("Status: \(userState.rawValue)")
-            }
-        }
+        self.addUserStateListener(app: app)
+        self.doInitialisation()
     }
     
     public func signIn(username: String, password: String) {
@@ -100,6 +55,27 @@ struct AuthenticationService {
                 self.userData.authenticationState.isNonUserFaultSignInError = true
                 self.userData.authenticationState.isBadCredentialsSignInError = false
             }
+        }
+    }
+    
+    private func doInitialisation() {
+        AWSMobileClient.default().initialize({(userState, error) in
+            // notify our subscriber the value changed
+            self.userData.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
+            self.logUserStateOrError(userState: userState, error: error)
+        })
+    }
+    
+    private func addUserStateListener<T> (app: T) where T : AppDelegate {
+        // Override point for customization after application launch.
+        AWSMobileClient.default().addUserStateListener(app) { (userState, info) in
+            
+            // notify our subscriber the value changed
+            DispatchQueue.main.async {
+                self.userData.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
+            }
+            
+            self.logUserState(userState)
         }
     }
     

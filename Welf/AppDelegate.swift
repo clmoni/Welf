@@ -41,14 +41,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: AWSMobileClient - Authentication
     
-    public func authenticateWithDropinUI(navigationController : UINavigationController) {
-        authService.authenticateWithDropinUI(navigationController: navigationController)
-    }
-    
-    public func authenticateWithHostedUI(navigationController : UINavigationController) {
-        authService.authenticateWithHostedUI(navigationController: navigationController)
-    }
-    
     public func signIn(username: String, password: String) {
         authService.signIn(username: username, password: password)
     }
