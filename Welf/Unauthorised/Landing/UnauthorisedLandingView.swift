@@ -10,7 +10,6 @@ import SwiftUI
 
 struct UnauthorisedLandingView: View {
     @State private var showRegistrationModal: Bool = false
-    @Binding var authenticationState: UserAuthenticationState
     
     var body: some View {
         GeometryReader { geometry in
@@ -59,7 +58,7 @@ struct UnauthorisedLandingView: View {
     }
     
     private func createLoginCallToAction() -> some View {
-        Login(authenticationState: $authenticationState)
+        Login()
             .padding()
             .frame(alignment: .center)        
     }
@@ -68,15 +67,15 @@ struct UnauthorisedLandingView: View {
 struct UnauthorisedLandingView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            UnauthorisedLandingView(authenticationState: .constant(UserAuthenticationState()))
+            UnauthorisedLandingView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
             
-            UnauthorisedLandingView(authenticationState: .constant(UserAuthenticationState()))
+            UnauthorisedLandingView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
                 .previewDisplayName("iPhone 8")
             
-            UnauthorisedLandingView(authenticationState: .constant(UserAuthenticationState()))
+            UnauthorisedLandingView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone Xs Max"))
                 .previewDisplayName("iPhone Xs Max")
         }

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct AuthorisedLandingView: View {
-    @EnvironmentObject private var userData: UserData
+    @EnvironmentObject private var user: UserData
     var body: some View {
         return VStack {
             Text("Hello, World!")

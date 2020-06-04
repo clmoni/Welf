@@ -10,9 +10,9 @@ import SwiftUI
 
 struct AuthenticationCallToActionView: View {
     @State private var showForgotPasswordView: Bool = false
+    @EnvironmentObject private var user: UserData
     var username: String
     var password: String
-    @Binding var authenticationState: UserAuthenticationState
     var signIn: () -> ()
     
     var body: some View {
@@ -38,7 +38,7 @@ struct AuthenticationCallToActionView: View {
                 GenericButton(buttonDisplayView: logInText) { () in
                     self.signIn()
                 }
-                .alert(isPresented: self.$authenticationState.isBadCredentialsSignInError) {
+                .alert(isPresented: $user.authenticationState.isBadCredentialsSignInError) {
                     let titleText = Text(verbatim: "Please try again")
                     let messageText =  Text(verbatim: "The username and password you entered did not match our records. Please try again.")
                     let okBtnText = Text(verbatim: "OK")
@@ -58,6 +58,6 @@ struct AuthenticationCallToActionView: View {
 
 struct AuthenticationCallToActionView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthenticationCallToActionView(username: "", password: "", authenticationState: .constant(UserAuthenticationState()), signIn: {})
+        AuthenticationCallToActionView(username: "", password: "", signIn: {})
     }
 }

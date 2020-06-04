@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct Login: View {
-    @Binding var authenticationState: UserAuthenticationState
     
     var body: some View {
         HStack {
@@ -25,7 +24,7 @@ struct Login: View {
             weight: .bold,
             colour: .green)
         
-        return GenericTextButton(text: logInTextView, destination: LoginView(authenticationState: $authenticationState))
+        return GenericTextButton(text: logInTextView, destination: LoginView())
             .offset(x: -3)
     }
     
@@ -41,6 +40,6 @@ struct Login: View {
 
 struct Login_Previews: PreviewProvider {
     static var previews: some View {
-        Login(authenticationState: .constant(UserAuthenticationState()))
+        Login()
     }
 }
