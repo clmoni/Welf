@@ -15,6 +15,10 @@ struct AuthenticationCallToActionView: View {
     var password: String
     var signIn: () -> ()
     
+    var disableLoginButton: Bool {
+        username.isEmpty || password.isEmpty
+    }
+    
     var body: some View {
         
         let forgotPasswordText: GenericText =
@@ -35,29 +39,37 @@ struct AuthenticationCallToActionView: View {
             HStack{
                 GenericTextButton(text: forgotPasswordText, destination: ForgotPasswordView())
                 Spacer()
-                GenericButton(buttonDisplayView: logInText) { () in
+                GenericButton(
+                    buttonDisplayView: logInText,
+                    backgroundColour: disableLoginButton ? .secondary : .green
+                ) { () in
                     self.signIn()
                 }
                 .alert(isPresented: $user.authenticationState.isBadCredentialsSignInError) {
-                    let titleText = Text(verbatim: "Please try again")
-                    let messageText =  Text(verbatim: "The username and password you entered did not match our records. Please try again.")
-                    let okBtnText = Text(verbatim: "OK")
-                    let resetBtn: Alert.Button = .default(Text(verbatim: "Reset password")) {
-                        self.showForgotPasswordView = true
-                    }
-                    
                     UIApplication.shared.dismissKeyboard()
-                    
-                    return Alert(title: titleText, message: messageText, primaryButton: .default(okBtnText), secondaryButton: resetBtn)
+                    return self.signInErrorAlert()
                 }
+                .disabled(disableLoginButton)
             }
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 8, trailing: 20))
         }
+    }
+    
+    private func signInErrorAlert () -> Alert {
+        let titleText = Text(verbatim: "Please try again")
+        let messageText =  Text(verbatim: "The username and password you entered did not match our records. Please try again.")
+        let okBtnText = Text(verbatim: "OK")
+        let resetBtn: Alert.Button = .default(Text(verbatim: "Reset password")) {
+            self.showForgotPasswordView = true
+        }
+        
+        return Alert(title: titleText, message: messageText, primaryButton: .default(okBtnText), secondaryButton: resetBtn)
     }
 }
 
 struct AuthenticationCallToActionView_Previews: PreviewProvider {
     static var previews: some View {
         AuthenticationCallToActionView(username: "", password: "", signIn: {})
+            .environmentObject(UserData())
     }
 }

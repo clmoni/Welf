@@ -12,6 +12,7 @@ struct GenericButton<T>: View where T : View {
     var isGenericButtonStyle: Bool = true
     let buttonDisplayView: T
     var genericButtonRadius: CGFloat = 20
+    var backgroundColour: Color = .green
     let action: () -> Void
     
     var body: some View {
@@ -22,7 +23,7 @@ struct GenericButton<T>: View where T : View {
                         .foregroundColor(Color.white)
                 }
                 .padding(EdgeInsets(top: 6, leading: 10, bottom: 6, trailing: 10))
-                .background(Color.green)
+                .background(backgroundColour)
                 .cornerRadius(genericButtonRadius)
             } else {
                 self.buttonDisplayView
