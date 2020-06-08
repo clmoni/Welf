@@ -15,6 +15,7 @@ struct SignUpView: View {
     @State private var emailAddress: String = ""
     @State private var phoneNumber: String = ""
     @State private var showPassword: Bool = false
+    private var registrationService = RegistrationService()
     
     
     var body: some View {
@@ -36,7 +37,7 @@ struct SignUpView: View {
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             .offset(y: -265)
             
-            GenericResizeableButton(text: "Next", radius: 8, height: 25, action: {})
+            GenericResizeableButton(text: "Next", radius: 8, height: 25, action: self.signUp)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 .offset(y: 250)
                 .keyboardAwarePadding(placeButtonOnTopOfKeyboard: true)
@@ -44,6 +45,10 @@ struct SignUpView: View {
         }
         .frame(maxHeight: .infinity)
         .navigationBarTitle("Sign Up")
+    }
+    
+    private func signUp() {
+        self.registrationService.signUp(username: username, password: password, email: emailAddress, phoneNumber: phoneNumber)
     }
     
     private func dismissRegistrationModalView() {
@@ -55,7 +60,7 @@ struct SignUpView: View {
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpView()
-        //.environment(\.colorScheme, .dark)
+        .environment(\.colorScheme, .dark)
     }
 }
 

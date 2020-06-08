@@ -10,7 +10,7 @@ import Foundation
 import AWSMobileClient
 
 struct AuthenticationService {
-    public let userData = UserData()
+    public let user = UserData()
     
     public func initialise<T>(app: T) where T : AppDelegate {
         self.addUserStateListener(app: app)
@@ -38,7 +38,7 @@ struct AuthenticationService {
     
     private func changeSigningInState(isSigningIn: Bool) {
         DispatchQueue.main.async {
-            self.userData.authenticationState.isSigningIn = isSigningIn
+            self.user.authenticationState.isSigningIn = isSigningIn
         }
     }
     
@@ -46,14 +46,14 @@ struct AuthenticationService {
         DispatchQueue.main.async {
             switch awsError {
             case .userNotFound:
-                self.userData.authenticationState.isBadCredentialsSignInError = true
-                self.userData.authenticationState.isNonUserFaultSignInError = false
+                self.user.authenticationState.isBadCredentialsSignInError = true
+                self.user.authenticationState.isNonUserFaultSignInError = false
             case .invalidParameter:
-                self.userData.authenticationState.isBadCredentialsSignInError = true
-                self.userData.authenticationState.isNonUserFaultSignInError = false
+                self.user.authenticationState.isBadCredentialsSignInError = true
+                self.user.authenticationState.isNonUserFaultSignInError = false
             default:
-                self.userData.authenticationState.isNonUserFaultSignInError = true
-                self.userData.authenticationState.isBadCredentialsSignInError = false
+                self.user.authenticationState.isNonUserFaultSignInError = true
+                self.user.authenticationState.isBadCredentialsSignInError = false
             }
         }
     }
@@ -61,7 +61,7 @@ struct AuthenticationService {
     private func doInitialisation() {
         AWSMobileClient.default().initialize({(userState, error) in
             // notify our subscriber the value changed
-            self.userData.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
+            self.user.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
             self.logUserStateOrError(userState: userState, error: error)
         })
     }
@@ -72,7 +72,7 @@ struct AuthenticationService {
             
             // notify our subscriber the value changed
             DispatchQueue.main.async {
-                self.userData.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
+                self.user.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
             }
             
             self.logUserState(userState)

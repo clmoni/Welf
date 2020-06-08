@@ -34,7 +34,7 @@ struct Login: View {
         return GenericText(
             font: .subheadline, text: alreadyRegisteredText,
             weight: .light)
-            .offset(x:3)
+            .offset(x: 3)
     }
 }
 

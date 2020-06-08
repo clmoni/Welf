@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = HostingController(rootView: LandingView(user: app.authService.userData))
+            window.rootViewController = HostingController(rootView: LandingView(user: app.authService.user))
             self.window = window
             window.makeKeyAndVisible()
         }
