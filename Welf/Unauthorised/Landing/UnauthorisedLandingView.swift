@@ -10,25 +10,30 @@ import SwiftUI
 
 struct UnauthorisedLandingView: View {
     @State private var showRegistrationModal: Bool = false
+    @EnvironmentObject private var user: User
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                Spacer()
-                self.createLogoView()
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
-                    .frame(maxHeight: 350)
-                
-                self.createDescriptionView(geometry)
-                Spacer()
-                
-                VStack {
-                    self.createSignUpButton()
-                    self.createLoginCallToAction()
+        LoadingView(isShowing: self.$user.authenticationState.isSigningIn) {
+            NavigationView {
+                GeometryReader { geometry in
+                    VStack {
+                        Spacer()
+                        self.createLogoView()
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
+                            .frame(maxHeight: 350)
+                        
+                        self.createDescriptionView(geometry)
+                        Spacer()
+                        
+                        VStack {
+                            self.createSignUpButton()
+                            self.createLoginCallToAction()
+                        }
+                    }
+                    .padding()
+                    .navigationBarTitle("")
                 }
             }
-            .padding()
-            .navigationBarTitle("")
         }
     }
     

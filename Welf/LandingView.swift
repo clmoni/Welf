@@ -11,25 +11,21 @@ import SwiftUI
 struct LandingView: View {
     @ObservedObject public var user : User
     
-    var body: some View {        
-        LoadingView(isShowing: self.$user.authenticationState.isSigningIn) {
-            NavigationView {
-                // .wrappedValue is used to extract the Bool from Binding<Bool> type
-                if !self.$user.authenticationState.isSignedIn.wrappedValue {
-                    UnauthorisedLandingView()
-                } else {
-                    AuthorisedLandingView()
-                }
+    var body: some View {
+        VStack {
+            if !self.$user.authenticationState.isSignedIn.wrappedValue {
+                UnauthorisedLandingView()
+            } else {
+                AuthorisedLandingView()
             }
-            .accentColor(.green)
-            .environmentObject(self.user)
         }
+        .accentColor(.green)
+        .environmentObject(self.user)
     }
 }
 
 struct LandingView_Previews: PreviewProvider {
     static var previews: some View {
-        //let app = UIApplication.shared.delegate as! AppDelegate
         return LandingView(user: User())
     }
 }
