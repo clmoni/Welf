@@ -45,15 +45,12 @@ struct AuthenticationService {
     private func translateAWSMobileClientErrorToInternalAuthenticationErrorState(awsError: AWSMobileClientError?) {
         DispatchQueue.main.async {
             switch awsError {
-            case .userNotFound:
-                self.user.authenticationState.isBadCredentialsSignInError = true
-                self.user.authenticationState.isNonUserFaultSignInError = false
-            case .invalidParameter:
+            case .notAuthorized, .invalidParameter, .userNotFound:
                 self.user.authenticationState.isBadCredentialsSignInError = true
                 self.user.authenticationState.isNonUserFaultSignInError = false
             default:
-                self.user.authenticationState.isNonUserFaultSignInError = true
                 self.user.authenticationState.isBadCredentialsSignInError = false
+                self.user.authenticationState.isNonUserFaultSignInError = true
             }
         }
     }
