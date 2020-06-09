@@ -10,8 +10,8 @@ import SwiftUI
 
 struct AuthenticationCallToActionView: View {
     private let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    @EnvironmentObject private var user: User
     @State private var disableLoginButton: Bool = true
+    @EnvironmentObject private var user: User
     
     @ObservedObject var signInViewModel: SignInViewModel
     
