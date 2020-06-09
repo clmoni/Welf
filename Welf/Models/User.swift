@@ -8,6 +8,6 @@
 
 import SwiftUI
 
-final class UserData: ObservableObject {
+final class User: ObservableObject {
     @Published var authenticationState = UserAuthenticationState()
 }

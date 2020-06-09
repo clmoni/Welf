@@ -10,11 +10,7 @@ import SwiftUI
 
 struct LoginView: View {
     @ObservedObject private var keyboard = KeyboardResponder()
-    @State private var username: String = ""
-    @State private var password: String = ""
-    @State private var showPassword: Bool = false
-    
-    private let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+    @ObservedObject private var signInViewModel = SignInViewModel()
     
     var body: some View {
         return GeometryReader { geometry in
@@ -22,11 +18,11 @@ struct LoginView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     GenericText(font: .system(size: 25), text: "Login", weight: .bold, colour: .primary)
                         .offset(y: -(geometry.size.height/25))
-                    CredentialsEntryView(username: self.$username, password: self.$password, showPassword: self.$showPassword)
+                    CredentialsEntryView(signInViewModel: self.signInViewModel)
                         .offset(y: -(geometry.size.height/30))
                 }
                 
-                AuthenticationCallToActionView(username: self.username, password: self.password, signIn: self.signIn)
+                AuthenticationCallToActionView(signInViewModel: self.signInViewModel)
                     .padding(.bottom, self.calculatePadding(geometry))
             }
             .dismissKeyboardOnDrag()
@@ -45,10 +41,6 @@ struct LoginView: View {
             .scaleEffect(0.7)
             .frame(maxWidth: 40, maxHeight: 40)
             .offset(y: -100)
-    }
-    
-    private func signIn() {
-        self.app.authService.signIn(username: self.username, password: self.password)
     }
 }
 

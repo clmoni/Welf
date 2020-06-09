@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct LandingView: View {
-    @ObservedObject public var user : UserData
+    @ObservedObject public var user : User
     
     var body: some View {        
         LoadingView(isShowing: self.$user.authenticationState.isSigningIn) {
@@ -30,6 +30,6 @@ struct LandingView: View {
 struct LandingView_Previews: PreviewProvider {
     static var previews: some View {
         //let app = UIApplication.shared.delegate as! AppDelegate
-        return LandingView(user: UserData())
+        return LandingView(user: User())
     }
 }

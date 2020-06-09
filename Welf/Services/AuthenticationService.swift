@@ -10,7 +10,7 @@ import Foundation
 import AWSMobileClient
 
 struct AuthenticationService {
-    public let user = UserData()
+    public let user = User()
     
     public func initialise<T>(app: T) where T : AppDelegate {
         self.addUserStateListener(app: app)
