@@ -13,7 +13,7 @@ struct LoginView: View {
     @ObservedObject private var signInViewModel = SignInViewModel()
     
     var body: some View {
-        return GeometryReader { geometry in
+        GeometryReader { geometry in
             VStack (alignment: .center) {
                 ScrollView(.vertical, showsIndicators: false) {
                     GenericText(font: .system(size: 25), text: "Login", weight: .bold, colour: .primary)
@@ -23,17 +23,10 @@ struct LoginView: View {
                 }
                 
                 AuthenticationCallToActionView(signInViewModel: self.signInViewModel)
-                    .padding(.bottom, self.calculatePadding(geometry))
+                    .padding(.bottom, self.keyboard.calculateMovingPadding(geometry))
             }
             .dismissKeyboardOnDrag()
         }
-    }
-    
-    private func calculatePadding(_ geometry: GeometryProxy) -> CGFloat {
-        let defaultPadding = geometry.safeAreaInsets.bottom/2.5
-        let keyboardAwarePadding = self.keyboard.currentHeight - geometry.safeAreaInsets.bottom
-        
-        return self.keyboard.currentHeight == 0 ? defaultPadding : keyboardAwarePadding
     }
     
     private func createLogo(_ geometry: GeometryProxy) -> some View {
@@ -65,5 +58,6 @@ struct LoginView_Previews: PreviewProvider {
             .previewDevice(PreviewDevice(rawValue: "iPhone Xs Max"))
             .previewDisplayName("iPhone Xs Max")
         }
+        .environmentObject(User())
     }
 }

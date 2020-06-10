@@ -10,45 +10,54 @@ import SwiftUI
 
 struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State private var username: String = ""
-    @State private var password: String = ""
-    @State private var emailAddress: String = ""
-    @State private var phoneNumber: String = ""
-    @State private var showPassword: Bool = false
     private var registrationService = RegistrationService()
-    
+    @ObservedObject private var signUpViewModel = SignUpViewModel()
+    //@ObservedObject private var keyboard = KeyboardResponder()
     
     var body: some View {
-        VStack {
-            CreateAccountDismissalBarView(dismiss: self.dismissRegistrationModalView)
-                .offset(y: -265)
-            
+        GeometryReader { geometry in
             VStack {
-                Group {
-                    GenericTextField(label: "User name", text: $username)
-                    
-                    GenericSecureField(label: "Password", showPassword: $showPassword, secureText: $password)
-                    
-                    GenericTextField(label: "Email address", text: $emailAddress)
-                    
-                    GenericTextField(label: "Phone number", text: $phoneNumber)
+                CreateAccountDismissalBarView(dismiss: self.dismissRegistrationModalView)
+                    .offset(y: -(self.getOffset(geometry, divisor: 4.2)))
+                
+                VStack {
+                    Group {
+                        GenericTextField(label: "User name", text: self.$signUpViewModel.username)
+                        
+                        GenericSecureField(label: "Password", showPassword: self.$signUpViewModel.showPassword, secureText: self.$signUpViewModel.password)
+                        
+                        GenericSecureField(label: "Confirm password", showPassword: self.$signUpViewModel.showPasswordConfirmation, secureText: self.$signUpViewModel.passwordConfirmation)
+                        
+                        GenericTextField(label: "Email address", text: self.$signUpViewModel.emailAddress)
+                        
+                        GenericTextField(label: "Phone number", text: self.$signUpViewModel.phoneNumber)
+                    }
                 }
-            }
-            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-            .offset(y: -265)
-            
-            GenericResizeableButton(text: "Next", radius: 8, height: 25, action: self.signUp)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                .offset(y: 250)
-                .keyboardAwarePadding(placeButtonOnTopOfKeyboard: true)
-            
+                .offset(y: -(self.getOffset(geometry, divisor: 4.2)))
+                
+                GenericResizeableButton(text: "Next", radius: 8, height: 25, action: self.signUp)
+                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                    .offset(y: self.getOffset(geometry, divisor: 5.3))
+                    .keyboardAwarePadding(placeButtonOnTopOfKeyboard: true)
+            }
         }
-        .frame(maxHeight: .infinity)
-        .navigationBarTitle("Sign Up")
+    }
+    
+    private func getOffset(_ geometry: GeometryProxy, divisor: CGFloat) -> CGFloat {
+        let defaultPadding = geometry.safeAreaInsets.bottom/2.5
+        let screenWithTopInsetDivisorOffset: CGFloat = 0.6
+        let deviceSpecificDivisor = defaultPadding > 0 ? (divisor - screenWithTopInsetDivisorOffset) : divisor
+        
+        let offset = defaultPadding > 0 ?
+            geometry.size.height/deviceSpecificDivisor + defaultPadding :
+            geometry.size.height/deviceSpecificDivisor
+        
+        return offset
     }
     
     private func signUp() {
-        self.registrationService.signUp(username: username, password: password, email: emailAddress, phoneNumber: phoneNumber)
+        self.registrationService.signUp(username: signUpViewModel.username, password: signUpViewModel.password, email: signUpViewModel.emailAddress, phoneNumber: signUpViewModel.phoneNumber)
     }
     
     private func dismissRegistrationModalView() {
@@ -59,7 +68,32 @@ struct SignUpView: View {
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
+        return Group {
+            Button(action: {}) {
+                Text("Show SignUp View")
+            }.sheet(isPresented: .constant(true)) {
+                SignUpView()
+            }
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+            .previewDisplayName("iPhone SE")
+            
+            Button(action: {}) {
+                Text("Show SignUp View")
+            }.sheet(isPresented: .constant(true)) {
+                SignUpView()
+            }
+            .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
+            .previewDisplayName("iPhone 8")
+            
+            Button(action: {}) {
+                Text("Show SignUp View")
+            }.sheet(isPresented: .constant(true)) {
+                SignUpView()
+            }
+            .previewDevice(PreviewDevice(rawValue: "iPhone Xs Max"))
+            .previewDisplayName("iPhone Xs Max")
+        }
+        .environmentObject(User())
         .environment(\.colorScheme, .dark)
     }
 }

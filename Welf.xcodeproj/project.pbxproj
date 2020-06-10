@@ -47,6 +47,7 @@
 		E1C7651A2411F71400D37181 /* GenericTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C765192411F71400D37181 /* GenericTextButton.swift */; };
 		E1E496FB248AA1F300C8E275 /* RegistrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E496FA248AA1F300C8E275 /* RegistrationService.swift */; };
 		E1E496FD248EF00800C8E275 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E496FC248EF00800C8E275 /* SignInViewModel.swift */; };
+		E1E995F02490238B00A53A84 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E995EF2490238B00A53A84 /* SignUpViewModel.swift */; };
 		E1F3976B248083890017A29F /* GenericResizeableIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3976A248083890017A29F /* GenericResizeableIconButton.swift */; };
 		E1F3976E24808ABD0017A29F /* CreateAccountDismissalBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3976D24808ABD0017A29F /* CreateAccountDismissalBarView.swift */; };
 		E1F397702481D0220017A29F /* GenericTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F3976F2481D0220017A29F /* GenericTextField.swift */; };
@@ -127,6 +128,7 @@
 		E1C765192411F71400D37181 /* GenericTextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextButton.swift; sourceTree = "<group>"; };
 		E1E496FA248AA1F300C8E275 /* RegistrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationService.swift; sourceTree = "<group>"; };
 		E1E496FC248EF00800C8E275 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		E1E995EF2490238B00A53A84 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		E1F3976A248083890017A29F /* GenericResizeableIconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResizeableIconButton.swift; sourceTree = "<group>"; };
 		E1F3976D24808ABD0017A29F /* CreateAccountDismissalBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountDismissalBarView.swift; sourceTree = "<group>"; };
 		E1F3976F2481D0220017A29F /* GenericTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextField.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				E1B114F0246B515700CA86DA /* User.swift */,
 				E1712C7F24884138001B236B /* UserAuthenticationState.swift */,
 				E1E496FC248EF00800C8E275 /* SignInViewModel.swift */,
+				E1E995EF2490238B00A53A84 /* SignUpViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -673,6 +676,7 @@
 			files = (
 				E1F397702481D0220017A29F /* GenericTextField.swift in Sources */,
 				E1E496FB248AA1F300C8E275 /* RegistrationService.swift in Sources */,
+				E1E995F02490238B00A53A84 /* SignUpViewModel.swift in Sources */,
 				E119467D240B97D7007BE44A /* AppDelegate.swift in Sources */,
 				E1F3976B248083890017A29F /* GenericResizeableIconButton.swift in Sources */,
 				E1E496FD248EF00800C8E275 /* SignInViewModel.swift in Sources */,

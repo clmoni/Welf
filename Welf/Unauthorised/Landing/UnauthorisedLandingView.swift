@@ -84,5 +84,6 @@ struct UnauthorisedLandingView_Previews: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: "iPhone Xs Max"))
                 .previewDisplayName("iPhone Xs Max")
         }
+        .environmentObject(User())
     }
 }

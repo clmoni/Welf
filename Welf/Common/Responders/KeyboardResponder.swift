@@ -44,4 +44,11 @@ class KeyboardResponder: ObservableObject {
             currentHeight = 0
         }
     }
+    
+    public func calculateMovingPadding(_ geometry: GeometryProxy) -> CGFloat {
+        let defaultPadding = geometry.safeAreaInsets.bottom/2.5
+        let keyboardAwarePadding = self.currentHeight - geometry.safeAreaInsets.bottom
+        
+        return self.currentHeight == 0 ? defaultPadding : keyboardAwarePadding
+    }
 }
