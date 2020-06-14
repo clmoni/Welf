@@ -12,16 +12,16 @@ struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     private var registrationService = RegistrationService()
     @ObservedObject private var signUpViewModel = SignUpViewModel()
-    //@ObservedObject private var keyboard = KeyboardResponder()
+    @ObservedObject private var keyboard = KeyboardResponder()
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 CreateAccountDismissalBarView(dismiss: self.dismissRegistrationModalView)
-                    .offset(y: -(self.getOffset(geometry, divisor: 4.2)))
                 
                 VStack {
                     Group {
+                        // HStack with both names here
                         GenericTextField(label: "User name", text: self.$signUpViewModel.username)
                         
                         GenericSecureField(label: "Password", showPassword: self.$signUpViewModel.showPassword, secureText: self.$signUpViewModel.password)
@@ -34,26 +34,31 @@ struct SignUpView: View {
                     }
                 }
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                .offset(y: -(self.getOffset(geometry, divisor: 4.2)))
-                
+                Spacer()
                 GenericResizeableButton(text: "Next", radius: 8, height: 25, action: self.signUp)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                    .offset(y: self.getOffset(geometry, divisor: 5.3))
-                    .keyboardAwarePadding(placeButtonOnTopOfKeyboard: true)
+                    .padding(self.calculateNextButtonPadding(geometry))
+                    .offset(y: self.getOffset(geometry))
             }
         }
     }
     
-    private func getOffset(_ geometry: GeometryProxy, divisor: CGFloat) -> CGFloat {
-        let defaultPadding = geometry.safeAreaInsets.bottom/2.5
-        let screenWithTopInsetDivisorOffset: CGFloat = 0.6
-        let deviceSpecificDivisor = defaultPadding > 0 ? (divisor - screenWithTopInsetDivisorOffset) : divisor
-        
-        let offset = defaultPadding > 0 ?
-            geometry.size.height/deviceSpecificDivisor + defaultPadding :
-            geometry.size.height/deviceSpecificDivisor
-        
-        return offset
+    private func calculateNextButtonPadding(_ geometry: GeometryProxy) -> EdgeInsets {
+        return EdgeInsets(
+            top: 0,
+            leading: 20,
+            bottom: self.keyboard.calculateMovingPadding(geometry),
+            trailing: 20
+        )
+    }
+    
+    private func getOffset(_ geometry: GeometryProxy) -> CGFloat {
+        let zeroBottomSafeArea: CGFloat = 0
+        let zeroOffet: CGFloat = keyboard.isKeyboardPoppingOut() ? -20 : 0
+        let bottomOffsetWhenNoBottomSafeArea: CGFloat = keyboard.isKeyboardPoppingOut() ? 0 : -20
+
+        return geometry.safeAreaInsets.bottom > zeroBottomSafeArea ?
+            zeroOffet :
+        bottomOffsetWhenNoBottomSafeArea
     }
     
     private func signUp() {

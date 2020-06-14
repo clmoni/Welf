@@ -10,10 +10,10 @@ import SwiftUI
 import Combine
 
 class KeyboardResponder: ObservableObject {
-    let willset = PassthroughSubject<CGFloat, Never>()
+    private let willset = PassthroughSubject<CGFloat, Never>()
     private var _center: NotificationCenter
     @Published var currentHeight: CGFloat = 0
-    var keyboardDuration: TimeInterval = 0
+    private var keyboardDuration: TimeInterval = 0
     
     init(center: NotificationCenter = .default) {
         _center = center
@@ -50,5 +50,9 @@ class KeyboardResponder: ObservableObject {
         let keyboardAwarePadding = self.currentHeight - geometry.safeAreaInsets.bottom
         
         return self.currentHeight == 0 ? defaultPadding : keyboardAwarePadding
+    }
+    
+    public func isKeyboardPoppingOut() -> Bool {
+        return self.currentHeight > 0
     }
 }
