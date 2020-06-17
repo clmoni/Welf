@@ -45,7 +45,7 @@ struct AuthenticationCallToActionView: View {
                     self.signIn()
                 }
                 .alert(isPresented: $user.authenticationState.isBadCredentialsSignInError) {
-                    UIApplication.shared.dismissKeyboard()
+                    KeyboardResponder.dismissKeyboard()
                     return self.signInErrorAlert()
                 }
                 .disabled(disableLoginButton)

@@ -9,11 +9,11 @@
 import SwiftUI
 
 class SignUpViewModel: ObservableObject {
+    @Published var firstName: String = ""
+    @Published var lastName: String = ""
     @Published var username: String = ""
     @Published var password: String = ""
-    @Published var passwordConfirmation: String = ""
     @Published var emailAddress: String = ""
     @Published var phoneNumber: String = ""
     @Published var showPassword: Bool = false
-    @Published var showPasswordConfirmation: Bool = false
 }

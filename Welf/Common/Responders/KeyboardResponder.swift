@@ -55,4 +55,8 @@ class KeyboardResponder: ObservableObject {
     public func isKeyboardPoppingOut() -> Bool {
         return self.currentHeight > 0
     }
+    
+    public static func dismissKeyboard() {
+        UIApplication.shared.dismissKeyboard()
+    }
 }

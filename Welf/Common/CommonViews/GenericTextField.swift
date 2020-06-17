@@ -11,11 +11,12 @@ import SwiftUI
 struct GenericTextField: View {
     var label: String
     @Binding var text: String
+    var autocapitalization: UITextAutocapitalizationType = .none
     
     var body: some View {
         VStack {
             TextField(self.label, text: $text)
-                .autocapitalization(.none)
+                .autocapitalization(self.autocapitalization)
                 .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             Divider()
                 .frame(height: 1)
