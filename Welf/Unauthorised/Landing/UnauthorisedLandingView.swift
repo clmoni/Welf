@@ -10,7 +10,7 @@ import SwiftUI
 
 struct UnauthorisedLandingView: View {
     @State private var showRegistrationModal: Bool = false
-    @EnvironmentObject private var user: User
+    @ObservedObject public var user : User
     
     var body: some View {
         LoadingView(isShowing: self.$user.authenticationState.isSigningIn) {
@@ -32,8 +32,10 @@ struct UnauthorisedLandingView: View {
                     }
                     .padding()
                     .navigationBarTitle("")
+                    .accentColor(.green)
                 }
             }
+            .environmentObject(self.user)
         }
     }
     
@@ -65,22 +67,23 @@ struct UnauthorisedLandingView: View {
     private func createLoginCallToAction() -> some View {
         Login()
             .padding()
-            .frame(alignment: .center)        
+            .frame(alignment: .center)
+            .environmentObject(self.user)
     }
 }
 
 struct UnauthorisedLandingView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            UnauthorisedLandingView()
+            UnauthorisedLandingView(user: .init())
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
             
-            UnauthorisedLandingView()
+            UnauthorisedLandingView(user: .init())
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
                 .previewDisplayName("iPhone 8")
             
-            UnauthorisedLandingView()
+            UnauthorisedLandingView(user: .init())
                 .previewDevice(PreviewDevice(rawValue: "iPhone Xs Max"))
                 .previewDisplayName("iPhone Xs Max")
         }

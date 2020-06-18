@@ -14,13 +14,12 @@ struct LandingView: View {
     var body: some View {
         VStack {
             if !self.$user.authenticationState.isSignedIn.wrappedValue {
-                UnauthorisedLandingView()
+                UnauthorisedLandingView(user: self.user)
             } else {
                 AuthorisedLandingView()
             }
         }
         .accentColor(.green)
-        .environmentObject(self.user)
     }
 }
 

@@ -11,6 +11,7 @@ import SwiftUI
 struct LoginView: View {
     @ObservedObject private var keyboard = KeyboardResponder()
     @ObservedObject private var signInViewModel = SignInViewModel()
+    @EnvironmentObject private var user: User
     
     var body: some View {
         GeometryReader { geometry in
@@ -25,6 +26,7 @@ struct LoginView: View {
                 
                 AuthenticationCallToActionView(signInViewModel: self.signInViewModel)
                     .padding(.bottom, self.keyboard.calculateMovingPadding(geometry))
+                    .environmentObject(self.user)
             }
             .dismissKeyboardOnDrag()
         }

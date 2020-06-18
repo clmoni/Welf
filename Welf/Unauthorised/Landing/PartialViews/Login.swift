@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct Login: View {
+    @EnvironmentObject private var user: User
     
     var body: some View {
         HStack {
@@ -19,12 +20,16 @@ struct Login: View {
     
     func createLoginTextButton() -> some View {
         let logInText: String = "Log in"
+        
         let logInTextView = GenericText(
             font: .subheadline, text: logInText,
             weight: .bold,
             colour: .green)
         
-        return GenericTextButton(text: logInTextView, destination: LoginView())
+        let loginView = LoginView()
+            .environmentObject(self.user)
+        
+        return GenericTextButton(text: logInTextView, destination: loginView)
             .offset(x: -3)
     }
     
