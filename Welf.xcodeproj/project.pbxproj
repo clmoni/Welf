@@ -23,6 +23,14 @@
 		E146EC34247DCBC0007C2155 /* CredentialsEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146EC33247DCBC0007C2155 /* CredentialsEntryView.swift */; };
 		E15D76BD2477602000F17A59 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15D76BC2477602000F17A59 /* ForgotPasswordView.swift */; };
 		E160AA792496695D00003771 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E160AA782496695D00003771 /* SignUpView.swift */; };
+		E164BD73249AE4530089021D /* PagedForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E164BD72249AE4530089021D /* PagedForm.swift */; };
+		E164BD76249AE8E60089021D /* SignUpViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E164BD75249AE8E60089021D /* SignUpViewExtensions.swift */; };
+		E164BD78249AF2A60089021D /* FormHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E164BD77249AF2A60089021D /* FormHeader.swift */; };
+		E17102AD249B03C700FFED5A /* FirstPageNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17102AC249B03C700FFED5A /* FirstPageNextButton.swift */; };
+		E17102B0249B09EC00FFED5A /* SecondPageNextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17102AF249B09EC00FFED5A /* SecondPageNextButton.swift */; };
+		E17102B2249B0B5000FFED5A /* ForwardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17102B1249B0B5000FFED5A /* ForwardButton.swift */; };
+		E17102B4249B0DDF00FFED5A /* SignUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17102B3249B0DDF00FFED5A /* SignUpButton.swift */; };
+		E17102B6249B0F0100FFED5A /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17102B5249B0F0100FFED5A /* BackButton.swift */; };
 		E1712C7E24883D93001B236B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1712C7D24883D93001B236B /* LoadingView.swift */; };
 		E1712C8024884138001B236B /* UserAuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1712C7F24884138001B236B /* UserAuthenticationState.swift */; };
 		E1ABFF60247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF5F247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift */; };
@@ -105,6 +113,14 @@
 		E146EC33247DCBC0007C2155 /* CredentialsEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsEntryView.swift; sourceTree = "<group>"; };
 		E15D76BC2477602000F17A59 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		E160AA782496695D00003771 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E164BD72249AE4530089021D /* PagedForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedForm.swift; sourceTree = "<group>"; };
+		E164BD75249AE8E60089021D /* SignUpViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewExtensions.swift; sourceTree = "<group>"; };
+		E164BD77249AF2A60089021D /* FormHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormHeader.swift; sourceTree = "<group>"; };
+		E17102AC249B03C700FFED5A /* FirstPageNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageNextButton.swift; sourceTree = "<group>"; };
+		E17102AF249B09EC00FFED5A /* SecondPageNextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondPageNextButton.swift; sourceTree = "<group>"; };
+		E17102B1249B0B5000FFED5A /* ForwardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForwardButton.swift; sourceTree = "<group>"; };
+		E17102B3249B0DDF00FFED5A /* SignUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpButton.swift; sourceTree = "<group>"; };
+		E17102B5249B0F0100FFED5A /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		E1712C7D24883D93001B236B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E1712C7F24884138001B236B /* UserAuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationState.swift; sourceTree = "<group>"; };
 		E1ABFF5F247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCallToActionView.swift; sourceTree = "<group>"; };
@@ -279,6 +295,14 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		E164BD74249AE8B40089021D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E164BD75249AE8E60089021D /* SignUpViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E1ABFF63247DE13000FE6EE8 /* PartialViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +355,7 @@
 		E1B3D7F42413C92C0047D618 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				E164BD74249AE8B40089021D /* Extensions */,
 				E1F3976C248088850017A29F /* PartialViews */,
 				E160AA782496695D00003771 /* SignUpView.swift */,
 			);
@@ -362,8 +387,15 @@
 		E1F3976C248088850017A29F /* PartialViews */ = {
 			isa = PBXGroup;
 			children = (
+				E164BD77249AF2A60089021D /* FormHeader.swift */,
 				E1F3976D24808ABD0017A29F /* CreateAccountDismissalBarView.swift */,
 				E1ADF2E024999C9E00CE6B56 /* PageControl.swift */,
+				E164BD72249AE4530089021D /* PagedForm.swift */,
+				E17102AC249B03C700FFED5A /* FirstPageNextButton.swift */,
+				E17102AF249B09EC00FFED5A /* SecondPageNextButton.swift */,
+				E17102B3249B0DDF00FFED5A /* SignUpButton.swift */,
+				E17102B1249B0B5000FFED5A /* ForwardButton.swift */,
+				E17102B5249B0F0100FFED5A /* BackButton.swift */,
 			);
 			path = PartialViews;
 			sourceTree = "<group>";
@@ -685,13 +717,18 @@
 				E1E496FD248EF00800C8E275 /* SignInViewModel.swift in Sources */,
 				E1B1150C2471A99100CA86DA /* SignOutButton.swift in Sources */,
 				E1ADF2E124999C9E00CE6B56 /* PageControl.swift in Sources */,
+				E17102B2249B0B5000FFED5A /* ForwardButton.swift in Sources */,
 				E1712C7E24883D93001B236B /* LoadingView.swift in Sources */,
 				E1FEC911248730F900D4DDBE /* KeyboardResponder.swift in Sources */,
 				E1C7650D2411D4F700D37181 /* Logo.swift in Sources */,
+				E17102B6249B0F0100FFED5A /* BackButton.swift in Sources */,
+				E164BD73249AE4530089021D /* PagedForm.swift in Sources */,
 				E1B114F1246B515700CA86DA /* User.swift in Sources */,
+				E17102B0249B09EC00FFED5A /* SecondPageNextButton.swift in Sources */,
 				E1C765102411D72300D37181 /* GenericText.swift in Sources */,
 				E1B3D7FA24266D0A0047D618 /* HostingController.swift in Sources */,
 				E146EC30247DC6F4007C2155 /* PasswordEntryView.swift in Sources */,
+				E164BD76249AE8E60089021D /* SignUpViewExtensions.swift in Sources */,
 				E1B114F7246C789000CA86DA /* LandingView.swift in Sources */,
 				E1B1151424720CBD00CA86DA /* KeyboardAwareModifier.swift in Sources */,
 				E1F397772482C8560017A29F /* ViewExtensions.swift in Sources */,
@@ -703,11 +740,13 @@
 				E1B1150824719CCC00CA86DA /* WelfLogo.swift in Sources */,
 				E1F3976E24808ABD0017A29F /* CreateAccountDismissalBarView.swift in Sources */,
 				E1C765162411E9CF00D37181 /* Login.swift in Sources */,
+				E164BD78249AF2A60089021D /* FormHeader.swift in Sources */,
 				E1712C8024884138001B236B /* UserAuthenticationState.swift in Sources */,
 				E160AA792496695D00003771 /* SignUpView.swift in Sources */,
 				E1ABFF60247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift in Sources */,
 				E1B1150A2471A8C600CA86DA /* LoginView.swift in Sources */,
 				E1B115172472111300CA86DA /* AuthorisedLandingView.swift in Sources */,
+				E17102AD249B03C700FFED5A /* FirstPageNextButton.swift in Sources */,
 				E119467F240B97D7007BE44A /* SceneDelegate.swift in Sources */,
 				E1C7651A2411F71400D37181 /* GenericTextButton.swift in Sources */,
 				E146EC34247DCBC0007C2155 /* CredentialsEntryView.swift in Sources */,
@@ -718,6 +757,7 @@
 				E146EC32247DC9EF007C2155 /* UsernameEntryView.swift in Sources */,
 				E1F397752482BC5F0017A29F /* UIApplicationExtensions.swift in Sources */,
 				E1ABFF66248064DA00FE6EE8 /* GenericResizeableButton.swift in Sources */,
+				E17102B4249B0DDF00FFED5A /* SignUpButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

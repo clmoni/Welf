@@ -16,4 +16,11 @@ class SignUpViewModel: ObservableObject {
     @Published var emailAddress: String = ""
     @Published var phoneNumber: String = ""
     @Published var showPassword: Bool = false
+    @Published var showDetails: Bool = false
+    @Published var disableFirstPageNextButton: Bool = true
+    @Published var disableSecondPageNextButton: Bool = true
+    @Published var disableSignUpButton: Bool = true
+    @Published var currentPage: Int = 1
+    var totalNumberOfPages: Int = 3
+    var firstPage: Int = 1
 }

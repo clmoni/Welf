@@ -20,6 +20,7 @@ struct LoginView: View {
                         .offset(y: -(geometry.size.height/25))
                     CredentialsEntryView(signInViewModel: self.signInViewModel)
                         .offset(y: -(geometry.size.height/30))
+                        .animation(.easeInOut(duration: 0.7))
                 }
                 
                 AuthenticationCallToActionView(signInViewModel: self.signInViewModel)
