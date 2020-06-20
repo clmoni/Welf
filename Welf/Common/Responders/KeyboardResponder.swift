@@ -2,8 +2,8 @@
 //  KeyboardResponder.swift
 //  Welf
 //
-//  Created by Clement Oniovosa on 03/06/2020.
-//  Copyright © 2020 Clement Oniovosa. All rights reserved.
+//  Created by Clem on 03/06/2020.
+//  Copyright © 2020 Clem. All rights reserved.
 //
 
 import SwiftUI

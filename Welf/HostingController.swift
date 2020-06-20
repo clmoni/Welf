@@ -2,8 +2,8 @@
 //  HostingController.swift
 //  Welf
 //
-//  Created by Clement Oniovosa on 21/03/2020.
-//  Copyright © 2020 Clement Oniovosa. All rights reserved.
+//  Created by Clem on 21/03/2020.
+//  Copyright © 2020 Clem. All rights reserved.
 //
 
 import UIKit

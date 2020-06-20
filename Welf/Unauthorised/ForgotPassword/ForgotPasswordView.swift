@@ -2,7 +2,7 @@
 //  ForgotPasswordView.swift
 //  Welf
 //
-//  Created by Clement Oniovosa on 22/05/2020.
+//  Created by Clem on 22/05/2020.
 //  Copyright © 2020 Clement Oniovosa. All rights reserved.
 //
 

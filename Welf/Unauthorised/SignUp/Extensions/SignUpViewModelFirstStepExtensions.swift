@@ -2,8 +2,8 @@
 //  SignUpViewModelExtensions.swift
 //  Welf
 //
-//  Created by Clement Oniovosa on 20/06/2020.
-//  Copyright © 2020 Clement Oniovosa. All rights reserved.
+//  Created by Clem on 20/06/2020.
+//  Copyright © 2020 Clem. All rights reserved.
 //
 
 import Combine
