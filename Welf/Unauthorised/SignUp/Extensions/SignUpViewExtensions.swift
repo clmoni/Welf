@@ -21,12 +21,9 @@ extension SignUpView {
     
     func getOffset(_ geometry: GeometryProxy) -> CGFloat {
         let zeroBottomSafeArea: CGFloat = 0
-        let zeroOffet: CGFloat = keyboard.isKeyboardPoppingOut() ? -20 : 0
-        let bottomOffsetWhenNoBottomSafeArea: CGFloat = keyboard.isKeyboardPoppingOut() ? 0 : -20
-        
+        let zeroOffet: CGFloat = keyboard.isKeyboardPoppingOut() ? -8 : 0
         return geometry.safeAreaInsets.bottom > zeroBottomSafeArea ?
-            zeroOffet :
-        bottomOffsetWhenNoBottomSafeArea
+            zeroOffet : -8
     }
     
     func goToNextPage() {

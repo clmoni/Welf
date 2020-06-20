@@ -19,7 +19,6 @@ struct LandingView: View {
                 AuthorisedLandingView()
             }
         }
-        .accentColor(.green)
     }
 }
 

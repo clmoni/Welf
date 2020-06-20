@@ -65,7 +65,6 @@ struct SignUpView: View {
                     }
                     .padding(self.calculateButtonPadding(geometry))
                     .offset(y: self.getOffset(geometry))
-                    .animation(.easeInOut)
                 }
             }
         }
