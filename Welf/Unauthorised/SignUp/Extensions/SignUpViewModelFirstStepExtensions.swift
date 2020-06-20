@@ -7,23 +7,42 @@
 //
 
 import Combine
+import Foundation
 
 extension SignUpViewModel {
     var isFirstPageNextButtonDisabledPublisher: AnyPublisher<Bool?, Never> {
-        $firstName.combineLatest($lastName) { firstName, lastName in
+        self.$firstName.combineLatest(self.$lastName) { firstName, lastName in
             return self.validateUserEntry(firstName, lastName)
         }
         .eraseToAnyPublisher()
     }
     
+    var validateFirstNameEntryPublisher: AnyPublisher<String?, Never> {
+        self.$firstName
+            .debounce(for: 0.2, scheduler: RunLoop.main)
+            .removeDuplicates()
+            .map { input in
+                return !self.isEntryValid(input) ? "Only letters allowed" : ""
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    var validateLastNameEntryPublisher: AnyPublisher<String?, Never> {
+        self.$lastName
+            .debounce(for: 0.2, scheduler: RunLoop.main)
+            .removeDuplicates()
+            .map { input in
+                return !self.isEntryValid(input) ? "Only letters allowed" : ""
+        }
+        .eraseToAnyPublisher()
+    }
+    
     private func validateUserEntry(_ firstName: String, _ lastName: String) -> Bool {
+        return isEntryValid(firstName) || isEntryValid(lastName)
+    }
+    
+    private func isEntryValid(_ entry: String) -> Bool {
         let alphabetPattern = "^[a-zA-Z-'’]+$"
-        let isEitherFirstOrLastNameEmpty = firstName.isEmpty || lastName.isEmpty
-     
-        let isEitherFirstOrLastNameContainingNonLetters =
-            firstName.range(of: alphabetPattern, options: .regularExpression) == nil ||
-                lastName.range(of: alphabetPattern, options: .regularExpression) == nil
-
-        return isEitherFirstOrLastNameEmpty || isEitherFirstOrLastNameContainingNonLetters
+        return entry.isEmpty || entry.range(of: alphabetPattern, options: .regularExpression) == nil
     }
 }

@@ -16,14 +16,29 @@ struct GenericSecureField: View {
     
     var body: some View {
         VStack {
-            HStack {
-                self.toggleFieldBetweenTextAndSecureForVisibility()
-                self.createVisibilityToggleButton()
-            }
+            self.toggleFieldBetweenTextAndSecureForVisibility()
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             
             Divider()
                 .frame(height: 1)
                 .background(Color.green)
+        }
+    }
+    
+    private func toggleFieldBetweenTextAndSecureForVisibility() -> some View {
+        VStack {
+            HStack {
+                if self.showPassword {
+                    TextField(self.label, text: $secureText)
+                        .autocapitalization(.none)
+                } else {
+                    SecureField(self.label, text: $secureText)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0))
+                }
+                
+                self.createVisibilityToggleButton()
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 20))
+            }
         }
     }
     
@@ -32,32 +47,6 @@ struct GenericSecureField: View {
             Image(systemName: self.showPassword ? "eye.fill" : "eye.slash.fill")
                 .foregroundColor(self.showPassword ? .green : .secondary)
         }
-        .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: inputVisibilityIconPadding))
-    }
-    
-    private func toggleFieldBetweenTextAndSecureForVisibility() -> some View {
-        let nonBouncePadding = self.calculatePaddingToAvoidBounceOnToggle()
-        let textEdgeInsets = EdgeInsets(top: 10, leading: 0, bottom: nonBouncePadding, trailing: 0)
-        let secureEdgeInsets = EdgeInsets(top: 10, leading: 0, bottom: 1, trailing: 0)
-        
-        return VStack {
-            if self.showPassword {
-                TextField(self.label, text: $secureText)
-                    .autocapitalization(.none)
-                    .padding(textEdgeInsets)
-                
-            } else {
-                SecureField(self.label, text: $secureText)
-                    .padding(secureEdgeInsets)
-            }
-        }
-    }
-    
-    private func calculatePaddingToAvoidBounceOnToggle() -> CGFloat {
-        let notEmptyPadding: CGFloat = 1
-        let emptyPadding: CGFloat = 0
-        
-        return self.secureText.count > 0 ? notEmptyPadding : emptyPadding
     }
     
     private func toggleShowPassword() {

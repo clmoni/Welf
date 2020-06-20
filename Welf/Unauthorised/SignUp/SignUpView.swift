@@ -45,7 +45,7 @@ struct SignUpView: View {
                 VStack {
                     VStack {
                         FormHeader(currentPage: self._signUpViewModel.currentPage, totalNumberOfPages: self._signUpViewModel.totalNumberOfPages)
-                        PagedForm(signUpViewModel: self.signUpViewModel)
+                        PagedForm(signUpViewModel: self._signUpViewModel)
                     }
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     .animation(.easeInOut(duration: 0.7))
@@ -57,9 +57,9 @@ struct SignUpView: View {
                             .frame(height: 0.5)
                             .background(Color.green)
                         HStack {
-                            BackButton(signUpViewModel: self.signUpViewModel, goToPreviousPage: self.goToPreviousPage)
+                            BackButton(signUpViewModel: self._signUpViewModel, goToPreviousPage: self.goToPreviousPage)
                             Spacer()
-                            ForwardButton(signUpViewModel: self.signUpViewModel, goToNextPage: self.goToNextPage)
+                            ForwardButton(signUpViewModel: self._signUpViewModel, goToNextPage: self.goToNextPage)
                         }
                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     }
