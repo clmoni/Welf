@@ -20,7 +20,6 @@ struct GenericSecureField: View {
                 self.toggleFieldBetweenTextAndSecureForVisibility()
                 self.createVisibilityToggleButton()
             }
-            .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             
             Divider()
                 .frame(height: 1)
@@ -38,8 +37,8 @@ struct GenericSecureField: View {
     
     private func toggleFieldBetweenTextAndSecureForVisibility() -> some View {
         let nonBouncePadding = self.calculatePaddingToAvoidBounceOnToggle()
-        let textEdgeInsets = EdgeInsets(top: 0, leading: 0, bottom: nonBouncePadding, trailing: 0)
-        let secureEdgeInsets = EdgeInsets(top: 0, leading: 0, bottom: 1, trailing: 0)
+        let textEdgeInsets = EdgeInsets(top: 10, leading: 0, bottom: nonBouncePadding, trailing: 0)
+        let secureEdgeInsets = EdgeInsets(top: 10, leading: 0, bottom: 1, trailing: 0)
         
         return VStack {
             if self.showPassword {

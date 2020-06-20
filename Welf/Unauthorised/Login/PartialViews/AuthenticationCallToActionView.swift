@@ -10,7 +10,6 @@ import SwiftUI
 
 struct AuthenticationCallToActionView: View {
     private let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    @State private var disableLoginButton: Bool = true
     @EnvironmentObject private var user: User
     
     @ObservedObject var signInViewModel: SignInViewModel
@@ -40,7 +39,7 @@ struct AuthenticationCallToActionView: View {
                 
                 GenericButton(
                     buttonDisplayView: logInText,
-                    backgroundColour: disableLoginButton ? .secondary : .green
+                    backgroundColour: signInViewModel.disableLoginButton ? .secondary : .green
                 ) { () in
                     self.signIn()
                 }
@@ -48,9 +47,9 @@ struct AuthenticationCallToActionView: View {
                     KeyboardResponder.dismissKeyboard()
                     return self.signInErrorAlert()
                 }
-                .disabled(disableLoginButton)
-                .onReceive(signInViewModel.showSignInbutton) {
-                    self.disableLoginButton = $0 ?? true
+                .disabled(signInViewModel.disableLoginButton)
+                .onReceive(signInViewModel.showSignInbuttonPublisher) {
+                    self.signInViewModel.disableLoginButton = $0 ?? true
                 }
             }
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 8, trailing: 20))

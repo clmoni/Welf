@@ -23,10 +23,10 @@ struct FirstPageNextButton: View {
         ) { () in
             self.goToNextPage()
         }
-        //.disabled(signUpViewModel.disableFirstPageNextButton)
-        //.onReceive(signInViewModel.showSignInbutton) {
-        //self.disableLoginButton = $0 ?? true
-        //}
+        .disabled(signUpViewModel.disableFirstPageNextButton)
+        .onReceive(signUpViewModel.isFirstPageNextButtonDisabledPublisher) {
+            self.signUpViewModel.disableFirstPageNextButton = $0 ?? true
+        }
     }
 }
 

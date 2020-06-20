@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     public let authService = AuthenticationService()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        UINavigationBar.appearance().tintColor = UIColor.systemGreen
         authService.initialise(app: self)
         return true
     }

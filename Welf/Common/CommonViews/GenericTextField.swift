@@ -17,7 +17,7 @@ struct GenericTextField: View {
         VStack {
             TextField(self.label, text: $text)
                 .autocapitalization(self.autocapitalization)
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: 2, trailing: 0))
             Divider()
                 .frame(height: 1)
                 .background(Color.green)

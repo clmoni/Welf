@@ -14,8 +14,9 @@ class SignInViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var showPassword: Bool = false
     @Published var showForgotPasswordView: Bool = false
+    var disableLoginButton: Bool = true
     
-    var showSignInbutton: AnyPublisher<Bool?, Never> {
+    var showSignInbuttonPublisher: AnyPublisher<Bool?, Never> {
       $username.combineLatest($password) { username, password in
         return username.isEmpty || password.isEmpty
       }

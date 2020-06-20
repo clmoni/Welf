@@ -236,7 +236,6 @@
 				E1C7650B2411D31800D37181 /* Unauthorised */,
 				E1B11515247210B900CA86DA /* Authorised */,
 				E1B115102471EB3200CA86DA /* Services */,
-				E1B114EF246B511900CA86DA /* Models */,
 				E1C7650E2411D69200D37181 /* Common */,
 				E119467C240B97D7007BE44A /* AppDelegate.swift */,
 				E119467E240B97D7007BE44A /* SceneDelegate.swift */,
@@ -289,6 +288,7 @@
 		E15D76BE247DC5AA00F17A59 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				E1E8F9B4249DA2DE00321B3C /* Models */,
 				E1ABFF63247DE13000FE6EE8 /* PartialViews */,
 				E1B115092471A8C600CA86DA /* LoginView.swift */,
 			);
@@ -328,8 +328,6 @@
 			children = (
 				E1B114F0246B515700CA86DA /* User.swift */,
 				E1712C7F24884138001B236B /* UserAuthenticationState.swift */,
-				E1E496FC248EF00800C8E275 /* SignInViewModel.swift */,
-				E1E995EF2490238B00A53A84 /* SignUpViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -355,6 +353,7 @@
 		E1B3D7F42413C92C0047D618 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				E1E8F9B5249DA2FC00321B3C /* Models */,
 				E164BD74249AE8B40089021D /* Extensions */,
 				E1F3976C248088850017A29F /* PartialViews */,
 				E160AA782496695D00003771 /* SignUpView.swift */,
@@ -376,12 +375,29 @@
 		E1C7650E2411D69200D37181 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E1B114EF246B511900CA86DA /* Models */,
 				E1FEC9132487357F00D4DDBE /* Responders */,
 				E1FEC9122487354800D4DDBE /* CommonViews */,
 				E1F397732482BC180017A29F /* Extensions */,
 				E1F8325C247DCCDD00D93439 /* Modifiers */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		E1E8F9B4249DA2DE00321B3C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1E496FC248EF00800C8E275 /* SignInViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E1E8F9B5249DA2FC00321B3C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1E995EF2490238B00A53A84 /* SignUpViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E1F3976C248088850017A29F /* PartialViews */ = {
