@@ -18,6 +18,9 @@
 		E119468C240B97D9007BE44A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E119468A240B97D9007BE44A /* LaunchScreen.storyboard */; };
 		E1194697240B97D9007BE44A /* WelfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1194696240B97D9007BE44A /* WelfTests.swift */; };
 		E11946A2240B97D9007BE44A /* WelfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11946A1240B97D9007BE44A /* WelfUITests.swift */; };
+		E1246D72249ED13300EE3A77 /* FirstStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1246D71249ED13300EE3A77 /* FirstStep.swift */; };
+		E1246D74249ED5DC00EE3A77 /* SignUpViewModelSecondStepExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1246D73249ED5DC00EE3A77 /* SignUpViewModelSecondStepExtensions.swift */; };
+		E1246D76249FD16D00EE3A77 /* GenericTextFieldWithValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1246D75249FD16D00EE3A77 /* GenericTextFieldWithValidation.swift */; };
 		E146EC30247DC6F4007C2155 /* PasswordEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146EC2F247DC6F4007C2155 /* PasswordEntryView.swift */; };
 		E146EC32247DC9EF007C2155 /* UsernameEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146EC31247DC9EF007C2155 /* UsernameEntryView.swift */; };
 		E146EC34247DCBC0007C2155 /* CredentialsEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E146EC33247DCBC0007C2155 /* CredentialsEntryView.swift */; };
@@ -109,6 +112,9 @@
 		E119469D240B97D9007BE44A /* WelfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WelfUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E11946A1240B97D9007BE44A /* WelfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelfUITests.swift; sourceTree = "<group>"; };
 		E11946A3240B97D9007BE44A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1246D71249ED13300EE3A77 /* FirstStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStep.swift; sourceTree = "<group>"; };
+		E1246D73249ED5DC00EE3A77 /* SignUpViewModelSecondStepExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModelSecondStepExtensions.swift; sourceTree = "<group>"; };
+		E1246D75249FD16D00EE3A77 /* GenericTextFieldWithValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTextFieldWithValidation.swift; sourceTree = "<group>"; };
 		E146EC2F247DC6F4007C2155 /* PasswordEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordEntryView.swift; sourceTree = "<group>"; };
 		E146EC31247DC9EF007C2155 /* UsernameEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameEntryView.swift; sourceTree = "<group>"; };
 		E146EC33247DCBC0007C2155 /* CredentialsEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsEntryView.swift; sourceTree = "<group>"; };
@@ -302,6 +308,7 @@
 			children = (
 				E164BD75249AE8E60089021D /* SignUpViewExtensions.swift */,
 				E19078AE249E446F005561D6 /* SignUpViewModelFirstStepExtensions.swift */,
+				E1246D73249ED5DC00EE3A77 /* SignUpViewModelSecondStepExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -409,6 +416,7 @@
 				E164BD77249AF2A60089021D /* FormHeader.swift */,
 				E1F3976D24808ABD0017A29F /* CreateAccountDismissalBarView.swift */,
 				E1ADF2E024999C9E00CE6B56 /* PageControl.swift */,
+				E1246D71249ED13300EE3A77 /* FirstStep.swift */,
 				E164BD72249AE4530089021D /* PagedForm.swift */,
 				E17102AC249B03C700FFED5A /* FirstPageNextButton.swift */,
 				E17102AF249B09EC00FFED5A /* SecondPageNextButton.swift */,
@@ -474,6 +482,7 @@
 				E1ABFF65248064DA00FE6EE8 /* GenericResizeableButton.swift */,
 				E1F3976A248083890017A29F /* GenericResizeableIconButton.swift */,
 				E1F3976F2481D0220017A29F /* GenericTextField.swift */,
+				E1246D75249FD16D00EE3A77 /* GenericTextFieldWithValidation.swift */,
 				E1F397712481D65A0017A29F /* GenericSecureField.swift */,
 				E1712C7D24883D93001B236B /* LoadingView.swift */,
 			);
@@ -738,6 +747,7 @@
 				E1ADF2E124999C9E00CE6B56 /* PageControl.swift in Sources */,
 				E17102B2249B0B5000FFED5A /* ForwardButton.swift in Sources */,
 				E1712C7E24883D93001B236B /* LoadingView.swift in Sources */,
+				E1246D74249ED5DC00EE3A77 /* SignUpViewModelSecondStepExtensions.swift in Sources */,
 				E1FEC911248730F900D4DDBE /* KeyboardResponder.swift in Sources */,
 				E1C7650D2411D4F700D37181 /* Logo.swift in Sources */,
 				E17102B6249B0F0100FFED5A /* BackButton.swift in Sources */,
@@ -753,10 +763,12 @@
 				E1F397772482C8560017A29F /* ViewExtensions.swift in Sources */,
 				E1B3D7F32413A1A70047D618 /* UnauthorisedLandingView.swift in Sources */,
 				E1C765122411E62200D37181 /* Description.swift in Sources */,
+				E1246D76249FD16D00EE3A77 /* GenericTextFieldWithValidation.swift in Sources */,
 				E1194682240B97D7007BE44A /* Welf.xcdatamodeld in Sources */,
 				E15D76BD2477602000F17A59 /* ForgotPasswordView.swift in Sources */,
 				E1B3D7F82413D52A0047D618 /* GenericNavigationButton.swift in Sources */,
 				E1B1150824719CCC00CA86DA /* WelfLogo.swift in Sources */,
+				E1246D72249ED13300EE3A77 /* FirstStep.swift in Sources */,
 				E1F3976E24808ABD0017A29F /* CreateAccountDismissalBarView.swift in Sources */,
 				E1C765162411E9CF00D37181 /* Login.swift in Sources */,
 				E164BD78249AF2A60089021D /* FormHeader.swift in Sources */,

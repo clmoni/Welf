@@ -11,40 +11,11 @@ import Foundation
 
 struct PagedForm: View {
     @ObservedObject var signUpViewModel: SignUpViewModel
-    @State private var isValidFirstName: Bool = false
-    @State private var isValidLastName: Bool = false
 
     var body: some View {
         ZStack {
             if self.signUpViewModel.currentPage == 1 {
-                VStack{
-                    GenericTextField(
-                        label: "First name",
-                        text: self.$signUpViewModel.firstName,
-                        autocapitalization: .sentences,
-                        withValidation: true,
-                        isValidEntry: self.isValidFirstName
-                    ).onReceive(signUpViewModel.validateFirstNameEntryPublisher) {
-                        guard let validationMessage = $0 else {
-                            return
-                        }
-                        self.isValidFirstName = validationMessage.count > 0
-                    }
-                    
-                    GenericTextField(
-                        label: "Last name",
-                        text: self.$signUpViewModel.lastName,
-                        autocapitalization: .sentences,
-                        withValidation: true,
-                        isValidEntry: self.isValidLastName
-                    ).onReceive(signUpViewModel.validateLastNameEntryPublisher) {
-                        guard let validationMessage = $0 else {
-                            return
-                        }
-                        self.isValidLastName = validationMessage.count > 0
-                    }
-                }
-                .transition(.move(edge: .leading))
+                FirstStep(signUpViewModel: self.signUpViewModel)
             } else if self.signUpViewModel.currentPage == 2 {
                 VStack {
                     GenericTextField(label: "User name", text: self.$signUpViewModel.username)
@@ -67,3 +38,4 @@ struct PagedForm_Previews: PreviewProvider {
         PagedForm(signUpViewModel: .init())
     }
 }
+

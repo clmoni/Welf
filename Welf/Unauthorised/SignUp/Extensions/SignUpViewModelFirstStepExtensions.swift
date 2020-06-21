@@ -19,7 +19,7 @@ extension SignUpViewModel {
     
     var validateFirstNameEntryPublisher: AnyPublisher<String?, Never> {
         self.$firstName
-            .debounce(for: 0.2, scheduler: RunLoop.main)
+            .debounce(for: 0.1, scheduler: RunLoop.main)
             .removeDuplicates()
             .map { input in
                 return !self.isEntryValid(input) ? "Only letters allowed" : ""
@@ -29,7 +29,7 @@ extension SignUpViewModel {
     
     var validateLastNameEntryPublisher: AnyPublisher<String?, Never> {
         self.$lastName
-            .debounce(for: 0.2, scheduler: RunLoop.main)
+            .debounce(for: 0.1, scheduler: RunLoop.main)
             .removeDuplicates()
             .map { input in
                 return !self.isEntryValid(input) ? "Only letters allowed" : ""
@@ -38,11 +38,11 @@ extension SignUpViewModel {
     }
     
     private func validateUserEntry(_ firstName: String, _ lastName: String) -> Bool {
-        return isEntryValid(firstName) || isEntryValid(lastName)
+        return !isEntryValid(firstName) || !isEntryValid(lastName)
     }
     
     private func isEntryValid(_ entry: String) -> Bool {
-        let alphabetPattern = "^[a-zA-Z-'’]+$"
-        return entry.isEmpty || entry.range(of: alphabetPattern, options: .regularExpression) == nil
+        let alphabetPattern = "^[a-zA-Z-'’]+$"        
+        return !entry.isEmpty && entry.range(of: alphabetPattern, options: .regularExpression) != nil
     }
 }

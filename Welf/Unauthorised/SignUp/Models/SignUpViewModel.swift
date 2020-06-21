@@ -18,6 +18,7 @@ class SignUpViewModel: ObservableObject {
     @Published var phoneNumber: String = ""
     @Published var showPassword: Bool = false
     @Published var currentPage: Int = 1
+
     var disableFirstPageNextButton: Bool = true
     var disableSecondPageNextButton: Bool = true
     var disableSignUpButton: Bool = true
