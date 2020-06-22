@@ -73,32 +73,15 @@ struct SignUpView: View {
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        return Group {
+        ForEach(["iPhone SE", "iPhone XS Max", "iPhone 8"], id: \.self) { deviceName in
             Button(action: {}) {
                 Text("Show SignUp View")
             }.sheet(isPresented: .constant(true)) {
                 SignUpView()
             }
-            .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
-            .previewDisplayName("iPhone SE")
-            
-            Button(action: {}) {
-                Text("Show SignUp View")
-            }.sheet(isPresented: .constant(true)) {
-                SignUpView()
-            }
-            .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
-            .previewDisplayName("iPhone 8")
-            
-            Button(action: {}) {
-                Text("Show SignUp View")
-            }.sheet(isPresented: .constant(true)) {
-                SignUpView()
-            }
-            .previewDevice(PreviewDevice(rawValue: "iPhone Xs Max"))
-            .previewDisplayName("iPhone Xs Max")
+            .previewDevice(PreviewDevice(rawValue: deviceName))
+            .environment(\.colorScheme, .dark)
         }
         .environmentObject(User())
-        .environment(\.colorScheme, .dark)
     }
 }

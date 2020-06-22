@@ -11,15 +11,30 @@ import Foundation
 
 struct PagedForm: View {
     @ObservedObject var signUpViewModel: SignUpViewModel
-
+    @State private var isValidUsername: Bool = false
+    
     var body: some View {
         ZStack {
             if self.signUpViewModel.currentPage == 1 {
                 FirstStep(signUpViewModel: self.signUpViewModel)
             } else if self.signUpViewModel.currentPage == 2 {
                 VStack {
-                    GenericTextField(label: "User name", text: self.$signUpViewModel.username)
-                    GenericSecureField(label: "Password", showPassword: self.$signUpViewModel.showPassword, secureText: self.$signUpViewModel.password)
+                    GenericTextFieldWithValidation(
+                        text: self.$signUpViewModel.username,
+                        isValidEntry: self.$isValidUsername,
+                        label: "User name"
+                    ).onReceive(signUpViewModel.validateUsernameEntryPublisher) {
+                        guard let validationMessage = $0 else {
+                            return
+                        }
+                        self.isValidUsername = !(validationMessage.count > 0)
+                    }
+                    
+                    GenericSecureField(
+                        label: "Password",
+                        showPassword: self.$signUpViewModel.showPassword,
+                        secureText: self.$signUpViewModel.password
+                    )
                 }
                 .transition(.move(edge: .leading))
             } else {
