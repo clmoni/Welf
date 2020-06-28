@@ -24,10 +24,8 @@ struct PagedForm: View {
                         isValidEntry: self.$isValidUsername,
                         label: "User name"
                     ).onReceive(signUpViewModel.validateUsernameEntryPublisher) {
-                        guard let validationMessage = $0 else {
-                            return
-                        }
-                        self.isValidUsername = !(validationMessage.count > 0)
+                        let usernameCheck: UsernameCheck = $0
+                        self.isValidUsername = usernameCheck == .valid
                     }
                     
                     GenericSecureField(

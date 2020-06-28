@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import AWSMobileClient 
+import AWSMobileClient
 
 struct RegistrationService {
     
@@ -23,18 +23,30 @@ struct RegistrationService {
         }
     }
     
-    public func doesUsernameAlreadyExist(username: String) {
+    public func isUsernameValid(username: String, completion: @escaping (Bool) -> ()) -> () {
+        isUsernameAvailable(username: username, completion: completion)
+    }
+    
+    private func isUsernameAvailable(username: String, completion: @escaping (Bool) -> ()) -> () {
         // see if this can be further incorrect to further ensure an error occurs?
         let confirmationCode: String = "000000"
         AWSMobileClient.default().confirmSignUp(username: username, confirmationCode: confirmationCode) { (signUpResult, error) in
             if let error = error as? AWSMobileClientError {
                 switch error {
                 case .notAuthorized(message: "User cannot be confirmed. Current status is CONFIRMED"):
-                    print("user exists")
+                    print("RegistrationService: user exists")
+                    completion(true)
                 default:
-                    print("assume user doesn't exists")
+                    print("RegistrationService: assume user doesn't exists")
+                    completion(false)
                 }
             }
         }
+    }
+    
+    public func doesUsernameSatisfyconstraint(_ entry: String) -> Bool {
+        print("isEntryValid \(entry)")
+        let alphabetPattern = "^[a-zA-Z0-9_]+$"
+        return !entry.isEmpty && entry.range(of: alphabetPattern, options: .regularExpression) != nil
     }
 }

@@ -9,19 +9,57 @@
 import SwiftUI
 import Combine
 
+enum UsernameCheck {
+    case valid
+    case constraintViolation
+    case alreadyExists
+}
+
 extension SignUpViewModel {
-    var validateUsernameEntryPublisher: AnyPublisher<String?, Never> {
+    private var registrationService: RegistrationService {
+        get {
+            return RegistrationService()
+        }
+    }
+    
+    var doesUsernameSatisfyConstraintPublisher: AnyPublisher<Bool, Never> {
         self.$username
             .debounce(for: 0.2, scheduler: RunLoop.main)
             .removeDuplicates()
             .map { input in
-                return !self.isEntryValid(input) ? "Only a-z, 0-9 and _ allowed" : ""
+                self.registrationService.doesUsernameSatisfyconstraint(input)
         }
         .eraseToAnyPublisher()
     }
     
-    private func isEntryValid(_ entry: String) -> Bool {
-        let alphabetPattern = "^[a-zA-Z0-9_]+$"
-        return !entry.isEmpty && entry.range(of: alphabetPattern, options: .regularExpression) != nil
+    var doesUsernameAlreadyExistPublisher: AnyPublisher<Bool, Never> {
+        self.$username
+            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .removeDuplicates()
+            .flatMap{ input in
+                return Future { promise in
+                    self.registrationService.isUsernameValid(username: input) { available in
+                        promise(.success(available))
+                    }
+                }
+        }
+        .receive(on: RunLoop.main)
+        .eraseToAnyPublisher()
+    }
+    
+    var validateUsernameEntryPublisher: AnyPublisher<UsernameCheck, Never> {
+        Publishers.CombineLatest(doesUsernameSatisfyConstraintPublisher, doesUsernameAlreadyExistPublisher)
+            .map { doesUsernameSatisfyConstraint, doesUsernameAlreadyExist in
+                if !doesUsernameSatisfyConstraint {
+                    return .constraintViolation
+                }
+                else if doesUsernameAlreadyExist {
+                    return .alreadyExists
+                }
+                else {
+                    return .valid
+                }
+        }
+        .eraseToAnyPublisher()
     }
 }
