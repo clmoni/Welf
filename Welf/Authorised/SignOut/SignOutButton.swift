@@ -9,12 +9,11 @@
 import SwiftUI
 
 struct SignOutButton: View {
-    //let app = UIApplication.shared.delegate as! AppDelegate
-    private let _authService = AuthenticationService()
+    @EnvironmentObject private var authService: AuthenticationService
     
     var body: some View {
-        NavigationLink(destination: LandingView(user: _authService.user)) {
-            Button(action: { self._authService.signOut() }) {
+        NavigationLink(destination: LandingView()) {
+            Button(action: { self.authService.signOut() }) {
                 Text("Sign Out")
             }
         }

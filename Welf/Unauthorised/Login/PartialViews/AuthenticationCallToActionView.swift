@@ -9,10 +9,7 @@
 import SwiftUI
 
 struct AuthenticationCallToActionView: View {
-    private let app: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-    @EnvironmentObject private var user: User
-    
-    @ObservedObject var signInViewModel: SignInViewModel
+    @EnvironmentObject private var authService: AuthenticationService
     
     var body: some View {
         
@@ -24,7 +21,7 @@ struct AuthenticationCallToActionView: View {
             .bold()
         
         return VStack {
-            NavigationLink(destination: ForgotPasswordView(), isActive: self.$signInViewModel.showForgotPasswordView) {
+            NavigationLink(destination: ForgotPasswordView(), isActive: self.$authService.showForgotPasswordView) {
                 EmptyView()
             }
             
@@ -39,17 +36,17 @@ struct AuthenticationCallToActionView: View {
                 
                 GenericButton(
                     buttonDisplayView: logInText,
-                    backgroundColour: signInViewModel.disableLoginButton ? .secondary : .green
+                    backgroundColour: authService.disableLoginButton ? .secondary : .green
                 ) { () in
                     self.signIn()
                 }
-                .alert(isPresented: $user.authenticationState.isBadCredentialsSignInError) {
+                .alert(isPresented: $authService.isBadCredentialsSignInError) {
                     KeyboardResponder.dismissKeyboard()
                     return self.signInErrorAlert()
                 }
-                .disabled(signInViewModel.disableLoginButton)
-                .onReceive(signInViewModel.showSignInbuttonPublisher) {
-                    self.signInViewModel.disableLoginButton = $0 ?? true
+                .disabled(authService.disableLoginButton)
+                .onReceive(authService.showSignInbuttonPublisher) {
+                    self.authService.disableLoginButton = $0 ?? true
                 }
             }
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 8, trailing: 20))
@@ -61,20 +58,21 @@ struct AuthenticationCallToActionView: View {
         let messageText =  Text(verbatim: "The username and password you entered did not match our records. Please try again.")
         let okBtnText = Text(verbatim: "OK")
         let resetBtn: Alert.Button = .default(Text(verbatim: "Reset password")) {
-            self.signInViewModel.showForgotPasswordView = true
+            self.authService.showForgotPasswordView = true
         }
         
         return Alert(title: titleText, message: messageText, primaryButton: .default(okBtnText), secondaryButton: resetBtn)
     }
     
     private func signIn() {
-        self.app.authService.signIn(username: self.signInViewModel.username, password: self.signInViewModel.password)
+        print("here clicked")
+        self.authService.signIn(username: self.authService.username, password: self.authService.password)
     }
 }
 
 struct AuthenticationCallToActionView_Previews: PreviewProvider {
     static var previews: some View {
-        AuthenticationCallToActionView(signInViewModel: SignInViewModel())
-            .environmentObject(User())
+        AuthenticationCallToActionView()
+            .environmentObject(AuthenticationService())
     }
 }

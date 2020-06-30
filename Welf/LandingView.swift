@@ -9,12 +9,15 @@
 import SwiftUI
 
 struct LandingView: View {
-    @ObservedObject public var user : User
+    @EnvironmentObject private var authService: AuthenticationService
     
     var body: some View {
+        
         VStack {
-            if !self.$user.authenticationState.isSignedIn.wrappedValue {
-                UnauthorisedLandingView(user: self.user)
+            if !self.$authService.isSignedIn.wrappedValue {
+                LoadingView(isShowing: self.$authService.isSigningIn) {
+                    UnauthorisedLandingView()
+                }
             } else {
                 AuthorisedLandingView()
             }
@@ -24,6 +27,6 @@ struct LandingView: View {
 
 struct LandingView_Previews: PreviewProvider {
     static var previews: some View {
-        return LandingView(user: User())
+        return LandingView().modifier(SystemServices())
     }
 }

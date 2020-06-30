@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct Login: View {
-    @EnvironmentObject private var user: User
+    @EnvironmentObject private var authService: AuthenticationService
     
     var body: some View {
         HStack {
@@ -27,7 +27,6 @@ struct Login: View {
             colour: .green)
         
         let loginView = LoginView()
-            .environmentObject(self.user)
         
         return GenericTextButton(text: logInTextView, destination: loginView)
             .offset(x: -3)

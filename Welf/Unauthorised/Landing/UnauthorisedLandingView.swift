@@ -9,34 +9,30 @@
 import SwiftUI
 
 struct UnauthorisedLandingView: View {
+    @EnvironmentObject private var authService: AuthenticationService
     @State private var showRegistrationModal: Bool = false
-    @ObservedObject public var user : User
     
     var body: some View {
-        LoadingView(isShowing: self.$user.authenticationState.isSigningIn) {
-            NavigationView {
-                GeometryReader { geometry in
+        NavigationView {
+            GeometryReader { geometry in
+                VStack {
+                    Spacer()
+                    self.createLogoView()
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
+                        .frame(maxHeight: 350)
+                    
+                    self.createDescriptionView(geometry)
+                    Spacer()
+                    
                     VStack {
-                        Spacer()
-                        self.createLogoView()
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 100, trailing: 0))
-                            .frame(maxHeight: 350)
-                        
-                        self.createDescriptionView(geometry)
-                        Spacer()
-                        
-                        VStack {
-                            self.createSignUpButton()
-                            self.createLoginCallToAction()
-                        }
+                        self.createSignUpButton()
+                        self.createLoginCallToAction()
                     }
-                    .padding()
-                    .navigationBarTitle("")
-                    .accentColor(.green)
                 }
+                .padding()
+                .navigationBarTitle("")
             }
-            .environmentObject(self.user)
-        }
+        }//.modifier(SystemServices())
     }
     
     private func createLogoView() -> some View {
@@ -61,6 +57,7 @@ struct UnauthorisedLandingView: View {
         }
         .sheet(isPresented: self.$showRegistrationModal) {
             SignUpView()
+                .modifier(SystemServices())
         }
     }
     
@@ -68,25 +65,24 @@ struct UnauthorisedLandingView: View {
         Login()
             .padding()
             .frame(alignment: .center)
-            .environmentObject(self.user)
     }
 }
 
 struct UnauthorisedLandingView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            UnauthorisedLandingView(user: .init())
+            UnauthorisedLandingView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone SE"))
                 .previewDisplayName("iPhone SE")
             
-            UnauthorisedLandingView(user: .init())
+            UnauthorisedLandingView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone 8"))
                 .previewDisplayName("iPhone 8")
             
-            UnauthorisedLandingView(user: .init())
+            UnauthorisedLandingView()
                 .previewDevice(PreviewDevice(rawValue: "iPhone Xs Max"))
                 .previewDisplayName("iPhone Xs Max")
         }
-        .environmentObject(User())
+        .modifier(SystemServices())
     }
 }

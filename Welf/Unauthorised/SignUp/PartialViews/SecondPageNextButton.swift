@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SecondPageNextButton: View {
-    @ObservedObject var signUpViewModel: SignUpViewModel
+    @EnvironmentObject private var signUpService: SignUpService
     var goToNextPage: () -> ()
     
     var body: some View {
@@ -19,7 +19,7 @@ struct SecondPageNextButton: View {
         
         return GenericButton(
             buttonDisplayView: logInText,
-            backgroundColour: signUpViewModel.disableSecondPageNextButton ? .secondary : .green
+            backgroundColour: signUpService.disableSecondPageNextButton ? .secondary : .green
         ) { () in
             self.goToNextPage()
         }
@@ -32,6 +32,6 @@ struct SecondPageNextButton: View {
 
 struct SecondPageNextButton_Previews: PreviewProvider {
     static var previews: some View {
-        SecondPageNextButton(signUpViewModel: .init(), goToNextPage: {})
+        SecondPageNextButton(goToNextPage: {}).environmentObject(SignUpService())
     }
 }

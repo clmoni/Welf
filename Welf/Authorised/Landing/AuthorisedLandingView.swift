@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct AuthorisedLandingView: View {
-    @EnvironmentObject private var user: User
     var body: some View {
         NavigationView {
             VStack {

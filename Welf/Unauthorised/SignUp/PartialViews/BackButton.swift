@@ -9,11 +9,10 @@
 import SwiftUI
 
 struct BackButton: View {
-    @ObservedObject var signUpViewModel: SignUpViewModel
-    var goToPreviousPage: () -> ()
+    @EnvironmentObject private var signUpService: SignUpService
     
     var body: some View {
-        return signUpViewModel.currentPage > signUpViewModel.firstPage ?
+        return signUpService.currentPage > signUpService.firstPage ?
             self.createButton() : nil
     }
     
@@ -29,10 +28,19 @@ struct BackButton: View {
             self.goToPreviousPage()
         }
     }
+    
+    private func goToPreviousPage() {
+        KeyboardResponder.dismissKeyboard()
+        if signUpService.currentPage != signUpService.firstPage {
+            withAnimation {
+                signUpService.currentPage -= 1
+            }
+        }
+    }
 }
 
 struct BackButton_Previews: PreviewProvider {
     static var previews: some View {
-        BackButton(signUpViewModel: .init(), goToPreviousPage: {})
+        BackButton().environmentObject(SignUpService())
     }
 }

@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct CreateAccountDismissalBarView: View {
-    var dismiss: () -> ()
+    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         VStack {
             HStack {
-                Button(action: { self.dismiss() }) {
+                Button(action: { self.dismissRegistrationModalView() }) {
                     Image(systemName: "xmark")
                         .font(.system(size: 20))
                         .foregroundColor(Color.green)
@@ -36,10 +36,15 @@ struct CreateAccountDismissalBarView: View {
                 .background(Color.green)
         }
     }
+    
+    private func dismissRegistrationModalView() {
+        print("dismisses form")
+        self.presentationMode.wrappedValue.dismiss()
+    }
 }
 
 struct CreateAccountDismissalBarView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccountDismissalBarView(dismiss: {})
+        CreateAccountDismissalBarView()
     }
 }

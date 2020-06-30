@@ -9,19 +9,27 @@
 import SwiftUI
 
 struct ForwardButton: View {
-    @ObservedObject var signUpViewModel: SignUpViewModel
-    var goToNextPage: () -> ()
+    @EnvironmentObject private var signUpService: SignUpService
     
     var body: some View {
         VStack {
-            if signUpViewModel.currentPage == signUpViewModel.firstPage {
-                FirstPageNextButton(signUpViewModel: self.signUpViewModel, goToNextPage: self.goToNextPage)
+            if signUpService.currentPage == signUpService.firstPage {
+                FirstPageNextButton(goToNextPage: self.goToNextPage)
             }
-            else if signUpViewModel.currentPage == 2 {
-                SecondPageNextButton(signUpViewModel: self.signUpViewModel, goToNextPage: self.goToNextPage)
+            else if signUpService.currentPage == 2 {
+                SecondPageNextButton(goToNextPage: self.goToNextPage)
             }
             else {
-                SignUpButton(signUpViewModel: self.signUpViewModel, goToNextPage: self.goToNextPage)
+                SignUpButton(goToNextPage: self.goToNextPage)
+            }
+        }
+    }
+    
+    private func goToNextPage() {
+        KeyboardResponder.dismissKeyboard()
+        if signUpService.currentPage < signUpService.totalNumberOfPages {
+            withAnimation {
+                signUpService.currentPage += 1
             }
         }
     }
@@ -29,6 +37,6 @@ struct ForwardButton: View {
 
 struct ForwardButton_Previews: PreviewProvider {
     static var previews: some View {
-        ForwardButton(signUpViewModel: .init(), goToNextPage: {})
+        ForwardButton().environmentObject(SignUpService())
     }
 }

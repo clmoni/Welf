@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SignUpButton: View {
-    @ObservedObject var signUpViewModel: SignUpViewModel
+    @EnvironmentObject private var signUpService: SignUpService
     var goToNextPage: () -> ()
     
     var body: some View {
@@ -19,9 +19,9 @@ struct SignUpButton: View {
         
         return GenericButton(
             buttonDisplayView: logInText,
-            backgroundColour: signUpViewModel.disableSignUpButton ? .secondary : .green
+            backgroundColour: signUpService.disableSignUpButton ? .secondary : .green
         ) { () in
-            print(self.signUpViewModel.emailAddress)
+            print(self.signUpService.emailAddress)
         }
         //.disabled(signUpViewModel.disableFirstPageNextButton)
         //.onReceive(signInViewModel.showSignInbutton) {
@@ -32,6 +32,6 @@ struct SignUpButton: View {
 
 struct SignUpButton_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpButton(signUpViewModel: .init(), goToNextPage: {})
+        SignUpButton(goToNextPage: {}).environmentObject(SignUpService())
     }
 }

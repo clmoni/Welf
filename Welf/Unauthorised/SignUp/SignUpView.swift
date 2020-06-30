@@ -9,43 +9,17 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @Environment(\.presentationMode) private var _presentationMode: Binding<PresentationMode>
-    @ObservedObject private var _signUpViewModel = SignUpViewModel()
-    @ObservedObject private var _keyboard = KeyboardResponder()
-    private var _registrationService = RegistrationService()
-    
-    var keyboard: KeyboardResponder {
-        get {
-            return _keyboard
-        }
-    }
-    
-    var signUpViewModel: SignUpViewModel {
-        get {
-            return _signUpViewModel
-        }
-    }
-    
-    var registrationService: RegistrationService {
-        get {
-            return _registrationService
-        }
-    }
-    
-    var presentationMode: Binding<PresentationMode> {
-        get {
-            return _presentationMode
-        }
-    }
+    @EnvironmentObject private var signUpService: SignUpService
+    @EnvironmentObject private var keyboard: KeyboardResponder
     
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                CreateAccountDismissalBarView(dismiss: self.dismissRegistrationModalView)
+                CreateAccountDismissalBarView()
                 VStack {
                     VStack {
-                        FormHeader(currentPage: self._signUpViewModel.currentPage, totalNumberOfPages: self._signUpViewModel.totalNumberOfPages)
-                        PagedForm(signUpViewModel: self._signUpViewModel)
+                        FormHeader()
+                        PagedForm()
                     }
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     .animation(.easeInOut(duration: 0.7))
@@ -57,9 +31,9 @@ struct SignUpView: View {
                             .frame(height: 0.5)
                             .background(Color.green)
                         HStack {
-                            BackButton(signUpViewModel: self._signUpViewModel, goToPreviousPage: self.goToPreviousPage)
+                            BackButton()
                             Spacer()
-                            ForwardButton(signUpViewModel: self._signUpViewModel, goToNextPage: self.goToNextPage)
+                            ForwardButton()
                         }
                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                     }
@@ -68,6 +42,22 @@ struct SignUpView: View {
                 }
             }
         }
+    }
+    
+    private func calculateButtonPadding(_ geometry: GeometryProxy) -> EdgeInsets {
+        EdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: self.keyboard.calculateMovingPadding(geometry),
+            trailing: 0
+        )
+    }
+    
+    private func getOffset(_ geometry: GeometryProxy) -> CGFloat {
+        let zeroBottomSafeArea: CGFloat = 0
+        let zeroOffet: CGFloat = keyboard.isKeyboardPoppingOut() ? -8 : 0
+        return geometry.safeAreaInsets.bottom > zeroBottomSafeArea ?
+            zeroOffet : -8
     }
 }
 
@@ -78,10 +68,10 @@ struct SignUpView_Previews: PreviewProvider {
                 Text("Show SignUp View")
             }.sheet(isPresented: .constant(true)) {
                 SignUpView()
+                    .modifier(SystemServices())
             }
             .previewDevice(PreviewDevice(rawValue: deviceName))
             .environment(\.colorScheme, .dark)
         }
-        .environmentObject(User())
     }
 }

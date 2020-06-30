@@ -6,11 +6,28 @@
 //  Copyright © 2020 Clem. All rights reserved.
 //
 
+import SwiftUI
 import Foundation
 import AWSMobileClient
+import Combine
 
-struct AuthenticationService {
-    public let user = User()
+class AuthenticationService: ObservableObject {
+    @Published var isSignedIn: Bool = false
+    @Published var isSigningIn: Bool = false
+    @Published var isBadCredentialsSignInError: Bool = false
+    @Published var isNonUserFaultSignInError: Bool = false
+    @Published var username: String = ""
+    @Published var password: String = ""
+    @Published var showPassword: Bool = false
+    @Published var showForgotPasswordView: Bool = false
+    var disableLoginButton: Bool = true
+    
+    var showSignInbuttonPublisher: AnyPublisher<Bool?, Never> {
+      $username.combineLatest($password) { username, password in
+        return username.isEmpty || password.isEmpty
+      }
+      .eraseToAnyPublisher()
+    }
     
     public func initialise<T>(app: T) where T : AppDelegate {
         self.addUserStateListener(app: app)
@@ -38,7 +55,7 @@ struct AuthenticationService {
     
     private func changeSigningInState(isSigningIn: Bool) {
         DispatchQueue.main.async {
-            self.user.authenticationState.isSigningIn = isSigningIn
+            self.isSigningIn = isSigningIn
         }
     }
     
@@ -46,11 +63,11 @@ struct AuthenticationService {
         DispatchQueue.main.async {
             switch awsError {
             case .notAuthorized, .invalidParameter, .userNotFound:
-                self.user.authenticationState.isBadCredentialsSignInError = true
-                self.user.authenticationState.isNonUserFaultSignInError = false
+                self.isBadCredentialsSignInError = true
+                self.isNonUserFaultSignInError = false
             default:
-                self.user.authenticationState.isBadCredentialsSignInError = false
-                self.user.authenticationState.isNonUserFaultSignInError = true
+                self.isBadCredentialsSignInError = false
+                self.isNonUserFaultSignInError = true
             }
         }
     }
@@ -58,7 +75,7 @@ struct AuthenticationService {
     private func doInitialisation() {
         AWSMobileClient.default().initialize({(userState, error) in
             // notify our subscriber the value changed
-            self.user.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
+            self.isSignedIn = AWSMobileClient.default().isSignedIn
             self.logUserStateOrError(userState: userState, error: error)
         })
     }
@@ -69,7 +86,7 @@ struct AuthenticationService {
             
             // notify our subscriber the value changed
             DispatchQueue.main.async {
-                self.user.authenticationState.isSignedIn = AWSMobileClient.default().isSignedIn
+                self.isSignedIn = AWSMobileClient.default().isSignedIn
             }
             
             self.logUserState(userState)

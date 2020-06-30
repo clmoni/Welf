@@ -10,35 +10,35 @@ import SwiftUI
 import Foundation
 
 struct PagedForm: View {
-    @ObservedObject var signUpViewModel: SignUpViewModel
+    @EnvironmentObject private var signUpService: SignUpService
     @State private var isValidUsername: Bool = false
     
     var body: some View {
         ZStack {
-            if self.signUpViewModel.currentPage == 1 {
-                FirstStep(signUpViewModel: self.signUpViewModel)
-            } else if self.signUpViewModel.currentPage == 2 {
+            if self.signUpService.currentPage == 1 {
+                FirstStep()
+            } else if self.signUpService.currentPage == 2 {
                 VStack {
                     GenericTextFieldWithValidation(
-                        text: self.$signUpViewModel.username,
+                        text: self.$signUpService.username,
                         isValidEntry: self.$isValidUsername,
                         label: "User name"
-                    ).onReceive(signUpViewModel.validateUsernameEntryPublisher) {
+                    ).onReceive(signUpService.validateUsernameEntryPublisher) {
                         let usernameCheck: UsernameCheck = $0
                         self.isValidUsername = usernameCheck == .valid
                     }
                     
                     GenericSecureField(
                         label: "Password",
-                        showPassword: self.$signUpViewModel.showPassword,
-                        secureText: self.$signUpViewModel.password
+                        showPassword: self.$signUpService.showPassword,
+                        secureText: self.$signUpService.password
                     )
                 }
                 .transition(.move(edge: .leading))
             } else {
                 VStack {
-                    GenericTextField(label: "Email address", text: self.$signUpViewModel.emailAddress)
-                    GenericTextField(label: "Phone number", text: self.$signUpViewModel.phoneNumber)
+                    GenericTextField(label: "Email address", text: self.$signUpService.emailAddress)
+                    GenericTextField(label: "Phone number", text: self.$signUpService.phoneNumber)
                 }
                 .transition(.move(edge: .leading))
             }
@@ -48,7 +48,7 @@ struct PagedForm: View {
 
 struct PagedForm_Previews: PreviewProvider {
     static var previews: some View {
-        PagedForm(signUpViewModel: .init())
+        PagedForm().environmentObject(SignUpService())
     }
 }
 
