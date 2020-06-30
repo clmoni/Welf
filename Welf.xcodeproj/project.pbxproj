@@ -10,6 +10,9 @@
 		18E5BA19B4E61AF109AC461F /* Pods_WelfTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A601531AAB9395CDBE46055 /* Pods_WelfTests.framework */; };
 		2AC9A5641EA58AEF084BD1B9 /* Pods_Welf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5ACF9A7D3DC95CAD630CB6 /* Pods_Welf.framework */; };
 		5DCF7C0E4668554B12C2EE45 /* Pods_Welf_WelfUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3308F9E209BCCBFE5D6023BB /* Pods_Welf_WelfUITests.framework */; };
+		E109A26A24AB84CB007F21B2 /* UsernameCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E109A26924AB84CB007F21B2 /* UsernameCheck.swift */; };
+		E109A26F24AC0555007F21B2 /* PasswordStrengthMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E109A26E24AC0555007F21B2 /* PasswordStrengthMeter.swift */; };
+		E109A27124AC05B5007F21B2 /* PasswordUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E109A27024AC05B5007F21B2 /* PasswordUtil.swift */; };
 		E119467D240B97D7007BE44A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119467C240B97D7007BE44A /* AppDelegate.swift */; };
 		E119467F240B97D7007BE44A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119467E240B97D7007BE44A /* SceneDelegate.swift */; };
 		E1194682240B97D7007BE44A /* Welf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1194680240B97D7007BE44A /* Welf.xcdatamodeld */; };
@@ -92,6 +95,9 @@
 		94110CCF82860220C117DF93 /* Pods-Welf-WelfUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Welf-WelfUITests.release.xcconfig"; path = "Target Support Files/Pods-Welf-WelfUITests/Pods-Welf-WelfUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A43CCE015E549F1F16F237F9 /* Pods-WelfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WelfTests.debug.xcconfig"; path = "Target Support Files/Pods-WelfTests/Pods-WelfTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DB2692F30DF31CF77A9EEBBA /* Pods-Welf-WelfUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Welf-WelfUITests.debug.xcconfig"; path = "Target Support Files/Pods-Welf-WelfUITests/Pods-Welf-WelfUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E109A26924AB84CB007F21B2 /* UsernameCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameCheck.swift; sourceTree = "<group>"; };
+		E109A26E24AC0555007F21B2 /* PasswordStrengthMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStrengthMeter.swift; sourceTree = "<group>"; };
+		E109A27024AC05B5007F21B2 /* PasswordUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordUtil.swift; sourceTree = "<group>"; };
 		E1194679240B97D7007BE44A /* Welf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Welf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E119467C240B97D7007BE44A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E119467E240B97D7007BE44A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +210,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E109A26824AB84AE007F21B2 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				E109A26924AB84CB007F21B2 /* UsernameCheck.swift */,
+				E109A26E24AC0555007F21B2 /* PasswordStrengthMeter.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		E109A26D24AC04E9007F21B2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E109A27024AC05B5007F21B2 /* PasswordUtil.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		E1194670240B97D7007BE44A = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +336,8 @@
 		E1B115102471EB3200CA86DA /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E109A26D24AC04E9007F21B2 /* Utils */,
+				E109A26824AB84AE007F21B2 /* Enums */,
 				E1E995EF2490238B00A53A84 /* SignUpService.swift */,
 				E1B115112471EB5A00CA86DA /* AuthenticationService.swift */,
 				E1246D7724AA6D5000EE3A77 /* SystemServices.swift */,
@@ -691,6 +716,7 @@
 				E1E995F02490238B00A53A84 /* SignUpService.swift in Sources */,
 				E119467D240B97D7007BE44A /* AppDelegate.swift in Sources */,
 				E1F3976B248083890017A29F /* GenericResizeableIconButton.swift in Sources */,
+				E109A27124AC05B5007F21B2 /* PasswordUtil.swift in Sources */,
 				E1B1150C2471A99100CA86DA /* SignOutButton.swift in Sources */,
 				E1ADF2E124999C9E00CE6B56 /* PageControl.swift in Sources */,
 				E17102B2249B0B5000FFED5A /* ForwardButton.swift in Sources */,
@@ -715,6 +741,7 @@
 				E1B3D7F82413D52A0047D618 /* GenericNavigationButton.swift in Sources */,
 				E1B1150824719CCC00CA86DA /* WelfLogo.swift in Sources */,
 				E1246D72249ED13300EE3A77 /* FirstStep.swift in Sources */,
+				E109A26A24AB84CB007F21B2 /* UsernameCheck.swift in Sources */,
 				E1F3976E24808ABD0017A29F /* CreateAccountDismissalBarView.swift in Sources */,
 				E1C765162411E9CF00D37181 /* Login.swift in Sources */,
 				E164BD78249AF2A60089021D /* FormHeader.swift in Sources */,
@@ -732,6 +759,7 @@
 				E1B115122471EB5A00CA86DA /* AuthenticationService.swift in Sources */,
 				E146EC32247DC9EF007C2155 /* UsernameEntryView.swift in Sources */,
 				E1F397752482BC5F0017A29F /* UIApplicationExtensions.swift in Sources */,
+				E109A26F24AC0555007F21B2 /* PasswordStrengthMeter.swift in Sources */,
 				E1ABFF66248064DA00FE6EE8 /* GenericResizeableButton.swift in Sources */,
 				E17102B4249B0DDF00FFED5A /* SignUpButton.swift in Sources */,
 			);

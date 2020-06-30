@@ -10,12 +10,6 @@ import SwiftUI
 import Combine
 import AWSMobileClient
 
-enum UsernameCheck {
-    case valid
-    case constraintViolation
-    case alreadyExists
-}
-
 class SignUpService: ObservableObject {
     @Published var firstName: String = ""
     @Published var lastName: String = ""
@@ -25,12 +19,35 @@ class SignUpService: ObservableObject {
     @Published var phoneNumber: String = ""
     @Published var showPassword: Bool = false
     @Published var currentPage: Int = 1
-
+    
     var disableFirstPageNextButton: Bool = true
     var disableSecondPageNextButton: Bool = true
     var disableSignUpButton: Bool = true
     var totalNumberOfPages: Int = 3
     var firstPage: Int = 1
+    
+    var passwordStrengthPublisher: AnyPublisher<PasswordStrengthMeter, Never> {
+        $password
+            .debounce(for: 0.2, scheduler: RunLoop.main)
+            .removeDuplicates()
+            .map { input in
+                return PasswordUtil.calculatePasswordStrength(input)
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    var isPasswordStrongEnoughPublisher: AnyPublisher<Bool, Never> {
+        passwordStrengthPublisher
+            .map { strength in
+                switch strength {
+                case .amber, .green:
+                    return true
+                default:
+                    return false
+                }
+        }
+        .eraseToAnyPublisher()
+    }
     
     var isFirstPageNextButtonDisabledPublisher: AnyPublisher<Bool?, Never> {
         self.$firstName.combineLatest(self.$lastName) { firstName, lastName in

@@ -4,6 +4,7 @@ platform :ios, '13.5'
 target 'Welf' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  pod 'Navajo-Swift'
 
   # Pods for Welf
   pod 'AWSCore', '~> 2.13.0'
