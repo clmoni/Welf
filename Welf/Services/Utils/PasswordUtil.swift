@@ -39,9 +39,10 @@ struct PasswordUtil {
     }
     
     private static func createValidationFailureMessages(failingRules: [PasswordRule]?) -> String {
+        var failureMessages: String = ""
         if let rules = failingRules {
-            return rules.map({ return $0.localizedErrorDescription }).joined(separator: "\n")
+            failureMessages = rules.map({ return "* \($0.localizedErrorDescription)" }).joined(separator: "\n")
         }
-        return "the password is weak"
+        return failureMessages
     }
 }
