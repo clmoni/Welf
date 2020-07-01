@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct FirstPageNextButton: View {
-    @EnvironmentObject private var signUpService: SignUpService
+    @EnvironmentObject private var nameService: NameService
+    @State private var disableNextButton: Bool = true
     var goToNextPage: () -> ()
     
     var body: some View {
@@ -19,13 +20,13 @@ struct FirstPageNextButton: View {
         
         return GenericButton(
             buttonDisplayView: logInText,
-            backgroundColour: signUpService.disableFirstPageNextButton ? .secondary : .green
+            backgroundColour: disableNextButton ? .secondary : .green
         ) { () in
             self.goToNextPage()
         }
-        .disabled(signUpService.disableFirstPageNextButton)
-        .onReceive(signUpService.isFirstPageNextButtonDisabledPublisher) {
-            self.signUpService.disableFirstPageNextButton = $0 ?? true
+        .disabled(disableNextButton)
+        .onReceive(nameService.isFirstPageNextButtonDisabledPublisher) {
+            self.disableNextButton = $0
         }
     }
 }

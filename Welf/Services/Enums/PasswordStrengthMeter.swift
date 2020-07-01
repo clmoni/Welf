@@ -10,4 +10,5 @@ enum PasswordStrengthMeter {
     case green
     case amber
     case red
+    case empty
 }

@@ -10,6 +10,10 @@ import SwiftUI
 
 struct SignUpButton: View {
     @EnvironmentObject private var signUpService: SignUpService
+    @EnvironmentObject private var nameService: NameService
+    @EnvironmentObject private var userCredentialsService: UserCredentialsService
+    @EnvironmentObject private var contactDetailsService: ContactDetailsService
+    
     var goToNextPage: () -> ()
     
     var body: some View {
@@ -21,7 +25,7 @@ struct SignUpButton: View {
             buttonDisplayView: logInText,
             backgroundColour: signUpService.disableSignUpButton ? .secondary : .green
         ) { () in
-            print(self.signUpService.emailAddress)
+            print(self.contactDetailsService.emailAddress)
         }
         //.disabled(signUpViewModel.disableFirstPageNextButton)
         //.onReceive(signInViewModel.showSignInbutton) {

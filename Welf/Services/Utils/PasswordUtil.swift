@@ -9,19 +9,39 @@
 import Navajo_Swift
 
 struct PasswordUtil {
-    static func calculatePasswordStrength(_ password: String) -> PasswordStrengthMeter {
-        
-        var meter: PasswordStrengthMeter
-        
-        switch Navajo.strength(ofPassword: password) {
-        case .strong, .veryStrong:
-            meter = .green
-        case .reasonable:
-            meter = .amber
-        default:
-            meter = .amber
+    static func calculatePasswordStrength(_ password: String) -> (PasswordStrengthMeter, String) {
+        var meter: PasswordStrengthMeter = .empty
+        var failureMessages = ""
+        if !password.isEmpty {
+            let validator = createPasswordValidator()
+            let failingRules = validator.validate(password)
+            switch failingRules?.isEmpty ?? true ? Navajo.strength(ofPassword: password) : .veryWeak {
+            case .veryStrong:
+                meter = .green
+            case .reasonable, .strong:
+                meter = .amber
+            default:
+                meter = .red
+                failureMessages = createValidationFailureMessages(failingRules: failingRules)
+            }
+            
         }
+        return (meter, failureMessages)
+    }
+    
+    private static func createPasswordValidator() -> PasswordValidator {
+        let lengthRule = LengthRule(min: 8, max: 30)
+        let lowercaseRule = RequiredCharacterRule(preset: .lowercaseCharacter)
+        let uppercaseRule = RequiredCharacterRule(preset: .uppercaseCharacter)
+        let symbolRule = RequiredCharacterRule(preset: .symbolCharacter)
         
-        return meter
+        return PasswordValidator(rules: [lengthRule, lowercaseRule, uppercaseRule, symbolRule])
+    }
+    
+    private static func createValidationFailureMessages(failingRules: [PasswordRule]?) -> String {
+        if let rules = failingRules {
+            return rules.map({ return $0.localizedErrorDescription }).joined(separator: "\n")
+        }
+        return "the password is weak"
     }
 }

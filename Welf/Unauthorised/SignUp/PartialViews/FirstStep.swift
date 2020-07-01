@@ -9,18 +9,18 @@
 import SwiftUI
 
 struct FirstStep: View {
-    @EnvironmentObject private var signUpService: SignUpService
+    @EnvironmentObject private var nameService: NameService
     @State private var isValidFirstName: Bool = false
     @State private var isValidLastName: Bool = false
     
     var body: some View {
         VStack{
             GenericTextFieldWithValidation(
-                text: self.$signUpService.firstName,
+                text: self.$nameService.firstName,
                 isValidEntry: self.$isValidFirstName,
                 label: "First name",
                 autocapitalization: .sentences
-            ).onReceive(signUpService.validateFirstNameEntryPublisher) {
+            ).onReceive(nameService.validateFirstNameEntryPublisher) {
                 guard let validationMessage = $0 else {
                     return
                 }
@@ -28,11 +28,11 @@ struct FirstStep: View {
             }
             
             GenericTextFieldWithValidation(
-                text: self.$signUpService.lastName,
+                text: self.$nameService.lastName,
                 isValidEntry: self.$isValidLastName,
                 label: "Last name",
                 autocapitalization: .sentences
-            ).onReceive(signUpService.validateLastNameEntryPublisher) {
+            ).onReceive(nameService.validateLastNameEntryPublisher) {
                 guard let validationMessage = $0 else {
                     return
                 }
@@ -45,6 +45,6 @@ struct FirstStep: View {
 
 struct FirstStep_Previews: PreviewProvider {
     static var previews: some View {
-        FirstStep().environmentObject(SignUpService())
+        FirstStep().environmentObject(NameService())
     }
 }
