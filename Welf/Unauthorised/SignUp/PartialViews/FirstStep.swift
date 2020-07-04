@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct FirstStep: View {
-    @EnvironmentObject private var nameService: NameService
+    @EnvironmentObject private var nameService: SignUpNameService
     @State private var isValidFirstName: Bool = false
     @State private var isValidLastName: Bool = false
     
@@ -45,6 +45,6 @@ struct FirstStep: View {
 
 struct FirstStep_Previews: PreviewProvider {
     static var previews: some View {
-        FirstStep().environmentObject(NameService())
+        FirstStep().environmentObject(SignUpNameService())
     }
 }

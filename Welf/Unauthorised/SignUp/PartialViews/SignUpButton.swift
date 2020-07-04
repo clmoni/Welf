@@ -10,9 +10,9 @@ import SwiftUI
 
 struct SignUpButton: View {
     @EnvironmentObject private var signUpService: SignUpService
-    @EnvironmentObject private var nameService: NameService
-    @EnvironmentObject private var userCredentialsService: UserCredentialsService
-    @EnvironmentObject private var contactDetailsService: ContactDetailsService
+    @EnvironmentObject private var nameService: SignUpNameService
+    @EnvironmentObject private var userCredentialsService: SignUpUserCredentialsService
+    @EnvironmentObject private var contactDetailsService: SignUpContactDetailsService
     
     var goToNextPage: () -> ()
     

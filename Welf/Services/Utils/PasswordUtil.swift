@@ -24,7 +24,6 @@ struct PasswordUtil {
                 meter = .red
                 failureMessages = createValidationFailureMessages(failingRules: failingRules)
             }
-            
         }
         return (meter, failureMessages)
     }

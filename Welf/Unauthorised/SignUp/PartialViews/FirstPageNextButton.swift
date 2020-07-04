@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct FirstPageNextButton: View {
-    @EnvironmentObject private var nameService: NameService
+    @EnvironmentObject private var nameService: SignUpNameService
     @State private var disableNextButton: Bool = true
     var goToNextPage: () -> ()
     

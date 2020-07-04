@@ -12,9 +12,9 @@ struct SystemServices: ViewModifier {
     private let app = UIApplication.shared.delegate as! AppDelegate
     @ObservedObject private static var keyboard = KeyboardResponder()
     @ObservedObject private static var signUpService = SignUpService()
-    @ObservedObject private static var nameService = NameService()
-    @ObservedObject private static var userCredentialsService = UserCredentialsService()
-    @ObservedObject private static var contactDetailsService = ContactDetailsService()
+    @ObservedObject private static var nameService = SignUpNameService()
+    @ObservedObject private static var userCredentialsService = SignUpUserCredentialsService()
+    @ObservedObject private static var contactDetailsService = SignUpContactDetailsService()
     
     func body(content: Content) -> some View {
         content

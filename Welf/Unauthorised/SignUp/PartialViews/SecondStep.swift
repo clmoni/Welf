@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SecondStep: View {
-    @EnvironmentObject private var userCredentialsService: UserCredentialsService
+    @EnvironmentObject private var userCredentialsService: SignUpUserCredentialsService
     @State private var isValidUsername: Bool = false
     @State private var passwordStrength: PasswordStrengthMeter = .empty
     @State private var failureMessages: String = ""
@@ -50,6 +50,6 @@ struct SecondStep: View {
 
 struct SecondStep_Previews: PreviewProvider {
     static var previews: some View {
-        SecondStep().environmentObject(UserCredentialsService())
+        SecondStep().environmentObject(SignUpUserCredentialsService())
     }
 }

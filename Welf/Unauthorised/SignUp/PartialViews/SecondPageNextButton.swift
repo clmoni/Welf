@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SecondPageNextButton: View {
-    @EnvironmentObject private var userCredentialsService: UserCredentialsService
+    @EnvironmentObject private var userCredentialsService: SignUpUserCredentialsService
     @State private var disableNextButton: Bool = true
     var goToNextPage: () -> ()
     

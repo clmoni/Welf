@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 import AWSMobileClient
 
-class NameService: ObservableObject {
+class SignUpNameService: ObservableObject {
     @Published var firstName: String = ""
     @Published var lastName: String = ""
     

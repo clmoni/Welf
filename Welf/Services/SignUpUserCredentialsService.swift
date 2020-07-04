@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 import AWSMobileClient
 
-class UserCredentialsService: ObservableObject {
+class SignUpUserCredentialsService: ObservableObject {
     @Published public var username: String = ""
     @Published public var password: String = ""
     @Published var showPassword: Bool = false
