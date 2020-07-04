@@ -11,8 +11,6 @@ import Foundation
 
 struct PagedForm: View {
     @EnvironmentObject private var signUpService: SignUpService
-    @EnvironmentObject private var contactDetailsService: SignUpContactDetailsService
-    @State private var isValidEmail = false
     
     var body: some View {
         ZStack {
@@ -21,22 +19,7 @@ struct PagedForm: View {
             } else if self.signUpService.currentPage == 2 {
                 SecondStep()
             } else {
-                VStack {
-                    GenericTextFieldWithValidation(
-                        text: self.$contactDetailsService.emailAddress,
-                        isValidEntry: self.$isValidEmail,
-                        label: "Email address"
-                    ).onReceive(contactDetailsService.isEmailAddressValidPublisher) {
-                        self.isValidEmail = $0
-                    }
-                    
-                    GenericTextFieldWithValidation(
-                        text: self.$contactDetailsService.phoneNumber,
-                        isValidEntry: self.$isValidEmail,
-                        label: "Phone number"
-                    )
-                }
-                .transition(.move(edge: .leading))
+                FinalStep()
             }
         }
     }
@@ -45,7 +28,7 @@ struct PagedForm: View {
 struct PagedForm_Previews: PreviewProvider {
     static var previews: some View {
         PagedForm()
-            .modifier(SystemServices())
+            .injectSystemServices()
     }
 }
 

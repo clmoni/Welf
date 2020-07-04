@@ -16,4 +16,12 @@ extension View {
     func dismissKeyboardOnDrag() -> some View {
         ModifiedContent(content: self, modifier: KeyboardRemovalOnDragModifier())
     }
+    
+    func lockViewInPortraitMode() -> some View {
+        ModifiedContent(content: self, modifier: PortraitOrientationLockModifier())
+    }
+    
+    func injectSystemServices() -> some View {
+        ModifiedContent(content: self, modifier: SystemServices())
+    }
 }

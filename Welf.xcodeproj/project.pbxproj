@@ -19,6 +19,7 @@
 		E109A27924AD2920007F21B2 /* SignUpUserCredentialsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E109A27824AD2920007F21B2 /* SignUpUserCredentialsService.swift */; };
 		E109A27B24AD2B8C007F21B2 /* UsernameHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E109A27A24AD2B8C007F21B2 /* UsernameHelper.swift */; };
 		E109A27F24AD373D007F21B2 /* SignUpContactDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E109A27E24AD373D007F21B2 /* SignUpContactDetailsService.swift */; };
+		E110AB4824B0C76700AA144D /* PortraitOrientationLockModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110AB4724B0C76700AA144D /* PortraitOrientationLockModifier.swift */; };
 		E119467D240B97D7007BE44A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119467C240B97D7007BE44A /* AppDelegate.swift */; };
 		E119467F240B97D7007BE44A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E119467E240B97D7007BE44A /* SceneDelegate.swift */; };
 		E1194682240B97D7007BE44A /* Welf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1194680240B97D7007BE44A /* Welf.xcdatamodeld */; };
@@ -43,6 +44,7 @@
 		E17102B4249B0DDF00FFED5A /* SignUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17102B3249B0DDF00FFED5A /* SignUpButton.swift */; };
 		E17102B6249B0F0100FFED5A /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17102B5249B0F0100FFED5A /* BackButton.swift */; };
 		E1712C7E24883D93001B236B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1712C7D24883D93001B236B /* LoadingView.swift */; };
+		E197F2BD24B0D3DD00486BB4 /* FinalStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = E197F2BC24B0D3DD00486BB4 /* FinalStep.swift */; };
 		E1ABFF60247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF5F247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift */; };
 		E1ABFF66248064DA00FE6EE8 /* GenericResizeableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ABFF65248064DA00FE6EE8 /* GenericResizeableButton.swift */; };
 		E1ADF2E124999C9E00CE6B56 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1ADF2E024999C9E00CE6B56 /* PageControl.swift */; };
@@ -110,6 +112,7 @@
 		E109A27824AD2920007F21B2 /* SignUpUserCredentialsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUserCredentialsService.swift; sourceTree = "<group>"; };
 		E109A27A24AD2B8C007F21B2 /* UsernameHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameHelper.swift; sourceTree = "<group>"; };
 		E109A27E24AD373D007F21B2 /* SignUpContactDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContactDetailsService.swift; sourceTree = "<group>"; };
+		E110AB4724B0C76700AA144D /* PortraitOrientationLockModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortraitOrientationLockModifier.swift; sourceTree = "<group>"; };
 		E1194679240B97D7007BE44A /* Welf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Welf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E119467C240B97D7007BE44A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E119467E240B97D7007BE44A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 		E17102B3249B0DDF00FFED5A /* SignUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpButton.swift; sourceTree = "<group>"; };
 		E17102B5249B0F0100FFED5A /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		E1712C7D24883D93001B236B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E197F2BC24B0D3DD00486BB4 /* FinalStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStep.swift; sourceTree = "<group>"; };
 		E1ABFF5F247DDFC300FE6EE8 /* AuthenticationCallToActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCallToActionView.swift; sourceTree = "<group>"; };
 		E1ABFF65248064DA00FE6EE8 /* GenericResizeableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResizeableButton.swift; sourceTree = "<group>"; };
 		E1ADF2E024999C9E00CE6B56 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
@@ -409,6 +413,7 @@
 				E1ADF2E024999C9E00CE6B56 /* PageControl.swift */,
 				E1246D71249ED13300EE3A77 /* FirstStep.swift */,
 				E109A27424AD1531007F21B2 /* SecondStep.swift */,
+				E197F2BC24B0D3DD00486BB4 /* FinalStep.swift */,
 				E164BD72249AE4530089021D /* PagedForm.swift */,
 				E17102AC249B03C700FFED5A /* FirstPageNextButton.swift */,
 				E17102AF249B09EC00FFED5A /* SecondPageNextButton.swift */,
@@ -443,6 +448,7 @@
 			children = (
 				E1B1151324720CBD00CA86DA /* KeyboardAwareModifier.swift */,
 				E1F397782482D9850017A29F /* KeyboardRemovalOnDragModifier.swift */,
+				E110AB4724B0C76700AA144D /* PortraitOrientationLockModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -744,6 +750,7 @@
 				E1FEC911248730F900D4DDBE /* KeyboardResponder.swift in Sources */,
 				E1C7650D2411D4F700D37181 /* Logo.swift in Sources */,
 				E17102B6249B0F0100FFED5A /* BackButton.swift in Sources */,
+				E197F2BD24B0D3DD00486BB4 /* FinalStep.swift in Sources */,
 				E164BD73249AE4530089021D /* PagedForm.swift in Sources */,
 				E17102B0249B09EC00FFED5A /* SecondPageNextButton.swift in Sources */,
 				E1C765102411D72300D37181 /* GenericText.swift in Sources */,
@@ -756,6 +763,7 @@
 				E1B3D7F32413A1A70047D618 /* UnauthorisedLandingView.swift in Sources */,
 				E109A27924AD2920007F21B2 /* SignUpUserCredentialsService.swift in Sources */,
 				E1C765122411E62200D37181 /* Description.swift in Sources */,
+				E110AB4824B0C76700AA144D /* PortraitOrientationLockModifier.swift in Sources */,
 				E1246D76249FD16D00EE3A77 /* GenericTextFieldWithValidation.swift in Sources */,
 				E1194682240B97D7007BE44A /* Welf.xcdatamodeld in Sources */,
 				E15D76BD2477602000F17A59 /* ForgotPasswordView.swift in Sources */,

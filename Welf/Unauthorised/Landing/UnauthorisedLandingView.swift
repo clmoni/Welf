@@ -32,12 +32,10 @@ struct UnauthorisedLandingView: View {
                 .padding()
                 .navigationBarTitle("")
             }
-        }//.modifier(SystemServices())
+        }
     }
     
     private func createLogoView() -> some View {
-        //return Logo(width: 250.0, height: 250.0, contentMode: .fit)
-        //.padding(.bottom, 30)
         VStack {
             WelfLogo()
                 .scaleEffect(0.7)
@@ -57,7 +55,7 @@ struct UnauthorisedLandingView: View {
         }
         .sheet(isPresented: self.$showRegistrationModal) {
             SignUpView()
-                .modifier(SystemServices())
+                .injectSystemServices()
         }
     }
     
@@ -83,6 +81,6 @@ struct UnauthorisedLandingView_Previews: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: "iPhone Xs Max"))
                 .previewDisplayName("iPhone Xs Max")
         }
-        .modifier(SystemServices())
+        .injectSystemServices()
     }
 }

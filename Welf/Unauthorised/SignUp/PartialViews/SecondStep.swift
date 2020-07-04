@@ -19,7 +19,8 @@ struct SecondStep: View {
             GenericTextFieldWithValidation(
                 text: self.$userCredentialsService.username,
                 isValidEntry: self.$isValidUsername,
-                label: "User name"
+                label: "User name",
+                textContentType: .username
             ).onReceive(userCredentialsService.validateUsernameEntryPublisher) {
                 let usernameCheck: UsernameCheck = $0
                 self.isValidUsername = usernameCheck == .valid

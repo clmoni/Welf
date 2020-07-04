@@ -17,6 +17,7 @@ struct LandingView: View {
             if !self.$authService.isSignedIn.wrappedValue {
                 LoadingView(isShowing: self.$authService.isSigningIn) {
                     UnauthorisedLandingView()
+                        .lockViewInPortraitMode()
                 }
             } else {
                 AuthorisedLandingView()
@@ -27,6 +28,7 @@ struct LandingView: View {
 
 struct LandingView_Previews: PreviewProvider {
     static var previews: some View {
-        return LandingView().modifier(SystemServices())
+        LandingView()
+            .injectSystemServices()
     }
 }

@@ -19,7 +19,8 @@ struct FirstStep: View {
                 text: self.$nameService.firstName,
                 isValidEntry: self.$isValidFirstName,
                 label: "First name",
-                autocapitalization: .sentences
+                textContentType: .givenName,
+                keyboardType: .namePhonePad
             ).onReceive(nameService.validateFirstNameEntryPublisher) {
                 guard let validationMessage = $0 else {
                     return
@@ -31,7 +32,8 @@ struct FirstStep: View {
                 text: self.$nameService.lastName,
                 isValidEntry: self.$isValidLastName,
                 label: "Last name",
-                autocapitalization: .sentences
+                textContentType: .familyName,
+                keyboardType: .namePhonePad
             ).onReceive(nameService.validateLastNameEntryPublisher) {
                 guard let validationMessage = $0 else {
                     return

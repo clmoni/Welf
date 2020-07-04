@@ -13,12 +13,16 @@ struct GenericTextFieldWithValidation: View {
     @Binding var isValidEntry: Bool
     var label: String
     var autocapitalization: UITextAutocapitalizationType = .none
-    
+    var textContentType: UITextContentType? = .none
+    var keyboardType: UIKeyboardType = .default
+
     var body: some View {
         VStack {
             HStack {
                 TextField(self.label, text: $text)
                     .autocapitalization(self.autocapitalization)
+                    .textContentType(self.textContentType)
+                    .keyboardType(self.keyboardType)
                 
                 self.createValidationIcon()
                     .animation(.easeInOut(duration: 5))

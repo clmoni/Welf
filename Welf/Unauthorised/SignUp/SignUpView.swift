@@ -68,7 +68,7 @@ struct SignUpView_Previews: PreviewProvider {
                 Text("Show SignUp View")
             }.sheet(isPresented: .constant(true)) {
                 SignUpView()
-                    .modifier(SystemServices())
+                    .injectSystemServices()
             }
             .previewDevice(PreviewDevice(rawValue: deviceName))
             .environment(\.colorScheme, .dark)

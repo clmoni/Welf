@@ -23,6 +23,16 @@ class SignUpContactDetailsService: ObservableObject {
         .eraseToAnyPublisher()
     }
     
+    public var isPhoneNumberValidPublisher: AnyPublisher<Bool, Never> {
+        self.$phoneNumber
+            .debounce(for: 0.2, scheduler: RunLoop.main)
+            .removeDuplicates()
+            .map { input in
+                input.count >= 9
+        }
+        .eraseToAnyPublisher()
+    }
+    
     private func isEntryValid(_ entry: String) -> Bool {
         let alphabetPattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         return !entry.isEmpty && entry.range(of: alphabetPattern, options: .regularExpression) != nil
