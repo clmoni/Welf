@@ -13,6 +13,7 @@ struct SignUpButton: View {
     @EnvironmentObject private var nameService: SignUpNameService
     @EnvironmentObject private var userCredentialsService: SignUpUserCredentialsService
     @EnvironmentObject private var contactDetailsService: SignUpContactDetailsService
+    @State private var disableSignUpButton: Bool = true
     
     var goToNextPage: () -> ()
     
@@ -23,19 +24,33 @@ struct SignUpButton: View {
         
         return GenericButton(
             buttonDisplayView: logInText,
-            backgroundColour: signUpService.disableSignUpButton ? .secondary : .green
+            backgroundColour: disableSignUpButton ? .secondary : .green
         ) { () in
             print(self.contactDetailsService.emailAddress)
+            let signUpData = self.createSignUpDto()
+            self.signUpService.signUp(signUpData)
         }
-        //.disabled(signUpViewModel.disableFirstPageNextButton)
-        //.onReceive(signInViewModel.showSignInbutton) {
-        //self.disableLoginButton = $0 ?? true
-        //}
+        .disabled(disableSignUpButton)
+        .onReceive(contactDetailsService.isSignUpButtonDisabledPublisher) {
+            self.disableSignUpButton = $0
+        }
+    }
+    
+    private func createSignUpDto() -> SignUpDto {
+        SignUpDto(
+            firstName: self.nameService.firstName,
+            lastName: self.nameService.lastName,
+            username: self.userCredentialsService.username,
+            password: self.userCredentialsService.password,
+            emailAddress: self.contactDetailsService.emailAddress,
+            phoneNumber: self.contactDetailsService.phoneNumber
+        )
     }
 }
 
 struct SignUpButton_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpButton(goToNextPage: {}).environmentObject(SignUpService())
+        SignUpButton(goToNextPage: {})
+            .injectSystemServices()
     }
 }
