@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import PhoneNumberKit
 
 class SignUpContactDetailsService: ObservableObject {
     @Published var emailAddress: String = ""
@@ -28,7 +29,7 @@ class SignUpContactDetailsService: ObservableObject {
             .debounce(for: 0.2, scheduler: RunLoop.main)
             .removeDuplicates()
             .map { input in
-                input.count >= 9
+                self.isPhoneNumberValid(input)
         }
         .eraseToAnyPublisher()
     }
@@ -39,6 +40,11 @@ class SignUpContactDetailsService: ObservableObject {
                 !(isEmailAddressValid && isPhoneNumberValid)
         }
         .eraseToAnyPublisher()
+    }
+    
+    private func isPhoneNumberValid(_ phoneNumber: String) -> Bool {
+        let phoneNumberKit = PhoneNumberKit();
+        return (try? phoneNumberKit.parse(phoneNumber)) != nil
     }
     
     private func isEntryValid(_ entry: String) -> Bool {

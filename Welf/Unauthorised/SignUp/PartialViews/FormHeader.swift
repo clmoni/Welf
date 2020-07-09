@@ -15,7 +15,7 @@ struct FormHeader: View {
         HStack {
             PageControl(currentPage: (self.signUpService.currentPage-1), totalNumberOfPages: self.signUpService.totalNumberOfPages)
             Spacer()
-            Text("\(self.signUpService.currentPage)/3")
+            Text("\(self.signUpService.currentPage)/\(self.signUpService.totalNumberOfPages)")
         }
         .padding(EdgeInsets(top: 15, leading: 0, bottom: 0, trailing: 0))
     }

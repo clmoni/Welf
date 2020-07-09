@@ -18,8 +18,10 @@ struct PagedForm: View {
                 FirstStep()
             } else if self.signUpService.currentPage == 2 {
                 SecondStep()
-            } else {                
+            } else if self.signUpService.currentPage == 3 {
                 FinalStep()
+            } else {
+                Text(verbatim: "Confirm code here")
             }
         }
     }

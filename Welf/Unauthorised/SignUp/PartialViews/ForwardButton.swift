@@ -14,22 +14,13 @@ struct ForwardButton: View {
     var body: some View {
         VStack {
             if signUpService.currentPage == signUpService.firstPage {
-                FirstPageNextButton(goToNextPage: self.goToNextPage)
+                FirstPageNextButton(goToNextPage: self.signUpService.goToNextPage)
             }
             else if signUpService.currentPage == 2 {
-                SecondPageNextButton(goToNextPage: self.goToNextPage)
+                SecondPageNextButton(goToNextPage: self.signUpService.goToNextPage)
             }
             else {
-                SignUpButton(goToNextPage: self.goToNextPage)
-            }
-        }
-    }
-    
-    private func goToNextPage() {
-        KeyboardResponder.dismissKeyboard()
-        if signUpService.currentPage < signUpService.totalNumberOfPages {
-            withAnimation {
-                signUpService.currentPage += 1
+                SignUpButton(goToNextPage: self.signUpService.goToNextPage)
             }
         }
     }

@@ -25,6 +25,12 @@ PODS:
     - AWSAuthCore (= 2.13.6)
     - AWSCognitoIdentityProvider (= 2.13.6)
   - Navajo-Swift (2.1.0)
+  - PhoneNumberKit (3.2.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 3.2.0)
+    - PhoneNumberKit/UIKit (= 3.2.0)
+  - PhoneNumberKit/PhoneNumberKitCore (3.2.0)
+  - PhoneNumberKit/UIKit (3.2.0):
+    - PhoneNumberKit/PhoneNumberKitCore
   - ReachabilitySwift (5.0.0)
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
@@ -39,6 +45,7 @@ DEPENDENCIES:
   - AWSS3 (~> 2.13.0)
   - AWSUserPoolsSignIn (~> 2.13.0)
   - Navajo-Swift
+  - PhoneNumberKit (~> 3.1)
 
 SPEC REPOS:
   trunk:
@@ -53,6 +60,7 @@ SPEC REPOS:
     - AWSS3
     - AWSUserPoolsSignIn
     - Navajo-Swift
+    - PhoneNumberKit
     - ReachabilitySwift
     - SQLite.swift
     - Starscream
@@ -69,10 +77,11 @@ SPEC CHECKSUMS:
   AWSS3: ab6da163329bc03fb68e866aab130103453accd2
   AWSUserPoolsSignIn: 81036a9e6516e9ad3d643ca4b1a0baaf0dfd1bf1
   Navajo-Swift: 57b93e73efbfbf452433efbff04402de56beff51
+  PhoneNumberKit: df411d46177d1492da84e10b6c093846dd861452
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
-PODFILE CHECKSUM: d17eee5ab88b8084c6b86ff9ca66156e540a8b4f
+PODFILE CHECKSUM: 0648645dca669ea18dbf69a700baf55015ab1d41
 
 COCOAPODS: 1.9.1

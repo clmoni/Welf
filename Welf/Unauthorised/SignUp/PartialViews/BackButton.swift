@@ -12,8 +12,13 @@ struct BackButton: View {
     @EnvironmentObject private var signUpService: SignUpService
     
     var body: some View {
-        return signUpService.currentPage > signUpService.firstPage ?
+        return self.showBackButton() ?
             self.createButton() : nil
+    }
+    
+    private func showBackButton() -> Bool {
+        signUpService.currentPage > signUpService.firstPage &&
+            signUpService.currentPage < signUpService.totalNumberOfPages
     }
     
     private func createButton() -> GenericButton<Text> {
@@ -25,16 +30,7 @@ struct BackButton: View {
             buttonDisplayView: logInText,
             backgroundColour: .green
         ) { () in
-            self.goToPreviousPage()
-        }
-    }
-    
-    private func goToPreviousPage() {
-        KeyboardResponder.dismissKeyboard()
-        if signUpService.currentPage != signUpService.firstPage {
-            withAnimation {
-                signUpService.currentPage -= 1
-            }
+            self.signUpService.goToPreviousPage()
         }
     }
 }

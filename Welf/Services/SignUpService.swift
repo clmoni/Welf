@@ -16,7 +16,7 @@ class SignUpService: ObservableObject {
     @Published var isSignUpSuccessful: Bool = false
     @Published var confirmationCodeDestination: String? = nil
     
-    var totalNumberOfPages: Int = 3
+    var totalNumberOfPages: Int = 4
     var firstPage: Int = 1
     
     public func signUp (_ signUpData: SignUpDto) {
@@ -27,10 +27,31 @@ class SignUpService: ObservableObject {
                 print("\(error)")
             } else if let signUpResult = signUpResult {
                 print("\(signUpResult)")
-                self.isSignUpSuccessful = true
-                self.confirmationCodeDestination = signUpResult.codeDeliveryDetails?.destination
+                self.successfulSignUp(signUpResult: signUpResult)
             }
             self.changeSigningUpState(isSigningUp: false)
+        }
+    }
+    
+    public func goToNextPage() {
+        KeyboardResponder.dismissKeyboard()
+        if self.currentPage < self.totalNumberOfPages {
+            withAnimation {
+                DispatchQueue.main.async {
+                    self.currentPage += 1
+                }
+            }
+        }
+    }
+    
+    public func goToPreviousPage() {
+        KeyboardResponder.dismissKeyboard()
+        if self.currentPage != self.firstPage {
+            withAnimation {
+                DispatchQueue.main.async {
+                    self.currentPage -= 1
+                }
+            }
         }
     }
     
@@ -42,6 +63,14 @@ class SignUpService: ObservableObject {
             "given_name": signUpData.firstName,
             "family_name": signUpData.lastName
         ]
+    }
+    
+    private func successfulSignUp(signUpResult: SignUpResult) {
+        DispatchQueue.main.async {
+            self.isSignUpSuccessful = true
+            self.confirmationCodeDestination = signUpResult.codeDeliveryDetails?.destination
+        }
+        self.goToNextPage()
     }
     
     private func changeSigningUpState(isSigningUp: Bool) {
