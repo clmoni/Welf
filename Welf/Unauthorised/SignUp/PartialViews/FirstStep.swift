@@ -10,8 +10,8 @@ import SwiftUI
 
 struct FirstStep: View {
     @EnvironmentObject private var nameService: SignUpNameService
-    @State private var isValidFirstName: Bool = false
-    @State private var isValidLastName: Bool = false
+    @State private var isValidFirstName: Bool? = nil
+    @State private var isValidLastName: Bool? = nil
     
     var body: some View {
         VStack{

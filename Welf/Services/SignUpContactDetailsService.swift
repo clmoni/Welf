@@ -36,7 +36,7 @@ class SignUpContactDetailsService: ObservableObject {
     public var isSignUpButtonDisabledPublisher: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest(isEmailAddressValidPublisher, isPhoneNumberValidPublisher)
             .map { isEmailAddressValid, isPhoneNumberValid in
-                return !(isEmailAddressValid && isPhoneNumberValid)
+                !(isEmailAddressValid && isPhoneNumberValid)
         }
         .eraseToAnyPublisher()
     }

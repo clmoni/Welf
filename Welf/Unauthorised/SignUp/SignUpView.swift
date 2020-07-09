@@ -14,31 +14,33 @@ struct SignUpView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                CreateAccountDismissalBarView()
+            LoadingView(isShowing: self.$signUpService.isSigningUp, activityText: "Signing Up") {
                 VStack {
+                    CreateAccountDismissalBarView()
                     VStack {
-                        FormHeader()
-                        PagedForm()
-                    }
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                    .animation(.easeInOut(duration: 0.7))
-                    
-                    Spacer()
-                    
-                    VStack {
-                        Divider()
-                            .frame(height: 0.5)
-                            .background(Color.green)
-                        HStack {
-                            BackButton()
-                            Spacer()
-                            ForwardButton()
+                        VStack {
+                            FormHeader()
+                            PagedForm()
                         }
                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                        .animation(.easeInOut(duration: 0.7))
+                        
+                        Spacer()
+                        
+                        VStack {
+                            Divider()
+                                .frame(height: 0.5)
+                                .background(Color.green)
+                            HStack {
+                                BackButton()
+                                Spacer()
+                                ForwardButton()
+                            }
+                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                        }
+                        .padding(self.calculateButtonPadding(geometry))
+                        .offset(y: self.getOffset(geometry))
                     }
-                    .padding(self.calculateButtonPadding(geometry))
-                    .offset(y: self.getOffset(geometry))
                 }
             }
         }

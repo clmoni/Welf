@@ -10,12 +10,12 @@ import SwiftUI
 
 struct GenericTextFieldWithValidation: View {
     @Binding var text: String
-    @Binding var isValidEntry: Bool
+    @Binding var isValidEntry: Bool?
     var label: String
     var autocapitalization: UITextAutocapitalizationType = .none
     var textContentType: UITextContentType? = .none
     var keyboardType: UIKeyboardType = .default
-
+    
     var body: some View {
         VStack {
             HStack {
@@ -23,9 +23,15 @@ struct GenericTextFieldWithValidation: View {
                     .autocapitalization(self.autocapitalization)
                     .textContentType(self.textContentType)
                     .keyboardType(self.keyboardType)
-                
-                self.createValidationIcon()
-                    .animation(.easeInOut(duration: 5))
+                ZStack {
+                    if self.$isValidEntry.wrappedValue == nil && !self.$text.wrappedValue.isEmpty {
+                        ActivityIndicator(isAnimating: .constant(true), style: .medium)
+                    }
+                    else {
+                        self.createValidationIcon()
+                            .animation(.easeInOut(duration: 5))
+                    }
+                }
             }
             .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             
@@ -37,15 +43,18 @@ struct GenericTextFieldWithValidation: View {
     
     private func createValidationIcon() -> some View {
         var validationIcon: Image? = nil
-        if self.$text.wrappedValue.count > 0 && self.isValidEntry {
-            validationIcon = Image(systemName: "checkmark.circle")
+        var isGoodValue = true
+        if let isValid = self.isValidEntry {
+            if self.$text.wrappedValue.count > 0 && isValid {
+                validationIcon = Image(systemName: "checkmark.circle")
+            }
+            else if self.$text.wrappedValue.count > 0 && !isValid {
+                isGoodValue = false
+                validationIcon = Image(systemName: "exclamationmark.circle")
+            }
         }
-        else if self.$text.wrappedValue.count > 0 && !self.isValidEntry {
-            validationIcon = Image(systemName: "exclamationmark.circle")
-        }
-        
         return validationIcon?
-            .foregroundColor(self.isValidEntry ? .green : .red)
+            .foregroundColor(isGoodValue ? .green : .red)
     }
 }
 
@@ -53,10 +62,10 @@ struct GenericTextFieldWithValidation_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             GenericTextFieldWithValidation(text: .constant("valid entry"), isValidEntry: .constant(true), label: "")
-
-            GenericTextFieldWithValidation(text: .constant("invalid entry"), isValidEntry: .constant(false), label: "")
-
-            GenericTextFieldWithValidation(text: .constant(""), isValidEntry: .constant(false), label: "")
+            
+            GenericTextFieldWithValidation(text: .constant("invalid entry"), isValidEntry: .constant(true), label: "")
+            
+            GenericTextFieldWithValidation(text: .constant(""), isValidEntry: .constant(true), label: "")
         }
     }
 }

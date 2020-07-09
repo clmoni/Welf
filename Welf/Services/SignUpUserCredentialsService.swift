@@ -20,7 +20,7 @@ class SignUpUserCredentialsService: ObservableObject {
             .debounce(for: 0.2, scheduler: RunLoop.main)
             .removeDuplicates()
             .map { input in
-                return PasswordUtil.calculatePasswordStrength(input)
+                PasswordUtil.calculatePasswordStrength(input)
         }
         .eraseToAnyPublisher()
     }

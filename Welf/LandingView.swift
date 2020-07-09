@@ -10,12 +10,13 @@ import SwiftUI
 
 struct LandingView: View {
     @EnvironmentObject private var authService: AuthenticationService
+    @State var testing: Bool = false
     
     var body: some View {
         
         VStack {
             if !self.$authService.isSignedIn.wrappedValue {
-                LoadingView(isShowing: self.$authService.isSigningIn) {
+                LoadingView(isShowing: self.$authService.isSigningIn, activityText: "Signing In") {
                     UnauthorisedLandingView()
                         .lockViewInPortraitMode()
                 }

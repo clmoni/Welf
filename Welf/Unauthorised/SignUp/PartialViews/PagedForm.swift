@@ -18,7 +18,7 @@ struct PagedForm: View {
                 FirstStep()
             } else if self.signUpService.currentPage == 2 {
                 SecondStep()
-            } else {
+            } else {                
                 FinalStep()
             }
         }

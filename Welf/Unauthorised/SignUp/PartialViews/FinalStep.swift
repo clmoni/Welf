@@ -10,8 +10,8 @@ import SwiftUI
 
 struct FinalStep: View {
     @EnvironmentObject private var contactDetailsService: SignUpContactDetailsService
-    @State private var isValidEmail = false
-    @State private var isValidPhoneNumber = false
+    @State private var isValidEmail: Bool? = nil
+    @State private var isValidPhoneNumber: Bool? = nil
     
     var body: some View {
         VStack {

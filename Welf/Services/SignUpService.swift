@@ -12,24 +12,41 @@ import AWSMobileClient
 
 class SignUpService: ObservableObject {
     @Published var currentPage: Int = 1
+    @Published var isSigningUp: Bool = false
+    @Published var isSignUpSuccessful: Bool = false
+    @Published var confirmationCodeDestination: String? = nil
+    
     var totalNumberOfPages: Int = 3
     var firstPage: Int = 1
     
     public func signUp (_ signUpData: SignUpDto) {
-        let userAttributes: [String: String] = [
-            "email": signUpData.emailAddress,
-            "phone_number": signUpData.phoneNumber,
-            "first_name": signUpData.firstName,
-            "last_name": signUpData.lastName
-        ]
-        //self.changeSigningInState(isSigningIn: true)
+        let userAttributes = self.putSignUpDataInUserAttributeDictionary(signUpData)
+        self.changeSigningUpState(isSigningUp: true)
         AWSMobileClient.default().signUp(username: signUpData.username, password: signUpData.password, userAttributes: userAttributes) { (signUpResult, error) in
             if let error = error as? AWSMobileClientError {
                 print("\(error)")
             } else if let signUpResult = signUpResult {
                 print("\(signUpResult)")
+                self.isSignUpSuccessful = true
+                self.confirmationCodeDestination = signUpResult.codeDeliveryDetails?.destination
             }
-            //self.changeSigningInState(isSigningIn: false)
+            self.changeSigningUpState(isSigningUp: false)
+        }
+    }
+    
+    private func putSignUpDataInUserAttributeDictionary (_ signUpData: SignUpDto) -> [String: String] {
+        print(signUpData)
+        return [
+            "email": signUpData.emailAddress,
+            "phone_number": signUpData.phoneNumber,
+            "given_name": signUpData.firstName,
+            "family_name": signUpData.lastName
+        ]
+    }
+    
+    private func changeSigningUpState(isSigningUp: Bool) {
+        DispatchQueue.main.async {
+            self.isSigningUp = isSigningUp
         }
     }
 }

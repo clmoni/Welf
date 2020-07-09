@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SecondStep: View {
     @EnvironmentObject private var userCredentialsService: SignUpUserCredentialsService
-    @State private var isValidUsername: Bool = false
+    @State private var isValidUsername: Bool? = nil
     @State private var passwordStrength: PasswordStrengthMeter = .empty
     @State private var failureMessages: String = ""
     

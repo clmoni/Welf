@@ -16,7 +16,7 @@ class SignUpNameService: ObservableObject {
     
     var isFirstPageNextButtonDisabledPublisher: AnyPublisher<Bool, Never> {
         self.$firstName.combineLatest(self.$lastName) { firstName, lastName in
-            return self.validateUserEntry(firstName, lastName)
+            self.validateUserEntry(firstName, lastName)
         }
         .eraseToAnyPublisher()
     }
@@ -26,7 +26,7 @@ class SignUpNameService: ObservableObject {
             .debounce(for: 0.2, scheduler: RunLoop.main)
             .removeDuplicates()
             .map { input in
-                return !self.isEntryValid(input) ? "Only letters allowed" : ""
+                !self.isEntryValid(input) ? "Only letters allowed" : ""
         }
         .eraseToAnyPublisher()
     }
@@ -36,14 +36,14 @@ class SignUpNameService: ObservableObject {
             .debounce(for: 0.2, scheduler: RunLoop.main)
             .removeDuplicates()
             .map { input in
-                return !self.isEntryValid(input) ? "Only letters allowed" : ""
+                !self.isEntryValid(input) ? "Only letters allowed" : ""
         }
         .eraseToAnyPublisher()
     }
     
     
     private func validateUserEntry(_ firstName: String, _ lastName: String) -> Bool {
-        return !isEntryValid(firstName) || !isEntryValid(lastName)
+        !isEntryValid(firstName) || !isEntryValid(lastName)
     }
     
     private func isEntryValid(_ entry: String) -> Bool {

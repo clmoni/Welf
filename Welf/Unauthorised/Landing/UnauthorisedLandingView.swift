@@ -54,8 +54,8 @@ struct UnauthorisedLandingView: View {
             self.showRegistrationModal = true
         }
         .sheet(isPresented: self.$showRegistrationModal) {
-            SignUpView()
-                .injectSystemServices()
+                SignUpView()
+                    .injectSystemServices()
         }
     }
     

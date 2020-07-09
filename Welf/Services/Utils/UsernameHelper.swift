@@ -22,10 +22,15 @@ class UsernameHelper {
             AWSMobileClient.default().confirmSignUp(username: username, confirmationCode: confirmationCode) { (signUpResult, error) in
                 if let error = error as? AWSMobileClientError {
                     switch error {
+                    case .codeMismatch:
+                        fallthrough
+                    case .expiredCode:
+                        fallthrough
                     case .notAuthorized(message: "User cannot be confirmed. Current status is CONFIRMED"):
                         print("RegistrationService: user exists")
                         completion(true)
                     default:
+                        print(error)
                         print("RegistrationService: assume user doesn't exists")
                         completion(false)
                     }
