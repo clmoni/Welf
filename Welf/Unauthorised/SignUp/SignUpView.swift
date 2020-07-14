@@ -16,7 +16,7 @@ struct SignUpView: View {
         GeometryReader { geometry in
             LoadingView(isShowing: self.$signUpService.isSigningUp, activityText: "Signing Up") {
                 VStack {
-                    DismissalBarView()
+                    DismissalBarView(viewTitle: "Create account")
                     VStack {
                         VStack {
                             FormHeader()

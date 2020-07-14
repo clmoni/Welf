@@ -26,14 +26,6 @@ struct AccountConfirmationStep: View {
                 textContentType: .oneTimeCode,
                 keyboardType: .numberPad
             )
-            //                    .onReceive(contactDetailsService.isPhoneNumberValidPublisher) {
-            //                    self.isValidPhoneNumber = $0
-            //                    if $0 {
-            //                        self.phoneNumberFormatHint = ""
-            //                    }
-            //                }.onTapGesture {
-            //                    self.phoneNumberFormatHint = "UK only"
-            //                }
         }
     }
 }

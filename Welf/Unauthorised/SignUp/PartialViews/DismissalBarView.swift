@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DismissalBarView: View {
-    var viewTitle: String = "Create account"
+    var viewTitle: String
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -46,6 +46,6 @@ struct DismissalBarView: View {
 
 struct DismissalBarView_Previews: PreviewProvider {
     static var previews: some View {
-        DismissalBarView()
+        DismissalBarView(viewTitle: "Create account")
     }
 }

@@ -33,6 +33,6 @@ struct SecondPageNextButton: View {
 
 struct SecondPageNextButton_Previews: PreviewProvider {
     static var previews: some View {
-        SecondPageNextButton(goToNextPage: {}).environmentObject(SignUpService())
+        SecondPageNextButton(goToNextPage: {}).environmentObject(SignUpUserCredentialsService())
     }
 }
