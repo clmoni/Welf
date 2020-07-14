@@ -77,6 +77,7 @@
 		E1F397792482D9850017A29F /* KeyboardRemovalOnDragModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F397782482D9850017A29F /* KeyboardRemovalOnDragModifier.swift */; };
 		E1F8254124B91A31001D09AB /* AccountConfirmationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8254024B91A31001D09AB /* AccountConfirmationButton.swift */; };
 		E1F8254624BD0D25001D09AB /* LoginAccountConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8254524BD0D25001D09AB /* LoginAccountConfirmation.swift */; };
+		E1F8254A24BE73B6001D09AB /* VerificationDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F8254924BE73B6001D09AB /* VerificationDto.swift */; };
 		E1FEC911248730F900D4DDBE /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FEC910248730F900D4DDBE /* KeyboardResponder.swift */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +181,7 @@
 		E1F397782482D9850017A29F /* KeyboardRemovalOnDragModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardRemovalOnDragModifier.swift; sourceTree = "<group>"; };
 		E1F8254024B91A31001D09AB /* AccountConfirmationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountConfirmationButton.swift; sourceTree = "<group>"; };
 		E1F8254524BD0D25001D09AB /* LoginAccountConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAccountConfirmation.swift; sourceTree = "<group>"; };
+		E1F8254924BE73B6001D09AB /* VerificationDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationDto.swift; sourceTree = "<group>"; };
 		E1FEC910248730F900D4DDBE /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -342,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				E197F2BF24B287BA00486BB4 /* SignUpDto.swift */,
+				E1F8254924BE73B6001D09AB /* VerificationDto.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -779,6 +782,7 @@
 				E197F2BD24B0D3DD00486BB4 /* ContactDetailsStep.swift in Sources */,
 				E164BD73249AE4530089021D /* PagedForm.swift in Sources */,
 				E17102B0249B09EC00FFED5A /* SecondPageNextButton.swift in Sources */,
+				E1F8254A24BE73B6001D09AB /* VerificationDto.swift in Sources */,
 				E1C765102411D72300D37181 /* GenericText.swift in Sources */,
 				E1B3D7FA24266D0A0047D618 /* HostingController.swift in Sources */,
 				E146EC30247DC6F4007C2155 /* PasswordEntryView.swift in Sources */,

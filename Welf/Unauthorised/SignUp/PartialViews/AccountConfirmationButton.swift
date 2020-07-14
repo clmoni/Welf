@@ -24,11 +24,11 @@ struct AccountConfirmationButton: View {
             buttonDisplayView: logInText,
             backgroundColour: disableAccountConfirmationButton ? .secondary : .green
         ) { () in
-            self.presentationMode.wrappedValue.dismiss()
+            let verificationDto = VerificationDto(username: self.username, confirmationCode: self.signUpService.verificationCode)
             self.signUpService.verifyAccountWithVerificationCode(
-                username: self.username,
-                confirmationCode: self.signUpService.verificationCode,
-                authService: self.authService
+                verificationDto: verificationDto,
+                authService: self.authService,
+                presentationMode: self.presentationMode
             )
         }
         .disabled(disableAccountConfirmationButton)
@@ -41,8 +41,6 @@ struct AccountConfirmationButton: View {
             return Alert(title: titleText, message: messageText, dismissButton: .default(okBtnText))
         }
         .onReceive(signUpService.isVerificationCodeReadyToSendPublisher) { isVerificationCodeReadyToSend in
-            print("readyToSend")
-            print(isVerificationCodeReadyToSend)
             self.disableAccountConfirmationButton = isVerificationCodeReadyToSend
         }
     }

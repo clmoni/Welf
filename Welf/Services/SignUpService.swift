@@ -10,11 +10,6 @@ import SwiftUI
 import Combine
 import AWSMobileClient
 
-struct VerificationState {
-    var isVerificationCodeReadyToSend: Bool = false
-    var isVerificationSuccessful: Bool = false
-}
-
 class SignUpService: ObservableObject {
     @Published var currentPage: Int = 1
     @Published var isSigningUp: Bool = false
@@ -36,9 +31,9 @@ class SignUpService: ObservableObject {
         .eraseToAnyPublisher()
     }
     
-    public func verifyAccountWithVerificationCode(username: String, confirmationCode: String, authService: AuthenticationService) {
+    public func verifyAccountWithVerificationCode(verificationDto: VerificationDto, authService: AuthenticationService, presentationMode: Binding<PresentationMode>) {
         authService.isSigningIn = true
-        AWSMobileClient.default().confirmSignUp(username: username, confirmationCode: confirmationCode) { (signUpResult, error) in
+        AWSMobileClient.default().confirmSignUp(username: verificationDto.username, confirmationCode: verificationDto.confirmationCode) { (signUpResult, error) in
             DispatchQueue.main.async {
                 if let error = error as? AWSMobileClientError {
                     print("\(error)")
@@ -47,6 +42,7 @@ class SignUpService: ObservableObject {
                 } else if let signUpResult = signUpResult {
                     print("\(signUpResult)")
                     KeyboardResponder.dismissKeyboard()
+                    presentationMode.wrappedValue.dismiss()
                     authService.isSigningIn = false
                     authService.isSignedIn = true
                 }
