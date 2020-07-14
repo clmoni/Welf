@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct FinalStep: View {
+struct ContactDetailsStep: View {
     @EnvironmentObject private var contactDetailsService: SignUpContactDetailsService
     @State private var isValidEmail: Bool? = nil
     @State private var isValidPhoneNumber: Bool? = nil
@@ -53,8 +53,8 @@ struct FinalStep: View {
     }
 }
 
-struct FinalStep_Previews: PreviewProvider {
+struct ContactDetailsStep_Previews: PreviewProvider {
     static var previews: some View {
-        FinalStep().environmentObject(SignUpContactDetailsService())
+        ContactDetailsStep().environmentObject(SignUpContactDetailsService())
     }
 }

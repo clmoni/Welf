@@ -26,7 +26,7 @@ struct Login: View {
             weight: .bold,
             colour: .green)
         
-        let loginView = LoginView()
+        let loginView = LoginView().injectSystemServices()
         
         return GenericTextButton(text: logInTextView, destination: loginView)
             .offset(x: -3)

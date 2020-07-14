@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SecondStep: View {
+struct CredentialsStep: View {
     @EnvironmentObject private var userCredentialsService: SignUpUserCredentialsService
     @State private var isValidUsername: Bool? = nil
     @State private var passwordStrength: PasswordStrengthMeter = .empty
@@ -49,8 +49,8 @@ struct SecondStep: View {
     }
 }
 
-struct SecondStep_Previews: PreviewProvider {
+struct CredentialsStep_Previews: PreviewProvider {
     static var previews: some View {
-        SecondStep().environmentObject(SignUpUserCredentialsService())
+        CredentialsStep().environmentObject(SignUpUserCredentialsService())
     }
 }

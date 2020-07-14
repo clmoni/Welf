@@ -14,7 +14,7 @@ target 'Welf' do
   pod 'AWSAppSync', '~> 3.1.2'
   pod 'AWSS3', '~> 2.13.0'
   pod 'PhoneNumberKit', '~> 3.1'
-  
+
   target 'WelfTests' do
     inherit! :search_paths
     # Pods for testing

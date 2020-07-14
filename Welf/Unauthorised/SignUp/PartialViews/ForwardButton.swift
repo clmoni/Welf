@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ForwardButton: View {
     @EnvironmentObject private var signUpService: SignUpService
+    @EnvironmentObject private var credentialsService: SignUpUserCredentialsService
     
     var body: some View {
         VStack {
@@ -19,8 +20,11 @@ struct ForwardButton: View {
             else if signUpService.currentPage == 2 {
                 SecondPageNextButton(goToNextPage: self.signUpService.goToNextPage)
             }
+            else if signUpService.currentPage == 3 {
+                SignUpButton()
+            }
             else {
-                SignUpButton(goToNextPage: self.signUpService.goToNextPage)
+                AccountConfirmationButton(username: self.credentialsService.username)
             }
         }
     }
@@ -28,6 +32,6 @@ struct ForwardButton: View {
 
 struct ForwardButton_Previews: PreviewProvider {
     static var previews: some View {
-        ForwardButton().environmentObject(SignUpService())
+        ForwardButton().injectSystemServices()
     }
 }

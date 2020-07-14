@@ -8,7 +8,8 @@
 
 import SwiftUI
 
-struct CreateAccountDismissalBarView: View {
+struct DismissalBarView: View {
+    var viewTitle: String = "Create account"
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
     
     var body: some View {
@@ -22,7 +23,7 @@ struct CreateAccountDismissalBarView: View {
                 
                 Spacer()
                 
-                Text("Create account")
+                Text(viewTitle)
                     .fontWeight(.bold)
                     .foregroundColor(Color.primary)
                 
@@ -43,8 +44,8 @@ struct CreateAccountDismissalBarView: View {
     }
 }
 
-struct CreateAccountDismissalBarView_Previews: PreviewProvider {
+struct DismissalBarView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateAccountDismissalBarView()
+        DismissalBarView()
     }
 }

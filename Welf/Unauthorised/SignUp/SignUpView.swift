@@ -16,7 +16,7 @@ struct SignUpView: View {
         GeometryReader { geometry in
             LoadingView(isShowing: self.$signUpService.isSigningUp, activityText: "Signing Up") {
                 VStack {
-                    CreateAccountDismissalBarView()
+                    DismissalBarView()
                     VStack {
                         VStack {
                             FormHeader()
@@ -38,28 +38,12 @@ struct SignUpView: View {
                             }
                             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                         }
-                        .padding(self.calculateButtonPadding(geometry))
-                        .offset(y: self.getOffset(geometry))
+                        .padding(self.calculateButtonPadding(geometry, keyboard: self.keyboard))
+                        .offset(y: self.getOffset(geometry, keyboard: self.keyboard))
                     }
                 }
             }
         }
-    }
-    
-    private func calculateButtonPadding(_ geometry: GeometryProxy) -> EdgeInsets {
-        EdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: self.keyboard.calculateMovingPadding(geometry),
-            trailing: 0
-        )
-    }
-    
-    private func getOffset(_ geometry: GeometryProxy) -> CGFloat {
-        let zeroBottomSafeArea: CGFloat = 0
-        let zeroOffet: CGFloat = keyboard.isKeyboardPoppingOut() ? -8 : 0
-        return geometry.safeAreaInsets.bottom > zeroBottomSafeArea ?
-            zeroOffet : -8
     }
 }
 

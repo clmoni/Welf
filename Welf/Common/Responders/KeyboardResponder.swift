@@ -57,6 +57,8 @@ class KeyboardResponder: ObservableObject {
     }
     
     public static func dismissKeyboard() {
-        UIApplication.shared.dismissKeyboard()
+        DispatchQueue.main.async {
+            UIApplication.shared.dismissKeyboard()
+        }
     }
 }

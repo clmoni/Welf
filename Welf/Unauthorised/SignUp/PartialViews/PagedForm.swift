@@ -15,13 +15,15 @@ struct PagedForm: View {
     var body: some View {
         ZStack {
             if self.signUpService.currentPage == 1 {
-                FirstStep()
+                NameStep()
             } else if self.signUpService.currentPage == 2 {
-                SecondStep()
+                CredentialsStep()
             } else if self.signUpService.currentPage == 3 {
-                FinalStep()
+                ContactDetailsStep()
             } else {
-                Text(verbatim: "Confirm code here")
+                AccountConfirmationStep(
+                    confirmationCodeDestination: signUpService.confirmationCodeDestination ?? "you"
+                )
             }
         }
     }

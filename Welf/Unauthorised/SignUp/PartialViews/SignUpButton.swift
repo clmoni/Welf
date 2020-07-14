@@ -14,9 +14,7 @@ struct SignUpButton: View {
     @EnvironmentObject private var userCredentialsService: SignUpUserCredentialsService
     @EnvironmentObject private var contactDetailsService: SignUpContactDetailsService
     @State private var disableSignUpButton: Bool = true
-    
-    var goToNextPage: () -> ()
-    
+        
     var body: some View {
         let logInText = Text("Sign Up")
             .foregroundColor(Color.white)
@@ -50,7 +48,7 @@ struct SignUpButton: View {
 
 struct SignUpButton_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpButton(goToNextPage: {})
+        SignUpButton()
             .injectSystemServices()
     }
 }

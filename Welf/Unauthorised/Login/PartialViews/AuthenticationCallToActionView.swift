@@ -45,9 +45,13 @@ struct AuthenticationCallToActionView: View {
                     return self.signInErrorAlert()
                 }
                 .disabled(authService.disableLoginButton)
-                .onReceive(authService.showSignInbuttonPublisher) {
-                    self.authService.disableLoginButton = $0 ?? true
+                .onReceive(self.authService.showSignInbuttonPublisher) {
+                    self.authService.disableLoginButton = $0
                 }
+                .sheet(isPresented: self.$authService.isUserAccountUnconfirmed) {
+                    LoginAccountConfirmation().injectSystemServices()
+                }
+
             }
             .padding(EdgeInsets(top: 0, leading: 20, bottom: 8, trailing: 20))
         }

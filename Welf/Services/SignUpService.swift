@@ -10,14 +10,49 @@ import SwiftUI
 import Combine
 import AWSMobileClient
 
+struct VerificationState {
+    var isVerificationCodeReadyToSend: Bool = false
+    var isVerificationSuccessful: Bool = false
+}
+
 class SignUpService: ObservableObject {
     @Published var currentPage: Int = 1
     @Published var isSigningUp: Bool = false
     @Published var isSignUpSuccessful: Bool = false
     @Published var confirmationCodeDestination: String? = nil
-    
+    @Published var verificationCode: String = ""
+    @Published var errorOccurredOnVerification: Bool = false
     var totalNumberOfPages: Int = 4
     var firstPage: Int = 1
+
+    
+    public var isVerificationCodeReadyToSendPublisher: AnyPublisher<Bool, Never> {
+        $verificationCode
+            .debounce(for: 0.5, scheduler: RunLoop.main)
+            .removeDuplicates()
+            .map { input in
+                input.isEmpty
+        }
+        .eraseToAnyPublisher()
+    }
+    
+    public func verifyAccountWithVerificationCode(username: String, confirmationCode: String, authService: AuthenticationService) {
+        authService.isSigningIn = true
+        AWSMobileClient.default().confirmSignUp(username: username, confirmationCode: confirmationCode) { (signUpResult, error) in
+            DispatchQueue.main.async {
+                if let error = error as? AWSMobileClientError {
+                    print("\(error)")
+                    authService.isSigningIn = false
+                    self.errorOccurredOnVerification = true
+                } else if let signUpResult = signUpResult {
+                    print("\(signUpResult)")
+                    KeyboardResponder.dismissKeyboard()
+                    authService.isSigningIn = false
+                    authService.isSignedIn = true
+                }
+            }
+        }
+    }
     
     public func signUp (_ signUpData: SignUpDto) {
         let userAttributes = self.putSignUpDataInUserAttributeDictionary(signUpData)

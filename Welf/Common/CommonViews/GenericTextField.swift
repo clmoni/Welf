@@ -12,12 +12,16 @@ struct GenericTextField: View {
     var label: String
     @Binding var text: String
     var autocapitalization: UITextAutocapitalizationType = .none
+    var textContentType: UITextContentType? = .none
+    var keyboardType: UIKeyboardType = .default
     
     var body: some View {
         VStack {
             HStack {
                 TextField(self.label, text: $text)
                     .autocapitalization(self.autocapitalization)
+                    .textContentType(self.textContentType)
+                    .keyboardType(self.keyboardType)
             }
             .padding(EdgeInsets(top: 10, leading: 0, bottom: 0, trailing: 0))
             

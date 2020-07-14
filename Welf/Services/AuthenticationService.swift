@@ -16,17 +16,19 @@ class AuthenticationService: ObservableObject {
     @Published var isSigningIn: Bool = false
     @Published var isBadCredentialsSignInError: Bool = false
     @Published var isNonUserFaultSignInError: Bool = false
+    @Published var isUserAccountUnconfirmed: Bool = false
     @Published var username: String = ""
     @Published var password: String = ""
+    @Published var confirmationCodeDestination: String? = nil
     @Published var showPassword: Bool = false
     @Published var showForgotPasswordView: Bool = false
     var disableLoginButton: Bool = true
-    
-    var showSignInbuttonPublisher: AnyPublisher<Bool?, Never> {
-      $username.combineLatest($password) { username, password in
-        return username.isEmpty || password.isEmpty
-      }
-      .eraseToAnyPublisher()
+        
+    var showSignInbuttonPublisher: AnyPublisher<Bool, Never> {
+        $username.combineLatest($password) { username, password in
+            return username.isEmpty || password.isEmpty
+        }
+        .eraseToAnyPublisher()
     }
     
     public func initialise<T>(app: T) where T : AppDelegate {
@@ -64,10 +66,30 @@ class AuthenticationService: ObservableObject {
             switch awsError {
             case .notAuthorized, .invalidParameter, .userNotFound:
                 self.isBadCredentialsSignInError = true
-                self.isNonUserFaultSignInError = false
+            case .userNotConfirmed:
+                self.resendSignUpConfirmationCode()
             default:
-                self.isBadCredentialsSignInError = false
                 self.isNonUserFaultSignInError = true
+            }
+        }
+    }
+    
+    private func resendSignUpConfirmationCode () {
+        AWSMobileClient.default().resendSignUpCode(username: self.username) { (signUpResult, error) in
+            DispatchQueue.main.async {
+                if let error = error as? AWSMobileClientError {
+                    print("\(error)")
+                    switch error {
+                    case .limitExceeded:
+                        self.isBadCredentialsSignInError = true
+                    default:
+                        self.isNonUserFaultSignInError = true
+                    }
+                } else if let signUpResult = signUpResult {
+                    print("\(signUpResult)")
+                    self.isUserAccountUnconfirmed = true
+                    self.confirmationCodeDestination = signUpResult.codeDeliveryDetails?.destination
+                }
             }
         }
     }
