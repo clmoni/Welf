@@ -22,8 +22,8 @@ struct ContactDetailsStep: View {
                 label: "Email address",
                 textContentType: .emailAddress,
                 keyboardType: .emailAddress
-            ).onReceive(contactDetailsService.isEmailAddressValidPublisher) {
-                self.isValidEmail = $0
+            ).onReceive(contactDetailsService.isEmailAddressValidPublisher) { isEmailAddressValid in
+                self.isValidEmail = isEmailAddressValid
             }
             
             GenericTextFieldWithValidation(
@@ -32,9 +32,9 @@ struct ContactDetailsStep: View {
                 label: "Mobile number",
                 textContentType: .telephoneNumber,
                 keyboardType: .phonePad
-            ).onReceive(contactDetailsService.isPhoneNumberValidPublisher) {
-                self.isValidPhoneNumber = $0
-                if $0 {
+            ).onReceive(contactDetailsService.isPhoneNumberValidPublisher) { isPhoneNumberValid in
+                self.isValidPhoneNumber = isPhoneNumberValid
+                if isPhoneNumberValid {
                     self.phoneNumberFormatHint = ""
                 }
             }.onTapGesture {

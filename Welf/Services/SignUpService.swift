@@ -17,34 +17,35 @@ class SignUpService: ObservableObject {
     @Published var confirmationCodeDestination: String? = nil
     @Published var verificationCode: String = ""
     @Published var errorOccurredOnVerification: Bool = false
+    @Published var isSuccessfulVerification: Bool = false
     var totalNumberOfPages: Int = 4
     var firstPage: Int = 1
-
     
     public var isVerificationCodeReadyToSendPublisher: AnyPublisher<Bool, Never> {
         $verificationCode
             .debounce(for: 0.5, scheduler: RunLoop.main)
             .removeDuplicates()
             .map { input in
-                input.isEmpty
+                print(input)
+                return input.isEmpty
         }
         .eraseToAnyPublisher()
     }
     
-    public func verifyAccountWithVerificationCode(verificationDto: VerificationDto, authService: AuthenticationService, presentationMode: Binding<PresentationMode>) {
-        authService.isSigningIn = true
+    
+    public func verifyAccountWithVerificationCode(verificationDto: VerificationDto) {
+        self.isSigningUp = true
         AWSMobileClient.default().confirmSignUp(username: verificationDto.username, confirmationCode: verificationDto.confirmationCode) { (signUpResult, error) in
             DispatchQueue.main.async {
                 if let error = error as? AWSMobileClientError {
                     print("\(error)")
-                    authService.isSigningIn = false
                     self.errorOccurredOnVerification = true
+                    self.isSuccessfulVerification = false
+                    self.isSigningUp = false
                 } else if let signUpResult = signUpResult {
                     print("\(signUpResult)")
-                    KeyboardResponder.dismissKeyboard()
-                    presentationMode.wrappedValue.dismiss()
-                    authService.isSigningIn = false
-                    authService.isSignedIn = true
+                    self.isSuccessfulVerification = true
+                    self.isSigningUp = false
                 }
             }
         }

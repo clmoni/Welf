@@ -14,21 +14,38 @@ struct AccountConfirmationButton: View {
     @EnvironmentObject private var authService: AuthenticationService
     @State private var disableAccountConfirmationButton: Bool = true
     @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
-
+    
     var body: some View {
         let logInText = Text("Confirm")
             .foregroundColor(Color.white)
             .bold()
         
+        let isSuccessfulVerificationSubscriber = self.signUpService.$isSuccessfulVerification.sink(
+            receiveValue: { isSuccessful in
+                DispatchQueue.main.async {
+                    if isSuccessful {
+                        print("success >>>> \(isSuccessful)")
+                        self.authService.isSigningIn = false
+                        self.authService.isSignedIn = true
+                        self.reset()
+                    }
+                }
+        })
+        
         return GenericButton(
             buttonDisplayView: logInText,
             backgroundColour: disableAccountConfirmationButton ? .secondary : .green
         ) { () in
-            let verificationDto = VerificationDto(username: self.username, confirmationCode: self.signUpService.verificationCode)
+            self.presentationMode.wrappedValue.dismiss()
+            self.authService.isSigningIn = true
+            KeyboardResponder.dismissKeyboard()
+            let verificationDto = VerificationDto(
+                username: self.username,
+                confirmationCode: self.signUpService.verificationCode
+            )
+            
             self.signUpService.verifyAccountWithVerificationCode(
-                verificationDto: verificationDto,
-                authService: self.authService,
-                presentationMode: self.presentationMode
+                verificationDto: verificationDto
             )
         }
         .disabled(disableAccountConfirmationButton)
@@ -41,8 +58,18 @@ struct AccountConfirmationButton: View {
             return Alert(title: titleText, message: messageText, dismissButton: .default(okBtnText))
         }
         .onReceive(signUpService.isVerificationCodeReadyToSendPublisher) { isVerificationCodeReadyToSend in
+            print("input")
             self.disableAccountConfirmationButton = isVerificationCodeReadyToSend
         }
+        .onDisappear {
+            isSuccessfulVerificationSubscriber.cancel()
+        }
+    }
+    
+    private func reset() {
+        self.signUpService.currentPage = 1
+        self.authService.username = ""
+        self.authService.password = ""
     }
 }
 

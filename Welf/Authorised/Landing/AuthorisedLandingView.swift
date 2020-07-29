@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct AuthorisedLandingView: View {
+    
     var body: some View {
         NavigationView {
             VStack {
